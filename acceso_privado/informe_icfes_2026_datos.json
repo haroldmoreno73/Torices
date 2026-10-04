@@ -1,0 +1,1230 @@
+{
+  "institution": "Institución Educativa Manuel Rodríguez Torices de San Diego",
+  "municipality": "San Diego",
+  "department": "Cesar",
+  "country": "Colombia",
+  "year": 2026,
+  "exam": "Saber 11",
+  "summary": {
+    "students": 100,
+    "globalAverage": 261.68,
+    "weightedAverage": 52.34,
+    "highestGlobal": 429,
+    "lowestGlobal": 172
+  },
+  "areas": [
+    {
+      "key": "reading",
+      "label": "Lectura crítica",
+      "average": 55.01
+    },
+    {
+      "key": "math",
+      "label": "Matemáticas",
+      "average": 54.06
+    },
+    {
+      "key": "social",
+      "label": "Sociales y ciudadanas",
+      "average": 48.79
+    },
+    {
+      "key": "science",
+      "label": "Ciencias naturales",
+      "average": 52.21
+    },
+    {
+      "key": "english",
+      "label": "Inglés",
+      "average": 50.16
+    }
+  ],
+  "students": [
+    {
+      "name": "Keneth David Castro Arzuaga",
+      "global": 429,
+      "reading": 80,
+      "math": 84,
+      "social": 80,
+      "science": 100,
+      "english": 84,
+      "weighted": 85.85,
+      "rank": 1
+    },
+    {
+      "name": "Pelaez Rios Luis David",
+      "global": 392,
+      "reading": 69,
+      "math": 100,
+      "social": 71,
+      "science": 73,
+      "english": 79,
+      "weighted": 78.31,
+      "rank": 2
+    },
+    {
+      "name": "Luz Karine Murgas Dangond",
+      "global": 342,
+      "reading": 73,
+      "math": 75,
+      "social": 57,
+      "science": 68,
+      "english": 71,
+      "weighted": 68.46,
+      "rank": 3
+    },
+    {
+      "name": "Romero Gómez Daniel David",
+      "global": 340,
+      "reading": 69,
+      "math": 70,
+      "social": 67,
+      "science": 69,
+      "english": 60,
+      "weighted": 68.08,
+      "rank": 4
+    },
+    {
+      "name": "Daniela Stefania Mejía Martínez",
+      "global": 334,
+      "reading": 69,
+      "math": 67,
+      "social": 68,
+      "science": 63,
+      "english": 67,
+      "weighted": 66.77,
+      "rank": 5
+    },
+    {
+      "name": "Keyla Mariana Gomez Manjarres",
+      "global": 332,
+      "reading": 75,
+      "math": 61,
+      "social": 65,
+      "science": 65,
+      "english": 65,
+      "weighted": 66.38,
+      "rank": 6
+    },
+    {
+      "name": "Ternera Rosado María Daniela",
+      "global": 328,
+      "reading": 65,
+      "math": 66,
+      "social": 62,
+      "science": 66,
+      "english": 75,
+      "weighted": 65.54,
+      "rank": 7
+    },
+    {
+      "name": "Luis David Mendoza Iseda",
+      "global": 325,
+      "reading": 65,
+      "math": 63,
+      "social": 60,
+      "science": 67,
+      "english": 79,
+      "weighted": 64.92,
+      "rank": 8
+    },
+    {
+      "name": "Quintero Murgas Jesus Daniel",
+      "global": 322,
+      "reading": 65,
+      "math": 74,
+      "social": 55,
+      "science": 65,
+      "english": 61,
+      "weighted": 64.46,
+      "rank": 9
+    },
+    {
+      "name": "Edinson Enrique Borja Peñaloza",
+      "global": 319,
+      "reading": 73,
+      "math": 61,
+      "social": 62,
+      "science": 63,
+      "english": 52,
+      "weighted": 63.77,
+      "rank": 10
+    },
+    {
+      "name": "Rios Molina Emanuel David",
+      "global": 318,
+      "reading": 77,
+      "math": 65,
+      "social": 54,
+      "science": 58,
+      "english": 64,
+      "weighted": 63.54,
+      "rank": 11
+    },
+    {
+      "name": "Maria Belen Gomez Ferias",
+      "global": 317,
+      "reading": 65,
+      "math": 65,
+      "social": 60,
+      "science": 68,
+      "english": 50,
+      "weighted": 63.38,
+      "rank": 12
+    },
+    {
+      "name": "Rafael Andres Amaya Florez",
+      "global": 317,
+      "reading": 64,
+      "math": 67,
+      "social": 57,
+      "science": 64,
+      "english": 67,
+      "weighted": 63.31,
+      "rank": 13
+    },
+    {
+      "name": "Juan David Bueno Simanca",
+      "global": 315,
+      "reading": 69,
+      "math": 70,
+      "social": 66,
+      "science": 50,
+      "english": 55,
+      "weighted": 63.08,
+      "rank": 14
+    },
+    {
+      "name": "Padilla Oñate Nikol Alejandra",
+      "global": 314,
+      "reading": 65,
+      "math": 64,
+      "social": 56,
+      "science": 68,
+      "english": 57,
+      "weighted": 62.77,
+      "rank": 15
+    },
+    {
+      "name": "Sehuanes Trujillo Ismairi Yugreisi",
+      "global": 302,
+      "reading": 64,
+      "math": 61,
+      "social": 61,
+      "science": 58,
+      "english": 54,
+      "weighted": 60.46,
+      "rank": 16
+    },
+    {
+      "name": "Luna Baquero Romero",
+      "global": 302,
+      "reading": 69,
+      "math": 55,
+      "social": 65,
+      "science": 57,
+      "english": 47,
+      "weighted": 60.38,
+      "rank": 17
+    },
+    {
+      "name": "Mariangel Araujo Calderon",
+      "global": 300,
+      "reading": 63,
+      "math": 63,
+      "social": 62,
+      "science": 56,
+      "english": 49,
+      "weighted": 60.08,
+      "rank": 18
+    },
+    {
+      "name": "Irene Sofia Bohorquez Zuleta",
+      "global": 295,
+      "reading": 66,
+      "math": 60,
+      "social": 56,
+      "science": 55,
+      "english": 56,
+      "weighted": 59.0,
+      "rank": 19
+    },
+    {
+      "name": "Salgado Ortega Sol Maria",
+      "global": 294,
+      "reading": 63,
+      "math": 63,
+      "social": 55,
+      "science": 56,
+      "english": 54,
+      "weighted": 58.85,
+      "rank": 20
+    },
+    {
+      "name": "Vera Dovales Leider Stik",
+      "global": 294,
+      "reading": 59,
+      "math": 61,
+      "social": 53,
+      "science": 65,
+      "english": 50,
+      "weighted": 58.77,
+      "rank": 21
+    },
+    {
+      "name": "Daniela Marcela Márquez Martínez",
+      "global": 292,
+      "reading": 60,
+      "math": 48,
+      "social": 61,
+      "science": 61,
+      "english": 68,
+      "weighted": 58.31,
+      "rank": 22
+    },
+    {
+      "name": "Peralta Palmezano Luis Alejandro",
+      "global": 286,
+      "reading": 57,
+      "math": 66,
+      "social": 50,
+      "science": 57,
+      "english": 53,
+      "weighted": 57.15,
+      "rank": 23
+    },
+    {
+      "name": "Andres Daniel Muñoz Guerra",
+      "global": 285,
+      "reading": 60,
+      "math": 61,
+      "social": 51,
+      "science": 57,
+      "english": 53,
+      "weighted": 56.92,
+      "rank": 24
+    },
+    {
+      "name": "Taliana Lucia Fuentes Severiche",
+      "global": 285,
+      "reading": 54,
+      "math": 57,
+      "social": 57,
+      "science": 59,
+      "english": 59,
+      "weighted": 56.92,
+      "rank": 24
+    },
+    {
+      "name": "Mariangel Arguelles Lopez",
+      "global": 284,
+      "reading": 64,
+      "math": 48,
+      "social": 60,
+      "science": 57,
+      "english": 52,
+      "weighted": 56.85,
+      "rank": 25
+    },
+    {
+      "name": "Aylen Michell Amaya Yepes",
+      "global": 283,
+      "reading": 61,
+      "math": 58,
+      "social": 51,
+      "science": 58,
+      "english": 53,
+      "weighted": 56.69,
+      "rank": 26
+    },
+    {
+      "name": "Rueda Florez Maria Teresa",
+      "global": 283,
+      "reading": 65,
+      "math": 62,
+      "social": 48,
+      "science": 56,
+      "english": 43,
+      "weighted": 56.62,
+      "rank": 27
+    },
+    {
+      "name": "Karla Daniela Nuñez Raudales",
+      "global": 278,
+      "reading": 56,
+      "math": 60,
+      "social": 51,
+      "science": 55,
+      "english": 57,
+      "weighted": 55.62,
+      "rank": 28
+    },
+    {
+      "name": "Deivy Joseth Blandon Lacera",
+      "global": 275,
+      "reading": 62,
+      "math": 48,
+      "social": 52,
+      "science": 58,
+      "english": 56,
+      "weighted": 55.08,
+      "rank": 29
+    },
+    {
+      "name": "Elver Luis Guzman Zuleta",
+      "global": 275,
+      "reading": 58,
+      "math": 59,
+      "social": 53,
+      "science": 52,
+      "english": 48,
+      "weighted": 54.92,
+      "rank": 30
+    },
+    {
+      "name": "Jose Ricardo Lopez Araujo",
+      "global": 273,
+      "reading": 62,
+      "math": 54,
+      "social": 49,
+      "science": 52,
+      "english": 59,
+      "weighted": 54.62,
+      "rank": 31
+    },
+    {
+      "name": "Sebastian Andres Gomez Molina",
+      "global": 273,
+      "reading": 60,
+      "math": 65,
+      "social": 43,
+      "science": 53,
+      "english": 46,
+      "weighted": 54.54,
+      "rank": 32
+    },
+    {
+      "name": "Nicoll Sharay Dangond Cardenas",
+      "global": 271,
+      "reading": 60,
+      "math": 53,
+      "social": 55,
+      "science": 50,
+      "english": 50,
+      "weighted": 54.15,
+      "rank": 33
+    },
+    {
+      "name": "Jesus Armando Camargo Larios",
+      "global": 266,
+      "reading": 53,
+      "math": 58,
+      "social": 53,
+      "science": 53,
+      "english": 41,
+      "weighted": 53.23,
+      "rank": 34
+    },
+    {
+      "name": "Lineys Carolina Altamar Rivero",
+      "global": 266,
+      "reading": 54,
+      "math": 52,
+      "social": 49,
+      "science": 58,
+      "english": 52,
+      "weighted": 53.15,
+      "rank": 35
+    },
+    {
+      "name": "Moisés David Lora Ustariz",
+      "global": 265,
+      "reading": 54,
+      "math": 55,
+      "social": 48,
+      "science": 57,
+      "english": 48,
+      "weighted": 53.08,
+      "rank": 36
+    },
+    {
+      "name": "Lizz Gabriela Muñoz Hincapie",
+      "global": 265,
+      "reading": 56,
+      "math": 49,
+      "social": 55,
+      "science": 54,
+      "english": 47,
+      "weighted": 53.0,
+      "rank": 37
+    },
+    {
+      "name": "Yuliana Carolina Barrios Barrios",
+      "global": 264,
+      "reading": 49,
+      "math": 61,
+      "social": 51,
+      "science": 54,
+      "english": 42,
+      "weighted": 52.85,
+      "rank": 38
+    },
+    {
+      "name": "Ramos Navarro Samuel Yesid",
+      "global": 262,
+      "reading": 48,
+      "math": 54,
+      "social": 55,
+      "science": 55,
+      "english": 45,
+      "weighted": 52.38,
+      "rank": 39
+    },
+    {
+      "name": "Peraza Bula Emmanuel Andres",
+      "global": 262,
+      "reading": 49,
+      "math": 61,
+      "social": 47,
+      "science": 51,
+      "english": 56,
+      "weighted": 52.31,
+      "rank": 40
+    },
+    {
+      "name": "Luis Martinez Sanchez",
+      "global": 261,
+      "reading": 57,
+      "math": 54,
+      "social": 51,
+      "science": 50,
+      "english": 43,
+      "weighted": 52.23,
+      "rank": 41
+    },
+    {
+      "name": "Ustariz Mendoza Emmanuel David",
+      "global": 260,
+      "reading": 55,
+      "math": 52,
+      "social": 47,
+      "science": 54,
+      "english": 52,
+      "weighted": 52.0,
+      "rank": 42
+    },
+    {
+      "name": "Posada Vásquez Camilo Andres",
+      "global": 259,
+      "reading": 54,
+      "math": 56,
+      "social": 46,
+      "science": 50,
+      "english": 55,
+      "weighted": 51.77,
+      "rank": 43
+    },
+    {
+      "name": "Sebastian Felipe Calderon Hernandez",
+      "global": 259,
+      "reading": 57,
+      "math": 41,
+      "social": 57,
+      "science": 54,
+      "english": 46,
+      "weighted": 51.77,
+      "rank": 43
+    },
+    {
+      "name": "Álvarez Diaz Sofia Victoria",
+      "global": 258,
+      "reading": 58,
+      "math": 50,
+      "social": 51,
+      "science": 48,
+      "english": 49,
+      "weighted": 51.54,
+      "rank": 44
+    },
+    {
+      "name": "Gabriel Enrique Medina Guerrero",
+      "global": 257,
+      "reading": 55,
+      "math": 55,
+      "social": 51,
+      "science": 48,
+      "english": 42,
+      "weighted": 51.46,
+      "rank": 45
+    },
+    {
+      "name": "Villalobos Arias Jose Carlos",
+      "global": 257,
+      "reading": 54,
+      "math": 48,
+      "social": 50,
+      "science": 49,
+      "english": 65,
+      "weighted": 51.38,
+      "rank": 46
+    },
+    {
+      "name": "Sanderson David Arzuaga Villero",
+      "global": 256,
+      "reading": 59,
+      "math": 46,
+      "social": 46,
+      "science": 58,
+      "english": 39,
+      "weighted": 51.23,
+      "rank": 47
+    },
+    {
+      "name": "Ventura Padilla Sheila Isabel",
+      "global": 256,
+      "reading": 55,
+      "math": 49,
+      "social": 48,
+      "science": 56,
+      "english": 42,
+      "weighted": 51.23,
+      "rank": 47
+    },
+    {
+      "name": "Juan Sebastián Maquiria Mármol",
+      "global": 255,
+      "reading": 54,
+      "math": 58,
+      "social": 42,
+      "science": 51,
+      "english": 47,
+      "weighted": 50.92,
+      "rank": 48
+    },
+    {
+      "name": "Danna Briyeth Gaitan Collazos",
+      "global": 253,
+      "reading": 54,
+      "math": 50,
+      "social": 52,
+      "science": 49,
+      "english": 44,
+      "weighted": 50.69,
+      "rank": 49
+    },
+    {
+      "name": "Elsy Marcela Mendoza Bolaños",
+      "global": 253,
+      "reading": 57,
+      "math": 44,
+      "social": 54,
+      "science": 47,
+      "english": 52,
+      "weighted": 50.62,
+      "rank": 50
+    },
+    {
+      "name": "Jaider Fabian Andrade Mejia",
+      "global": 252,
+      "reading": 54,
+      "math": 57,
+      "social": 49,
+      "science": 48,
+      "english": 32,
+      "weighted": 50.46,
+      "rank": 51
+    },
+    {
+      "name": "Oñate Pinto Cristian Camilo",
+      "global": 252,
+      "reading": 55,
+      "math": 57,
+      "social": 36,
+      "science": 56,
+      "english": 43,
+      "weighted": 50.38,
+      "rank": 52
+    },
+    {
+      "name": "Rosa Margarita Martinez Sanchez",
+      "global": 250,
+      "reading": 53,
+      "math": 52,
+      "social": 51,
+      "science": 46,
+      "english": 44,
+      "weighted": 50.0,
+      "rank": 53
+    },
+    {
+      "name": "Luis Santiago Bermudez Lozano",
+      "global": 250,
+      "reading": 42,
+      "math": 56,
+      "social": 51,
+      "science": 54,
+      "english": 40,
+      "weighted": 49.92,
+      "rank": 54
+    },
+    {
+      "name": "Juan Diego Martinez Rodriguez",
+      "global": 249,
+      "reading": 59,
+      "math": 55,
+      "social": 42,
+      "science": 49,
+      "english": 32,
+      "weighted": 49.77,
+      "rank": 55
+    },
+    {
+      "name": "Tudares Rincones Stefano Andres",
+      "global": 248,
+      "reading": 50,
+      "math": 56,
+      "social": 40,
+      "science": 54,
+      "english": 45,
+      "weighted": 49.62,
+      "rank": 56
+    },
+    {
+      "name": "Cristian David Gulfo De Oro",
+      "global": 248,
+      "reading": 51,
+      "math": 55,
+      "social": 42,
+      "science": 53,
+      "english": 41,
+      "weighted": 49.54,
+      "rank": 57
+    },
+    {
+      "name": "Salcedo Gomez Stiven Andres",
+      "global": 247,
+      "reading": 54,
+      "math": 46,
+      "social": 44,
+      "science": 49,
+      "english": 62,
+      "weighted": 49.31,
+      "rank": 58
+    },
+    {
+      "name": "Maria Clara Calderon Murgas",
+      "global": 246,
+      "reading": 59,
+      "math": 36,
+      "social": 52,
+      "science": 51,
+      "english": 46,
+      "weighted": 49.23,
+      "rank": 59
+    },
+    {
+      "name": "Jose David Guillen Ruiz",
+      "global": 244,
+      "reading": 47,
+      "math": 50,
+      "social": 48,
+      "science": 47,
+      "english": 58,
+      "weighted": 48.77,
+      "rank": 60
+    },
+    {
+      "name": "Joel David Lopez Manjarres",
+      "global": 243,
+      "reading": 49,
+      "math": 61,
+      "social": 46,
+      "science": 42,
+      "english": 39,
+      "weighted": 48.69,
+      "rank": 61
+    },
+    {
+      "name": "Shayra Michell Castilla Araujo",
+      "global": 243,
+      "reading": 50,
+      "math": 53,
+      "social": 44,
+      "science": 50,
+      "english": 40,
+      "weighted": 48.54,
+      "rank": 62
+    },
+    {
+      "name": "Sharol Michel Becerra Mendoza",
+      "global": 242,
+      "reading": 45,
+      "math": 55,
+      "social": 47,
+      "science": 48,
+      "english": 45,
+      "weighted": 48.46,
+      "rank": 63
+    },
+    {
+      "name": "Elimar Daniela Guillen Quintero",
+      "global": 242,
+      "reading": 58,
+      "math": 42,
+      "social": 52,
+      "science": 42,
+      "english": 47,
+      "weighted": 48.38,
+      "rank": 64
+    },
+    {
+      "name": "Robles Becerra Efrain José",
+      "global": 242,
+      "reading": 50,
+      "math": 47,
+      "social": 49,
+      "science": 46,
+      "english": 53,
+      "weighted": 48.38,
+      "rank": 64
+    },
+    {
+      "name": "Orozco Bermudez Karen Yulieth",
+      "global": 239,
+      "reading": 48,
+      "math": 50,
+      "social": 43,
+      "science": 49,
+      "english": 52,
+      "weighted": 47.85,
+      "rank": 65
+    },
+    {
+      "name": "Carlos Daniel Nuñez Raudales",
+      "global": 237,
+      "reading": 50,
+      "math": 56,
+      "social": 41,
+      "science": 48,
+      "english": 31,
+      "weighted": 47.38,
+      "rank": 66
+    },
+    {
+      "name": "Ramírez Pinedo María Daniela",
+      "global": 237,
+      "reading": 53,
+      "math": 50,
+      "social": 46,
+      "science": 40,
+      "english": 49,
+      "weighted": 47.38,
+      "rank": 66
+    },
+    {
+      "name": "Zorrillo Raudales Carmen Daniela",
+      "global": 236,
+      "reading": 51,
+      "math": 46,
+      "social": 46,
+      "science": 45,
+      "english": 50,
+      "weighted": 47.23,
+      "rank": 67
+    },
+    {
+      "name": "Tejeda De la hoz Valeria",
+      "global": 233,
+      "reading": 52,
+      "math": 51,
+      "social": 37,
+      "science": 45,
+      "english": 52,
+      "weighted": 46.69,
+      "rank": 68
+    },
+    {
+      "name": "Vega Oñate Jose Miguel",
+      "global": 233,
+      "reading": 48,
+      "math": 54,
+      "social": 45,
+      "science": 44,
+      "english": 33,
+      "weighted": 46.62,
+      "rank": 69
+    },
+    {
+      "name": "Deisi Julianis Muñoz Fragozo",
+      "global": 232,
+      "reading": 49,
+      "math": 52,
+      "social": 37,
+      "science": 51,
+      "english": 36,
+      "weighted": 46.38,
+      "rank": 70
+    },
+    {
+      "name": "Javier Enrique Luquez Junco",
+      "global": 232,
+      "reading": 49,
+      "math": 54,
+      "social": 38,
+      "science": 39,
+      "english": 63,
+      "weighted": 46.38,
+      "rank": 70
+    },
+    {
+      "name": "Juan Diego Egea Sierra",
+      "global": 231,
+      "reading": 48,
+      "math": 57,
+      "social": 39,
+      "science": 45,
+      "english": 34,
+      "weighted": 46.23,
+      "rank": 71
+    },
+    {
+      "name": "Restrepo Torres Jhoel Sebastian",
+      "global": 231,
+      "reading": 48,
+      "math": 50,
+      "social": 42,
+      "science": 44,
+      "english": 48,
+      "weighted": 46.15,
+      "rank": 72
+    },
+    {
+      "name": "Shelsin Meriño Socarras",
+      "global": 230,
+      "reading": 41,
+      "math": 50,
+      "social": 50,
+      "science": 44,
+      "english": 44,
+      "weighted": 46.08,
+      "rank": 73
+    },
+    {
+      "name": "Yira Marcela Daza Mendoza",
+      "global": 230,
+      "reading": 50,
+      "math": 52,
+      "social": 42,
+      "science": 42,
+      "english": 40,
+      "weighted": 46.0,
+      "rank": 74
+    },
+    {
+      "name": "Sánchez Iseda Karla Milena",
+      "global": 229,
+      "reading": 51,
+      "math": 44,
+      "social": 39,
+      "science": 48,
+      "english": 49,
+      "weighted": 45.77,
+      "rank": 75
+    },
+    {
+      "name": "Dulce Maria Mendoza Charris",
+      "global": 226,
+      "reading": 41,
+      "math": 43,
+      "social": 46,
+      "science": 47,
+      "english": 57,
+      "weighted": 45.23,
+      "rank": 76
+    },
+    {
+      "name": "Emmanuel Arzuaga Suárez",
+      "global": 223,
+      "reading": 38,
+      "math": 48,
+      "social": 43,
+      "science": 48,
+      "english": 50,
+      "weighted": 44.69,
+      "rank": 77
+    },
+    {
+      "name": "Silva Barrios Samuel David",
+      "global": 223,
+      "reading": 49,
+      "math": 45,
+      "social": 43,
+      "science": 37,
+      "english": 57,
+      "weighted": 44.54,
+      "rank": 78
+    },
+    {
+      "name": "Socarras Fernandez Carol Sofia",
+      "global": 223,
+      "reading": 49,
+      "math": 47,
+      "social": 40,
+      "science": 39,
+      "english": 54,
+      "weighted": 44.54,
+      "rank": 78
+    },
+    {
+      "name": "Padilla Arcos Luciana",
+      "global": 222,
+      "reading": 47,
+      "math": 43,
+      "social": 45,
+      "science": 43,
+      "english": 44,
+      "weighted": 44.46,
+      "rank": 79
+    },
+    {
+      "name": "Ospina Ortega Veronica Isabel",
+      "global": 222,
+      "reading": 49,
+      "math": 48,
+      "social": 36,
+      "science": 42,
+      "english": 51,
+      "weighted": 44.31,
+      "rank": 80
+    },
+    {
+      "name": "Yorleidis Arrieta Sanjuan",
+      "global": 221,
+      "reading": 48,
+      "math": 44,
+      "social": 42,
+      "science": 44,
+      "english": 41,
+      "weighted": 44.23,
+      "rank": 81
+    },
+    {
+      "name": "Padilla Montesino Adriana Isabel",
+      "global": 220,
+      "reading": 41,
+      "math": 44,
+      "social": 38,
+      "science": 51,
+      "english": 51,
+      "weighted": 44.08,
+      "rank": 82
+    },
+    {
+      "name": "Johan David Herran Daza",
+      "global": 219,
+      "reading": 43,
+      "math": 47,
+      "social": 37,
+      "science": 47,
+      "english": 48,
+      "weighted": 43.85,
+      "rank": 83
+    },
+    {
+      "name": "Palmera Ramos Izaira Melissa",
+      "global": 218,
+      "reading": 53,
+      "math": 38,
+      "social": 43,
+      "science": 38,
+      "english": 50,
+      "weighted": 43.54,
+      "rank": 84
+    },
+    {
+      "name": "Laura Daniela Mendoza Iseda",
+      "global": 214,
+      "reading": 46,
+      "math": 45,
+      "social": 34,
+      "science": 46,
+      "english": 43,
+      "weighted": 42.77,
+      "rank": 85
+    },
+    {
+      "name": "Zuleta Quintero Rudys Mayibrith",
+      "global": 214,
+      "reading": 49,
+      "math": 36,
+      "social": 40,
+      "science": 45,
+      "english": 46,
+      "weighted": 42.77,
+      "rank": 85
+    },
+    {
+      "name": "Elieth Margarita Fernandez Aguirre",
+      "global": 213,
+      "reading": 43,
+      "math": 47,
+      "social": 36,
+      "science": 45,
+      "english": 42,
+      "weighted": 42.69,
+      "rank": 86
+    },
+    {
+      "name": "María Paula Herrera Rangel",
+      "global": 211,
+      "reading": 51,
+      "math": 43,
+      "social": 33,
+      "science": 39,
+      "english": 50,
+      "weighted": 42.15,
+      "rank": 87
+    },
+    {
+      "name": "Sanjuan Fernandez Mariangel",
+      "global": 203,
+      "reading": 45,
+      "math": 48,
+      "social": 30,
+      "science": 44,
+      "english": 28,
+      "weighted": 40.69,
+      "rank": 88
+    },
+    {
+      "name": "Jahira Velissa Miranda Mendoza",
+      "global": 202,
+      "reading": 39,
+      "math": 40,
+      "social": 34,
+      "science": 49,
+      "english": 40,
+      "weighted": 40.46,
+      "rank": 89
+    },
+    {
+      "name": "Ruiz Guerra Jairo Andres",
+      "global": 194,
+      "reading": 40,
+      "math": 41,
+      "social": 30,
+      "science": 44,
+      "english": 39,
+      "weighted": 38.77,
+      "rank": 90
+    },
+    {
+      "name": "Nikoll Shaday Delahoz Rivera",
+      "global": 192,
+      "reading": 43,
+      "math": 36,
+      "social": 36,
+      "science": 38,
+      "english": 41,
+      "weighted": 38.46,
+      "rank": 91
+    },
+    {
+      "name": "Helena Del Mar Díaz Bonilla",
+      "global": 172,
+      "reading": 35,
+      "math": 32,
+      "social": 29,
+      "science": 41,
+      "english": 36,
+      "weighted": 34.38,
+      "rank": 92
+    }
+  ],
+  "historicalAverages": {
+    "2025": {
+      "reading": 54.62,
+      "math": 54.89,
+      "social": 47.78,
+      "science": 52.98,
+      "english": 49.77
+    },
+    "2024": {
+      "reading": 56.78,
+      "math": 53.88,
+      "social": 49.71,
+      "science": 54.18,
+      "english": 51.85
+    },
+    "2023": {
+      "reading": 54.51,
+      "math": 52.97,
+      "social": 47.52,
+      "science": 49.53,
+      "english": 50.55
+    },
+    "2022": {
+      "reading": 52.02,
+      "math": 48.26,
+      "social": 44.69,
+      "science": 48.26,
+      "english": 49.92
+    },
+    "2021": {
+      "reading": 51.72,
+      "math": 46.2,
+      "social": 44.49,
+      "science": 47.75,
+      "english": 47.56
+    },
+    "2020": {
+      "reading": 54.09,
+      "math": 50.28,
+      "social": 49.08,
+      "science": 48.28,
+      "english": 42.85
+    },
+    "2019": {
+      "reading": 51.47,
+      "math": 48.52,
+      "social": 44.17,
+      "science": 47.62,
+      "english": 46.64
+    },
+    "2018": {
+      "reading": 54.0,
+      "math": 50.0,
+      "social": 50.0,
+      "science": 53.0,
+      "english": 49.0
+    },
+    "2017": {
+      "reading": 55.09,
+      "math": 50.1,
+      "social": 52.96,
+      "science": 52.68,
+      "english": 48.22
+    },
+    "2016": {
+      "reading": 51.11,
+      "math": 48.34,
+      "social": 50.11,
+      "science": 51.71,
+      "english": 50.26
+    },
+    "2015": {
+      "reading": 46.9,
+      "math": 47.23,
+      "social": 47.87,
+      "science": 47.84,
+      "english": 46.51
+    },
+    "2014": {
+      "reading": 46.48,
+      "math": 47.63,
+      "social": 48.31,
+      "science": 48.01,
+      "english": 46.24
+    }
+  }
+}
