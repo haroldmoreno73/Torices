@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d35">
+  <title>Resultados Saber 11 · 2026 | I.E. Manuel Rodríguez Torices</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --forest: #173d35;
+      --forest-deep: #102e29;
+      --leaf: #397b63;
+      --coral: #e66c54;
+      --gold: #e9b84c;
+      --teal: #4d9a99;
+      --ink: #182622;
+      --muted: #66746e;
+      --line: #d9e2dd;
+      --paper: #f1f5f1;
+      --white: #fff;
+      --soft-green: #e5eee8;
+      --soft-coral: #f9e8e2;
+      --font-ui: "Avenir Next", "Segoe UI", sans-serif;
+      --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--font-ui);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    button, input, select { font: inherit; }
+    button, select { cursor: pointer; }
+    .page-shell { max-width: 1440px; margin: 0 auto; padding: 0 40px 56px; }
+
+    .masthead {
+      position: relative;
+      overflow: hidden;
+      color: #f8fbf8;
+      background-color: var(--forest);
+      background-image: repeating-linear-gradient(135deg, transparent 0 37px, rgb(255 255 255 / 3%) 37px 38px);
+      border-bottom: 5px solid var(--gold);
+    }
+    .masthead-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1440px;
+      min-height: 242px;
+      margin: 0 auto;
+      padding: 34px 40px 32px;
+    }
+    .institution-crest {
+      position: absolute;
+      top: 34px;
+      right: 40px;
+      display: block;
+      width: 54px;
+      height: 73px;
+      object-fit: contain;
+    }
+    .institution-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 13px;
+      margin: 0 0 22px;
+      color: #c4d7cc;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+    .institution-line span + span::before { content: "/"; margin-right: 13px; color: var(--gold); }
+    .masthead h1 {
+      max-width: 880px;
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 39px;
+      font-weight: 500;
+      line-height: 1.08;
+    }
+    .masthead-subtitle { margin: 13px 0 0; color: #d4e0d9; font-size: 15px; }
+    .report-stamp {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 3px;
+      padding: 10px 13px;
+      color: #fff;
+      border: 1px solid rgb(255 255 255 / 32%);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      white-space: nowrap;
+    }
+    .stamp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
+
+    .main-content { padding-top: 30px; }
+    .section-kicker {
+      margin: 0 0 5px;
+      color: var(--leaf);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .section-note { color: var(--muted); font-size: 12px; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin: 0 0 34px;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .metric { min-width: 0; padding: 19px 22px 20px; }
+    .metric + .metric { border-left: 1px solid var(--line); }
+    .metric-label { display: block; color: var(--muted); font-size: 11px; font-weight: 650; }
+    .metric-value { display: block; margin-top: 4px; color: var(--forest); font-family: var(--font-display); font-size: 31px; line-height: 1.1; }
+    .metric-foot { display: block; margin-top: 5px; color: #849089; font-size: 10px; }
+    .metric:nth-child(2) .metric-value { color: var(--coral); }
+    .metric:nth-child(3) .metric-value { color: var(--leaf); }
+    .metric:nth-child(4) .metric-value { color: #b78522; }
+    .metric:nth-child(5) .metric-value { color: var(--teal); }
+
+    .insight-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(310px, .75fr); gap: 42px; margin-bottom: 38px; }
+    .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
+    .area-list { display: grid; gap: 14px; }
+    .area-row { display: grid; grid-template-columns: 150px minmax(170px, 1fr) 80px; align-items: center; gap: 14px; }
+    .area-name { color: #394840; font-size: 12px; }
+    .comparison-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: -3px 0 15px; }
+    .comparison-prompt { color: var(--muted); font-size: 11px; font-weight: 650; }
+    .year-buttons { display: flex; flex-wrap: wrap; gap: 4px; }
+    .year-button { min-width: 43px; height: 32px; padding: 0 8px; color: var(--forest); background: #fff; border: 1px solid #cbd7cf; border-radius: 2px; font-size: 11px; font-weight: 700; }
+    .year-button[aria-pressed="true"] { color: #fff; background: var(--forest); border-color: var(--forest); }
+    .year-button:focus-visible { outline: 3px solid #f2bd4c; outline-offset: 2px; }
+    .comparison-note { min-height: 18px; margin: 0 0 12px; color: var(--muted); font-size: 10px; }
+    .area-comparison-bars { display: grid; gap: 6px; }
+    .comparison-line { display: grid; grid-template-columns: 38px minmax(35px, 1fr) 43px; align-items: center; gap: 7px; }
+    .comparison-year, .comparison-value { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+    .comparison-value { text-align: right; }
+    .area-track { height: 7px; overflow: hidden; background: #e0e8e2; }
+    .area-bar { height: 100%; background: var(--leaf); }
+    .area-row:nth-child(2) .area-bar { background: var(--coral); }
+    .area-row:nth-child(3) .area-bar { background: var(--gold); }
+    .area-row:nth-child(4) .area-bar { background: var(--teal); }
+    .area-row:nth-child(5) .area-bar { background: #719780; }
+    .comparison-line.previous .area-bar { background: #a8b8ae !important; }
+    .area-delta { font-size: 11px; font-weight: 750; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .area-delta.positive { color: var(--leaf); }
+    .area-delta.negative { color: #bd5945; }
+    .area-delta.neutral { color: var(--muted); }
+    .analysis-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .analysis-report { margin: 28px 0 34px; padding: 24px 0; border-top: 2px solid var(--forest); border-bottom: 1px solid var(--line); }
+    .analysis-report h2 { margin: 0; color: var(--forest); font-family: var(--font-display); font-size: 24px; font-weight: 500; }
+    .analysis-summary, .analysis-highlights { max-width: 900px; color: #394840; font-size: 13px; }
+    .analysis-highlights { padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .analysis-trends { margin: 16px 0; padding-left: 20px; color: #394840; font-size: 12px; }
+    .analysis-trends li { margin: 7px 0; }
+    .analysis-caveat, .analysis-download-status { color: var(--muted); font-size: 11px; }
+    .analysis-table-wrap { overflow-x: auto; }
+    .analysis-table { min-width: 520px; }
+    .analysis-table th, .analysis-table td { padding: 10px 12px; }
+    .analysis-positive { color: var(--leaf); font-weight: 750; }
+    .analysis-negative { color: #bd5945; font-weight: 750; }
+    .evolution-panel { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .evolution-note { margin: 0 0 10px; color: var(--muted); font-size: 11px; }
+    .evolution-chart-wrap { width: 100%; }
+    .evolution-chart { display: block; width: 100%; height: auto; overflow: visible; }
+    .evolution-grid { stroke: #d9e2dd; stroke-width: 1; }
+    .evolution-axis-label { fill: #66746e; font-family: var(--font-ui); font-size: 15px; }
+    .evolution-line { fill: none; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .evolution-point { stroke: #fff; stroke-width: 2; }
+    .evolution-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .evolution-legend-item { display: inline-flex; align-items: center; gap: 7px; color: #394840; font-size: 11px; }
+    .evolution-swatch { width: 18px; height: 4px; flex: 0 0 auto; }
+
+    .podium { padding-left: 27px; border-left: 1px solid var(--line); }
+    .podium-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .podium-item { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 58px; border-bottom: 1px solid var(--line); }
+    .podium-rank { display: grid; width: 31px; height: 31px; place-items: center; color: var(--forest); background: var(--soft-green); font-family: var(--font-display); font-size: 16px; }
+    .podium-item:nth-child(1) .podium-rank { color: #4a3510; background: #f6e6b8; }
+    .podium-item:nth-child(2) .podium-rank { background: #e4ebe7; }
+    .podium-item:nth-child(3) .podium-rank { color: #8c3c2d; background: var(--soft-coral); }
+    .podium-name { overflow: hidden; color: #293a32; font-size: 12px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+    .podium-score { color: var(--forest); font-size: 12px; font-weight: 750; font-variant-numeric: tabular-nums; }
+
+    .report-section { padding-top: 28px; border-top: 1px solid #bdcbc2; }
+    .report-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 16px; }
+    .report-heading-right { display: flex; align-items: center; gap: 17px; }
+    .result-count { color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .export-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 0 15px;
+      color: #fff;
+      background: var(--coral);
+      border: 1px solid var(--coral);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: background-color .15s ease, transform .15s ease;
+    }
+    .export-button:hover { background: #ca563f; transform: translateY(-1px); }
+    .export-button:focus-visible, .toolbar input:focus-visible, .toolbar select:focus-visible { outline: 3px solid #f2bd4c; outline-offset: 2px; }
+    .export-button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+
+    .toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .search-wrap { position: relative; flex: 1 1 340px; max-width: 510px; }
+    .search-wrap svg { position: absolute; top: 12px; left: 12px; width: 16px; height: 16px; fill: none; stroke: #708078; stroke-width: 1.7; }
+    .toolbar input, .toolbar select { height: 40px; color: var(--ink); background: #fff; border: 1px solid #cbd7cf; border-radius: 2px; font-size: 12px; }
+    .toolbar input { width: 100%; padding: 0 12px 0 37px; }
+    .toolbar select { min-width: 205px; padding: 0 32px 0 11px; }
+    .table-scroll { overflow-x: auto; background: #fff; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; font-size: 11px; font-variant-numeric: tabular-nums; }
+    thead { color: #f8fbf8; background: var(--forest); text-align: left; }
+    th { padding: 11px 10px; font-size: 9px; font-weight: 750; letter-spacing: .45px; text-transform: uppercase; white-space: nowrap; }
+    th.numeric, td.numeric { text-align: right; }
+    td { padding: 9px 10px; border-bottom: 1px solid #e7ede9; white-space: nowrap; }
+    tbody tr:nth-child(even) { background: #f7faf7; }
+    tbody tr:hover { background: #edf4ef; }
+    td.row-number-cell { width: 42px; color: var(--muted); }
+    td.student-name { min-width: 210px; color: #263a31; font-weight: 650; white-space: normal; }
+    td.rank-cell { width: 64px; color: var(--forest); font-weight: 800; }
+    td.weighted-cell { color: #b14c38; font-weight: 800; }
+    .loading, .empty-state { padding: 32px 18px; color: var(--muted); text-align: center; }
+    .data-note { display: flex; justify-content: space-between; gap: 20px; margin-top: 14px; color: var(--muted); font-size: 10px; }
+    .error-state { padding: 18px; color: #9e3d2d; background: var(--soft-coral); border-left: 3px solid var(--coral); font-size: 13px; }
+    .print-only { display: none; }
+
+    @media (max-width: 900px) {
+      .page-shell { padding-right: 24px; padding-left: 24px; }
+      .masthead-inner { padding-right: 24px; padding-left: 24px; }
+      .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .metric:nth-child(4) { border-left: 0; border-top: 1px solid var(--line); }
+      .metric:nth-child(5) { border-top: 1px solid var(--line); }
+      .insight-grid { grid-template-columns: 1fr; gap: 30px; }
+      .podium { padding: 25px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+    }
+    @media (max-width: 620px) {
+      body { font-size: 14px; }
+      .page-shell { padding: 0 16px 38px; }
+      .masthead-inner { min-height: auto; align-items: flex-start; flex-direction: column; gap: 20px; padding: 25px 16px 24px; }
+      .institution-line { gap: 6px 9px; margin-bottom: 17px; font-size: 9px; }
+      .institution-line span + span::before { margin-right: 9px; }
+      .masthead h1 { font-size: 30px; }
+      .masthead-subtitle { margin-top: 9px; font-size: 13px; }
+      .institution-line, .masthead h1, .masthead-subtitle { max-width: calc(100% - 64px); }
+      .institution-crest { top: 25px; right: 16px; width: 40px; height: 54px; }
+      .report-stamp { padding: 8px 10px; font-size: 10px; }
+      .main-content { padding-top: 22px; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 29px; }
+      .metric { padding: 15px 13px; }
+      .metric:nth-child(odd) { border-left: 0; }
+      .metric:nth-child(3) { border-top: 1px solid var(--line); }
+      .metric:nth-child(4) { border-left: 1px solid var(--line); }
+      .metric:nth-child(5) { border-top: 1px solid var(--line); }
+      .metric-value { font-size: 27px; }
+      .section-title { font-size: 21px; }
+      .section-heading { align-items: flex-start; }
+      .area-row { grid-template-columns: 122px minmax(50px, 1fr) 43px; gap: 9px; }
+      .area-row { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; }
+      .area-name { grid-column: 1 / -1; font-size: 10px; }
+      .area-comparison-bars { grid-column: 1; }
+      .area-delta { grid-column: 2; grid-row: 2; font-size: 10px; }
+      .analysis-actions { flex-direction: column; align-items: stretch; }
+      .analysis-report { padding: 18px 0; }
+      .analysis-report h2 { font-size: 21px; }
+      .report-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
+      .report-heading-right { width: 100%; justify-content: space-between; }
+      .toolbar { align-items: stretch; flex-direction: column; }
+      .search-wrap { flex-basis: auto; max-width: none; }
+      .toolbar select { width: 100%; }
+      .table-scroll { margin-right: -16px; }
+      .data-note { flex-direction: column; gap: 5px; }
+    }
+
+    @page { size: A4 landscape; margin: 11mm; }
+    @media print {
+      :root { --paper: #fff; }
+      body { color: #182622; background: #fff; font-size: 9pt; }
+      .page-shell { max-width: none; padding: 0; }
+      .masthead { color: #173d35; background: #fff; border-bottom: 2px solid #e9b84c; }
+      .masthead-inner { min-height: 0; padding: 0 0 10px; }
+      .institution-crest { top: 0; right: 0; width: 40px; height: 54px; }
+      .institution-line { margin-bottom: 7px; color: #52665b; font-size: 8pt; }
+      .masthead h1 { font-size: 23pt; }
+      .masthead-subtitle { margin-top: 4px; color: #52665b; font-size: 9pt; }
+      .report-stamp { color: #173d35; border-color: #bdcbc2; font-size: 8pt; }
+      .main-content { padding-top: 12px; }
+      .metrics { margin-bottom: 14px; }
+      .metric { padding: 8px 10px; }
+      .metric-value { font-size: 20pt; }
+      .metric-foot { font-size: 7pt; }
+      .insight-grid { grid-template-columns: 1.2fr .8fr; gap: 24px; margin-bottom: 15px; }
+      .section-title { font-size: 16pt; }
+      .section-kicker { font-size: 7pt; }
+      .area-list { gap: 6px; }
+      .area-row { grid-template-columns: 130px minmax(80px, 1fr) 40px; gap: 8px; }
+      .area-name, .area-score, .podium-name, .podium-score { font-size: 8pt; }
+      .podium { padding-left: 17px; }
+      .podium-item { min-height: 35px; }
+      .podium-rank { width: 24px; height: 24px; font-size: 12pt; }
+      .report-section { padding-top: 12px; }
+      body.print-analysis > .masthead,
+      body.print-analysis #report > .metrics,
+      body.print-analysis #report > .insight-grid,
+      body.print-analysis #report > .report-section { display: none !important; }
+      body.print-analysis #report > #analysis-report { display: block !important; margin: 0; padding: 0; border: 0; }
+      body.print-analysis .analysis-actions { display: none !important; }
+      body.print-analysis .analysis-table-wrap { overflow: visible; }
+      body.print-analysis .analysis-table { min-width: 0; }
+      body.print-analysis .analysis-table th,
+      body.print-analysis .analysis-table td { padding: 7px 8px; }
+      .report-heading { margin-bottom: 6px; }
+      .report-heading .section-title { font-size: 17pt; }
+      .report-heading-right, .toolbar, .export-button { display: none !important; }
+      .print-only { display: block; }
+      .table-scroll { overflow: visible; border-color: #becbc2; }
+      table { width: 100%; font-size: 7.2pt; }
+      thead { display: table-header-group; color: #173d35; background: #e5eee8; }
+      th { padding: 5px 6px; font-size: 6.5pt; }
+      td { padding: 4px 6px; }
+      td.student-name { min-width: 0; }
+      tbody tr { break-inside: avoid; }
+      .data-note { margin-top: 7px; font-size: 7pt; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <p class="institution-line">
+          <span>San Diego</span>
+          <span>Cesar, Colombia</span>
+          <span>Informe institucional</span>
+        </p>
+        <h1>Institución Educativa<br>Manuel Rodríguez Torices</h1>
+        <p class="masthead-subtitle">Resultados de las pruebas Saber 11 · 2026</p>
+      </div>
+      <div class="report-stamp"><span class="stamp-dot"></span><span>CONSOLIDADO 2026</span></div>
+      <img class="institution-crest" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCABJADYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9NND8Vf21pUGoLp9xFDMpZR8rHg+gPWsS88UWkt/qPkx3ExVYwwSInawbkE9jV3wO5svAdk7rtEVuzERjoBnp718s+AbSz+J5fxh8PvGuu2ekfaGN3ZCJWV51uP3iSp1U8EY9CK56uyYdbH1xqWrzw24kzFp0GMtPdsAVHsvc1jWGr6NqWl3uo2Orc2b/AL/UD0OOuexX6V53efCG41HxRNrOr61qt7A6vHDYTy+XAgYggjvu4HSuvsfC2keGNEfSNNgC2zxbZbHymEbr9eoPvW6A6rRfEyapZxzReXeIxx5tqwI/FTyPoauf27EzbY4LiXnBKxnAP1rx7Ufg3pOqxpNaXXiDSiWkkkk0y4BZy5BILd+VHbNbvgpbP4RWNl4d8zVdSN7dPMJ9RkDSjflmJ56ZHT3rKtXpUI81SVldL5vYS5m7WO/vNfazAaSzkjQnAZ2AzRXH+H/iXo/xP0y6uNJW6WCzufIZ7mExh2weVz1FFbWYr32OTTxvren+INA8LW1qo0y70+4lurtxtWJhu2qrd2JH3fQV+T37JH7UGqfs9/HPWtOvLkz+Etc1WaDVIZG/1b+eds6ehB6+or9TPEXhjTL/AMaeENQltYRe7ZIVnmnZQqhnz5aZwXOcZx3r8o/2sP2VdS/Z/wDitYzRTNqXhvWnkurS/ZMbWZixhk7bhk49RXNiJckLnLWnKmnPsft9f6lb36aXeWskM8cyLLBKeYyGHysD+NSR3M0Nx5RvIppWUebLkDZ9B+lfIH/BOr4wD4n/AA1bwP4iu2k1zwuoFsxf5pbQ/cPuV+7+Vdl4T/a18I+I/wBovUfhoY3t/s5Ntbao84KXVyPvRgj27eoNFOvTcIyb3PQwNGrmFJ1cPHmUVd+SPoKy1Sz0bTtSvHZfIiYt8pxk5OB+deVxanfa/wCM7O+nYNM0/wAkZ+6q4OFHt71ueP8AUY4L46bZZMSnfOoOdz9vyr51uf2ibK3/AGnPBfwx0WOG9vrm4aTVLt3ytqqxsREMfxnH4CvwjPMwx/E3EtDJ8rTlCjJSnbb3Wm232S/E+iw1KlhcJLEVtHJWVz179nfxDaeLNF8T3ENzqF5aW+rNbH7eNrxyoCHVAAMxg/dbuKK0/wBn3T1svDmvTRPG9pdatNNHucOw5II78elFf0FKSjJny0LuKZV1yK7k+IvhgzaYuo6ZbI7tOVAktZTI+0oduWBxzgjbx61xseu/Dv8AbF+Hmv6XY3SXUEMb208EwAubC6jcruK9QQRwehFdF401KaH4t+A9Oivh9uvI7x4Y4/maOJHbzWdO6kYUH+E+ua/ID4cfF/xB8Ff2hNR17QpyjnVbuC7tCcpdxGdsxuP5HtXJiVFwXNtqZ1JxjF82z39D6D+DF1rf7Nn7ScNlqSmxure5Ol37SHYs1vLwsin05VgfaoPhppPiTWf2i7D4Xah4Pe1vtC8TTa9qGuh2EzWoJYMW/usNuD3zXuv7U9nonxz+F/hL42+DYlmESLYaumQskAzhd/fKPx9CK9L+Eelt4i8Sp8SMMX1vwpZaXLMeQZI5CH59fl6V8TmGIp5dhq06quqSc4fc+xHDGJrYPFV8DSnaMkpLzWzRL+0Z8YJ/hf4FvNVtNs3iTUnaOwjk6+Y38Z9lHP4V8E/snTqn7angS5vb59Q1W91KSS4kyWd2aNizMe4zXpH7bHxht/7fu5VInWyLWFhBnId/439hn+VfPv7Dc899+2N8Ory9ldrh9T+ZsdT5bfKK+m4Ayqjwnw77evG+Oxy55trWMZapd1vexisViM6xk6lO6w9L3V/ea3Z+0ngjx3qGv32r6Ve6Lp+lrp8p2z6dMskUoLMFGByrBQCwPc0V5/8ABJNMsvif8Tho9naWttNqAkuUtrgyN9o3OGMqn/VuQAdo4xzRXs7HS6nK7I6zx5d3Hh600zW45hbrpl3LBdxw2KSTOGfd5bSMPkjKnnGMnGDX5TftX/sual8F/i/c+J9MtZr/AMBa3dve2eowKX+ytKd5jlx9wgk4J4r9q9f0KaSeW6tYkuUnj8m6sZThZ09QezAZxXzx4v0HU9C8QTp4asrDVNGmVzquj6nnzUt8cRpG2Qfmx8/pXNiI+0pqK66Cq0faxlG+6PiD9lv4iQ+GrjVfCGuyJ/wgniqA2t/G4z5M54inXsCDjJ/HtX0n8OvGX/CuP2dtcsrpxDN4b1K8twW5weNv4HcSD3FZup/ss+A/jHDLq/w6uP8AhDfEluzR3Phy6P7iZx1KjJKBjnB79cV494m+HvxX+JGs6l8GrPwze2OqPcW19q+q3GUtBAiBAxl6Nu2pnHXBr4utltWs1hMVHmpu1/OKkm4/O1j5TLcJjqOOjh5aXTSn0in39Nz5C8feIZPH3iCXW7lmNucpbRN/CmeuPVjya+mP2MP2aPEXhjxRpvxo8R6bNp2g6KHutH0+UiK51a5KERqinonP3jXv3wy/Zw+GP7P98txfywfFT4gWzxL/AGZb7WgtGZguRHzuZT68+1fVk2k6X4l1LR9T8S6Tu1vTw8VlptrJuSdGwQzRfwAf7XSvs+XEV67xWIer6duy+R+wYzG5fgcHDKMph7kEk5Nbvq/V7nNfBDw9F4e8BXXiTU4Ba6p4o1B9SmP2UwyENkqHXqSMnk0V7VpGiXMrm91RYxcsuyO1iP7uBOPlHqeBk0V1nxns13N9hnFch4r8PafrV/KLq2V5BaNslXh157MOa7A9KwtV/wCQk/8A16t/OsKnT1N1ocKnwj0vQ/EGneKItMW+vrQmUTQ/JcEsu1i2OJOPXnisT4zeEr74kvolzpnjObQ/D4EkGo6dbw/vrwsMKv8AeBHIweOc17XB/wAesX+6v8q83i/5LEf+uP8AStoyejI5UZvwx+BWneErUPDYJpLkbDMD5l9Mg6GWc85OBwPzr1HSvD2n6IjLZWscBbl3Ay7H3Y8mr0f3fxNPpt3dxpWVhAMUUtFIZ//Z" width="54" height="73" alt="Escudo de la Institución Educativa Manuel Rodríguez Torices">
+    </div>
+  </header>
+
+  <main class="page-shell main-content" id="report">
+    <section class="metrics" aria-label="Resumen de resultados">
+      <div class="metric"><span class="metric-label">Estudiantes evaluados</span><strong class="metric-value" id="metric-students">—</strong><span class="metric-foot">Cohorte Saber 11</span></div>
+      <div class="metric"><span class="metric-label">Promedio global</span><strong class="metric-value" id="metric-global">—</strong><span class="metric-foot">Escala ICFES · 0–500</span></div>
+      <div class="metric"><span class="metric-label">Promedio ponderado</span><strong class="metric-value" id="metric-weighted">—</strong><span class="metric-foot">Ponderación institucional · 0–100</span></div>
+      <div class="metric"><span class="metric-label">Puntaje global máximo</span><strong class="metric-value" id="metric-high">—</strong><span class="metric-foot">Resultado individual</span></div>
+      <div class="metric"><span class="metric-label">Puntaje global mínimo</span><strong class="metric-value" id="metric-low">—</strong><span class="metric-foot">Resultado individual</span></div>
+    </section>
+
+    <section class="insight-grid" aria-label="Lectura general del desempeño">
+      <div class="area-analysis">
+        <div class="section-heading">
+          <div><p class="section-kicker">Desempeño por prueba</p><h2 class="section-title">Promedio por área</h2></div>
+          <span class="section-note">Escala de 0 a 100</span>
+        </div>
+        <div class="comparison-controls">
+          <span class="comparison-prompt">Comparar 2026 con:</span>
+          <div class="year-buttons" id="comparison-years" role="group" aria-label="Año para comparar"></div>
+        </div>
+        <p class="comparison-note" id="comparison-note" aria-live="polite"></p>
+        <div class="area-list" id="area-list" aria-label="Promedios de las cinco pruebas"></div>
+        <div class="analysis-actions">
+          <button class="export-button" id="toggle-evolution" type="button" aria-expanded="false" aria-controls="evolution-panel">Ver evolución general</button>
+          <button class="export-button" id="generate-analysis" type="button" aria-expanded="false" aria-controls="analysis-report">Generar reporte analítico</button>
+        </div>
+        <section class="evolution-panel" id="evolution-panel" aria-labelledby="evolution-heading" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Tendencia histórica</p>
+              <h3 class="section-title" id="evolution-heading">Evolución de los promedios por prueba</h3>
+            </div>
+          </div>
+          <p class="evolution-note">Promedios por año, del 2014 al 2026. La escala vertical se ajusta a los valores observados.</p>
+          <div class="evolution-chart-wrap">
+            <svg class="evolution-chart" id="evolution-chart" viewBox="0 0 960 390" role="img" aria-labelledby="evolution-title evolution-description"></svg>
+          </div>
+          <ul class="evolution-legend" id="evolution-legend" aria-label="Áreas representadas"></ul>
+        </section>
+      </div>
+      <div class="podium">
+        <div class="section-heading">
+          <div><p class="section-kicker">Mejores ponderados</p><h2 class="section-title">Podium institucional</h2></div>
+        </div>
+        <ol class="podium-list" id="podium-list"></ol>
+      </div>
+    </section>
+
+    <section class="analysis-report" id="analysis-report" aria-labelledby="analysis-title" hidden>
+      <div class="report-heading">
+        <div>
+          <p class="section-kicker">Reporte analítico Saber 11 · 2026</p>
+          <h2 id="analysis-title"></h2>
+        </div>
+        <button class="export-button" id="export-analysis-pdf" type="button" hidden>Exportar PDF</button>
+        <a class="export-button" id="download-analysis-html" href="#" download hidden>Descargar informe</a>
+      </div>
+      <p class="analysis-summary" id="analysis-summary"></p>
+      <p class="analysis-highlights" id="analysis-highlights"></p>
+      <h3 class="section-title">Interpretación de las trayectorias</h3>
+      <ul class="analysis-trends" id="analysis-trends"></ul>
+      <p class="analysis-caveat">Lectura descriptiva de promedios institucionales; no identifica causas ni sigue necesariamente a los mismos estudiantes entre años.</p>
+      <div class="analysis-table-wrap">
+        <table class="analysis-table" aria-label="Comparación de promedios por prueba">
+          <thead>
+            <tr>
+              <th scope="col">Prueba</th>
+              <th class="numeric" scope="col">2026</th>
+              <th class="numeric" id="analysis-year-header" scope="col"></th>
+              <th class="numeric" scope="col">Variación</th>
+            </tr>
+          </thead>
+          <tbody id="analysis-rows"></tbody>
+        </table>
+      </div>
+      <p class="analysis-download-status" id="analysis-download-status" aria-live="polite" hidden></p>
+    </section>
+
+    <section class="report-section" aria-labelledby="ranking-title">
+      <div class="report-heading">
+        <div>
+          <p class="section-kicker">Resultados individuales</p>
+          <h2 class="section-title" id="ranking-title">Ranking ponderado</h2>
+        </div>
+        <div class="report-heading-right">
+          <span class="result-count" id="result-count">Cargando resultados…</span>
+          <a class="export-button" id="export-pdf" href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL1RpbWVzLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMyAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL0NvbnRlbnRzIDEyIDAgUiAvTWVkaWFCb3ggWyAwIDAgODQxLjg4OTggNTk1LjI3NTYgXSAvUGFyZW50IDExIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9Db250ZW50cyAxMyAwIFIgL01lZGlhQm94IFsgMCAwIDg0MS44ODk4IDU5NS4yNzU2IF0gL1BhcmVudCAxMSAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNyAwIG9iago8PAovQ29udGVudHMgMTQgMCBSIC9NZWRpYUJveCBbIDAgMCA4NDEuODg5OCA1OTUuMjc1NiBdIC9QYXJlbnQgMTEgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvbnRlbnRzIDE1IDAgUiAvTWVkaWFCb3ggWyAwIDAgODQxLjg4OTggNTk1LjI3NTYgXSAvUGFyZW50IDExIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgMTEgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iagoxMCAwIG9iago8PAovQXV0aG9yIChJbnN0aXR1Y2lcMzYzbiBFZHVjYXRpdmEgTWFudWVsIFJvZHJcMzU1Z3VleiBUb3JpY2VzIGRlIFNhbiBEaWVnbykgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MDkyODE1MDQxNS0wNScwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MDkyODE1MDQxNS0wNScwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoSW5mb3JtZSBTYWJlciAxMSAyMDI2IC0gSW5zdGl0dWNpXDM2M24gRWR1Y2F0aXZhIE1hbnVlbCBSb2RyXDM1NWd1ZXogVG9yaWNlcyBkZSBTYW4gRGllZ28pIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKMTEgMCBvYmoKPDwKL0NvdW50IDQgL0tpZHMgWyA1IDAgUiA2IDAgUiA3IDAgUiA4IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKMTIgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMzcxNQo+PgpzdHJlYW0KR2F1SFA5NjI6OycjKzZFQUFoZiNBdUYxKlEpJzpzNF5hY0lAK2xHLjBHMW8vXjFhNG87XV9tKy46PUxWXk9BTk9sPSIiTmIrSzheV2AmJVpWUEkhOkFLaDxtLW50XSRBLkVRP0wvNEVaMEZtLF1eYSwkcklYcGtdazBGdVUrclZDQ2BbSXU3K0BbZlYxXnEuU0EwPC5rL0NHLiJMZFsxPiMnMkl0JztLLjNDJ0xIJjolZDVqRFReK1kiPG8nLjtbdTImLUZBPF9gS2FgPE1jS0YrOFhMOHVeaiQ+MkhKKWJxL20iOC89WF1DdUdJajZxQWJxYUlePEteIyUjNFNiR1NYMEtaOmB0XVMvOkU4PWhsa0ZPajJmSjlqVmw4I1VCNV1VXUFEYjttKFMibkxLUUpGQThjZENJOERwbiQmRlVLaylpTkFxQUxIb3VrVVAycXROLVxuUTYoQSY+Im5eZ3VsVzg3VGVPImJfZiQxXFs1TixNdCJGNXJ0Qi9UL2dsSidqTmInWzknb2RmX3MnK1duLHJwUyVTJEZcWCVYPi9BU2NNJl5FaGBAaiczPSZJQlNzXC47RUtea1llTSZhayMlMDgjblRYdWtuV0l0RztLX2s7TTZsTiJeSiEjVGlyXT5MY0QydCknUlQqTjhfKFtfS2dVVlQ9ZF4ybEx1Zl1bP1w4QnBIWU5vYlNnYGxdLzhbYTJxOTokMHIlVFg+bWgxJzBXSCJbckxNSV85WVhkUzJbcS43IWhHaThrKm9KZjdJNENyPFY9JWM4MkYmK1I9OClhOEA2aidWOCVTXT5fb2pBaTg9W1ooOWJZM1VMO201SSFlQl0mdWZvVXBXImleQFJaPklYQkEzOVlTVEhOWCc2MFkkTDRadTdnJ04kcmJXQSFuWysnRVlKczpQNl5ibVZrN1Q+LiROUTcqKjdaOFRRKFhlQE9hVzkxL19eOyJnTWYrLy5NUmBzNWhOXDBmXVJMIkwyVzRlYWQmQnRnTHU1TW4vPjRnSEp1I2xgXStwM0FPUUwlPVBrJ0A/VCZnM0UjIls9MXQnWiosJl1hbjYnYGlwcmNXJFE/NGhZbk5IN1YtIzUzYSw2J3U1RjReVWljVVNJQyYrdEZzKU5xMFYsUzg0MlAvVE1HPV4mK2c5M0QxNzZYTUVCYiNYUiJoNGA+OEY0LylgLUcjajw8QGhpRTpMZDtfLTh1Wis6S1ZpQ0NWRmg3JXQsMDFXTmhWNkFDXSY/Oy1YJzosJ0FmZj1uRkdDNyJJRVtDYCJtPWhCMHVbb2ktT1VWT0JYSCNvOW8yXmRoI3FaT0VMaik6VUgrNGwoXT9iPGU8X2Qta2AsKmZnTklNJVxqZF1VQjE+LDBlSTpnOSxJMkBBakIlVlQjVTxRVVUvX1ViNm9LX3I3NSdYQVVXJG9JTFdPa0QvW09BKHRAX1NYNjw1Zys3WTpGZmBSJiI0amxccDA4Vzc+KlIpXzU8WmBmVUI9WFU0J1hJayYqNEAqPmJXPUNkPkkwO1xIKmpXJHNRZFAsIURmZzAoXzNta0A9NztgaEJpTG9yVzVRQzpFNW9UQWVaMyg8L1tdLzdWVldFaGMkaCRCU3UhSyZlbmdORyVvcjdLWWU4OighOFFlQV4kPUZiXTE5ZkdcM10jOSgwPjZpJEs1NGFaTHJVXFRFOm9aLUdRJDsxZ1EoI2NZRGhVTy03Nyo0P15IQyI2cmpoSGJQUy87dCUxaXJvJTJkZ2NwR0A1SjFuMUBsVjoxXiNTX2NkQmIzSmMiMllbdTIzRyc3T11PJj5DQ21sJl1SX3VvIXEmU2s9WmV1YClyIkY2ZDpGNGIkJy5SLywwXWVkRUknLWhdazkmVmItay9pXShhVWxYWlVPLXRQZWYyI2daaD9rRzg6I2BCKSlMa3EmYWRKLzc9WGVzMDBIdGFlNWxrbipoPzAoKUcjJmpXIUlMPUpqY1hkK2xKXmMhWHNtYkJ1VE4pakpCQ0xYbGlIbDM4aSgmNWYwc2ZVU05tRENCTWg+Vi9aIW5XZVQ3QF9fWlMiZz04VVRybnVPcW1aT11DdDtEJDdKL0hISydIdVA/PDJPaUxYZSZRYk5dbSNYRkAkIVguUVxqcU1pNGZISGgoV08zQyYjOSthKCppbGIkVTkoKVhlWVg6JVptOWhSOWE4Xi4oaURZY2ZSRC0makBIWzFIaT4lanEoJVtldT0/MlMiUXJyVTRUM24tcVBzMFonYDMrLFg5YCxMbEwlcSpNaiovVW9TJ2E0Om5gWSxrbVNPVktjPSdRZEpvYU1eT2NlQGpmP1YsTkZBb2MvRDEmaGA5PGZxLj4xNShzNmhiS3JsYGYwaUk7RmRiUU9cM1A1aW5oME1GaDlRQTklZS9tdTRtWC84RXRQbFxvUkE/U0FoOUw1OVAxMjJzN0hKMDsqUEImISFSXy1PODlZVzRRNSgyMWQ1ZDElSS5rdDxWRCdrJjo9ZEkyRDthMUdZUHBTTj1eZWsqUHBlTHFxZjEpPW9CXUMlaDJIJEMqYGVfaEFNRy5TaFVpWUk0TzBHaWw7S0VbR1RVM14xMS82VnJWcFwoZTQkP3BadS85OXFnRF8oX1VyWGFYKmJucSMmM1MrbStRQWRvLEk+IUFpJywocmtda15CUkInZ2cqNmoiR2s0MERacSZeVk1YQy9pLStNMEpfX15FVHJLa1o/Lklqb2RqXC1FPEh1M1gxa2JXQnUzcSFRN3E+Q0gyUUQhJWpuRHA2PGQ7bmNsdWc/YmpRLz8qKjppKj9YNy42NXEtJDNHYUBcKEQ2Nj0vamIxaEU8JFpHVGNLVyMnYlIuVUJiaXMkR1xBOk9LQ0k2SkY8JU87bT8hRzdqQ28qPV9SNW5baVxWJE9XcVdgREs8TV5TWk5VLSppbCpyJmIkT1k/Kj5QOE82bEAzISkuXEVTcV9FXF4wRUk2WVU2OlU3blk0S2tLU15OMGUhdSlKRzlkXXFBMGszJSpwLV02OU9nTjxBLG4sb11QcSFSLV9bTHRiaV9RW19cXFhDMmMmOU0rL1InZl8qOjdDTGJhWFBGIXFAPjNeVjZwNjotOzRuVzMxZEZGXF5rVyo5TkI/LE1nPyZgS0UoZmpYZCU1cjpiOStKSydGZ1E2PVInZDlUZC02RVZqQWIrKVhXSixmbGxDczdqLkNXRWo6S2Q4Pk5nMjwjVUQyLFAqKnRyZ1ByT3BjPVlVUjY/az44KmlvcEdkX1NlNTJyLktuQ1lec0VMNGYrJzBARE4oIzwiNXFyJGsyJkExdEI7ZWhlL087O09eaGFPdW1sZURtTk1MJ0teInVCPGkvRTcyLT5IcSs+Pl8mTChjV0wnRGo0Lm9sKk9oUVVTbUNrUlFaImBWakhjbWdCUiMrPlpBbjheVTUhIyU2Smc3STouRSJTZ2pqLnNiWl9TUyE2XD9yRVFvbSdcYFpbbG0uQ0k+TGZNRl0jPUAzZTVjJCNUZigjbl4hZllTJjpTJEsqNCg0PEQ6M2Y/cGVdLTs7aUliImFNLU1XYjRfO1tvZ0Zab2BmK2NyQCdfQ1g+a19DJlZfPFtuKkFKI21ub3A4czVhPGYyNFJxWl0qZz4hI19LSCJdNWpRUkt0I1s0TEJYIzU5Y08rKzxgU0tqMDpOLU90OlUnaVcnVStecFRcWEU8JEZrV3FYW2RjJ0lkNkhQOixqM0VgRzJdSWNpaW1Eb1JeLXFeJ0tERjpkbWkjdDA/NykwcDs2SCU9UlI3Tl1pOzk2Sz0zcWZZMiNudWMwXDFQX3NvY14qLk01Xl4xMkVkNHBWQm4oTF0kaUs/ajtFJ0csNWxTSl5obURqPidOWjJLam80a15VPFpybjtPKltHcGg/WyJxaUkwMz4pY1EsbEVdLSgzNShdIzhYTz5fWkw5K2IhbEprJVZtQ1ddQUknQFl1IV1XRnAibSElZ0QkLixIQnAqK29EKVpoN00uLFlIUFRRKzghVDFMX0FtQSleLStpWV5nNC43KGFQQ2g4O1U5RTYiISpbbk1HXFwncDdeXC1OYSMrOXI1JVIpYkFyJ3VPTFVKRTYmOD1CZEJiOEJzXCdibTJiVjJPUGxFLUUtVnUuRk9iKyRJMGs/NEJqNFI/OWV0RS9xVz86LF9VbWZaOEs1dT1Aa2MmP2lhbi9HW0xSNUsqRSkzOTA4PHU3NVhEUi1RanFPIVM8V2Qhal0qRGVKbTRcMk9RaVlSaGoqSTNjazJTX1dQJy5acU4/b1sib3MjRissOWFCVXA3YTZHdHNvU28wQWonLnRFUCNTQVs3K289PT8vRXVAWmBmcVQqKCoqUlNBKFNOTVAjNEoqMk9cQUZZTUFOPjUnVjdfOSFURitsLmZsNGY1STNNNyFRLjppay5acTFxTyMvJjM8MEckVj5KLyF0MzVmYG1bVlBWQjdZISxPUyxwNSdVSSoiOEQ0LSEkcStBOFxxUklbQUJMVydQb28pVCdTOylicSc7JE09YFFTYTdUK1IjK1xvZkM5cVglMTVfLSsoT21Jbz1oYjgvb1M+aDNZUCElNUFyKENMNXIxWDUuIklJN1swdWVhKVBWQ0Y0WClGUCQ6cWBEQlM3KF1GLGQkSy4vQF5rWlhhKnNAZUgyOEFpXUshRi4zcG9yLS5nMyxqP0xpazg5blQmTnFlJ08oQkQhIXM4OFdNQW4/a2BFOmVOWVkoUE9NSihDTz1ScjJ1M11DLF9dJ0JeZGVgQ106RUkydW5xRjg/NWQoXyFKPCZCOThGc2ozJkNUby1qXkY3JykyTT43NywoR01ZPzBHWFtAYkRJPFJgT0BzPTtNPj1VKGZENVdIZnEnZVwuYURTLF9iP3MnZEs6XGg1ZU0nX2ozV0MqTlxqJ2g1JlFNRy8wOVdDcF4mTT5WRi9lJHJpN1w+SyY1LUcmQltbSHEqaHJLXkJscSordDNrL0l+PmVuZHN0cmVhbQplbmRvYmoKMTMgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggNDc2Mgo+PgpzdHJlYW0KR2F1YUQ/JCJjLyZyLGxSLnNDKDFvUTZyXW5ccFBeYEhHTHFaQkpJLEFwVkhVTHJEP3RUdV9uTWdrZ09aKSxgNFNYO0cpc0RnOXVNMVpCbS9bN2ZGJCElbjc7NTU/SmhzNSxEYj9IcWBkZjdKW09xJC5QZGRrbV1GcT5CPHNNJi4kb05sWy1RNV9iJCstallESVVtbTorUzxXX3BANyE/MEdYZEtbZCNvUztvViwwa1FTUCMjbSJ1PVNkXEVbWTpRcV05TmRYS2o8Xk1MdGI1Oko5Z1lYPTJucUhkKlcyLTBgUCgoIWQ9Nmp0QVxQJGpAVFEzKSNEIXBYTklCW2cpbzFiQ3E5c0gqYlBxaSQmakg4Um5SR0s1Pz1zUHIyM00hImdJNmtXcGJlP2tGJnFabzRLN0RBSic/dSQwSVNyWnVOLW5GZEJBLjlCUG5zKy5ERm8kTmV0NDxzOjdBcls9ITgzRkZRQS0mTlxvUURYImFDVDBCLkxFV0ZAPFY1USo6YVtEUCQjQUdqNSEnYCxPRnF0bDpKU3RScDUlbVFabFdyQ2gmOldLTDQvX3RmdE10UWQtYEJkS1g0YWhlVUhYWURXP2JdRWRUVDpVMWExVXUuM05kYm9vPy1mW1VXUVpDQCRScTRuQDgja2FYXl5nYS1FaEJZQyRwKD0yKGtAamljOkBXZEdbJj9NVC4zWSdfOFpiI2UvRG5qVVZNaGBuOkJNTVRsNTc8aSk3J28oPWhLZylbPCRINmVxNjYrVStMIU9QTGQ7ZERpakwmPDg+aVhBSVtPW0RTXShKInNxJXAoOlFHN2UtZWteZTFJZXE3TWcmTFw8ZSJsIzNxXSdDIzs8TE1SckFTKjNZSEpbQFhfZHVmV2w/YGJkU0tvLjRYQFkjOEp1Yj0obEloOFAmRF0hSiVTbS5pLVJhQEByWiY8NjpZPnIjOWluIj9kTVUzWmhbc0BRXXBiMnEzMF9pckdWJGFCNEEoNHFdKVJXSD04KUM6QidYTWxhLTJQYWs8LmFda2NMPT0jMEQ5LSUpNW1lPUlhcidDPTQlVkpmZDhWTiNdVF0hIS4pW29GS01tPF5sJnI/cSFzcTxAZ1xSbjUtZTFbZzA5KkktI2FhJlhYX11ndXE0R04pXGZxPiZSQ28jOk90Rj5FMTtxPGtgY0lZLzYra0QrTTZDXUtcOSM+dCw4bFh0LTIwLjU2PzxrV0cvPS0nLilLQ0lNIWFNOEg9RFVfSDhjYF4rdDQyMUlWcWxOVktTZHRDQ01QanNcYEQ2QyZxSTRjT0tdcE1PXjlFK2E4T3E7dWkyTz5qS251W0IkLlxOM1c5VSNSVEFuRFdxS2N1O2VSUDRiYHRvPUNkKy1UbFdJK1leNiQ3XWNNX2gjWWRuT2BFUTJTIVtiKD1NZ0FQcztpSVhrTTMsZm5HNCkmXFg5QT86S2QxcW5aKUEyIilCO3BocURkbGFiSEtmV1VMUGkhUzpJQEcuP18nIjIoWT0wQCtjXjVPQT4ncUxsRjZHS3M2TWZrWThJX0RFSE1WMjk5ZmBQVzcjRGdMbERQMFI7OGhCKWJkZjYuVkRjMWIxN0ZHTm87U0JdUms5Zi9hRzJKVihRUTwqci5CZS4kXVhfKiMqMy80SlJadT4lKDJCaTMmU2YjJlBVRlAka0MsJ1ssV1QlZy9KL1YmO09eIUxPKzg2OEpFc08iRWEuPTlfKmpLYEo7c2tYNVtWZEldNFpXczBLaDFbMmp1SEE1bDdobT1FKFssW2M6OUNgI1xFJDNnTTU4azsrO0pMLXRcIXUzRFRPRXVZNFZLKU9fVWZFKUpRVGJMRypPVUdtY2xxIm0kMEwkZUIocElHZCRvJ0hnZnAzXik6Y0V0QDdcNyhfYUlnQSVLUjQxW2A9aGYsRkJJT0xHWGBoTV4iT1dDTV9YUiNjR10sK2xVcFdYc0tPRFg8dW1sb2hkQ3NlQyw/RCwvRjZrZChzb3RDJEReRFlaXDkrQnAoKjNQJU8lUF5WYG0kTi8zPicwS11KLWFQNSVYJlEkaG4tQk5iKEpSQlQsbCg7RU0kMGBQMEdELFZXamFNazBtRGwvTy4yYzdRVyIiSERBM15JYGdtUUY5LGNiczliLklNci5UJ2g/RWtBWD1dI2s5I1BLLipeX1NzTV9TZT9oOiQhLkZCY0ttR19jN3REcWQwKkNzJkhiXWRoWk8kU0EjUWUzX1B0M2c4UExcO0VYNHInOzEwTllJRCk9VjtXI00tZF9XQ2FCc1k0RFtsLkc7TyNBWSlcayxzW2FjXUZYP09WPkgjKiJRSjRgU09DJVUnPTlpOzZWQyQ5REsrMi4vYzkzRyxLNjFkViozXkNSNilpbjw1cldvazRQUERYYGVeIW1IUUZqdS9fOE1mOS1GKUktb2IlKnJxWHFQKVhESC5nOjglUj11QU49UjEjb0Y5Z0deRV4zLV5BWkZJVyU6NT4+MFhqRU9uYi0yOSRJQ1ZlLWNPLShsMDM3NiEuUE0xUjRcKSxxW2VLMS5yOjBrXl0zRSxOIzNrKkRtNl1APjlwOXAyXUQoIVZuc1VlTDVALUd0WG0lKlpPXTZJbDJSUSU0SWhDIiVmMDhBMSpOVk5MS2gyQmhhJiMrYGNdZSJocGZlXVdKL1ZpS0otMkFsXmdAKldvRFBPOkEkPG1RKy9UKkorPiFRLz50X2Q6JVhtc0UhP21EZDZPKiNjWkMzIm5uTGhgLCsoUWw8I2xLTiE1Q2cvNCYzPEBUdSw0dSpiW3FnKFYkJ0pOJlxGRSRlLjk2LlZESDoxbipQR1M0bWwwbVxTWjVVXyxBNFREUG0zT1ZPQm5YLyFPXmRlYy4tTUw+WzZ0KV0pJU1qbEhDVjdwMzwkPGo2TCRTT0RjNEk7LSVlaTJbQHBRLy8xODdvR0knalZRPG4ybVxVRUEkPistZ01aNVBdXEtGOjo9VWs7LVFfIylGOSZQVUw/bV5mNSw6LypLRyJCMEM3YFlvSytlMllRQTVpOChHbnVGV2dXIyo1WCVlXUlLUCktQikiUjRoZFtgbilVO1ZUV0I0ZmIsOWRaKic2V2RMWE82cF8qdFFpaWIwWDlFJU5URnQpSlBsXVpaJClrbmRpLmgqS2twN01HKGNiMmI0a0NsOikoWD9LVnNpKjZYIz8yOk4yN2dba0tdN19pQEZrNVhITjZISEJtMDI7PDBSQUdLSVkwRDg6Wj1GNGA2LD5dPTVwUitLQCIzSTM6ZU8pU2ooR3BKb0tBJDJZOiZRIkhBPzNANDw8ZyhPTVFSYFcoKGVOTTJdbiZvKEpcSUY9NVI1V0FMU1ddUCxALCssUVNxPmJFSiRhIWtlZ2A1K2V1cm0mUSRqJU4qNz5Jb2pTLGdPRXVqMkRRJy47P2pXZHA1ZUpFXUJHP2FMOF9kVVpUaG80Ii9BWD5KRmNHVDNdc0hncGZZMV9JRCRNYlI4W3JeVklGc1ZqKEUrL0hWTkdoPFhSNlpvYyZsSl5aM1s+aT09Ti1qI2ozLl42VD9zVGJDM1Q0ZEwibkUsQigydDJqP15oaldtQSVCPz5NND4sTzlWPygwaENaKWY6XU1fKipYcDV0R0YxInRBdDRcZDElNmM8SUk6bHBrYiQuV1BQUF9AUC05RU1cNiFwVmZCQTFhOjRyXSg0JSRIPUReZFdTXS8uJShvJjhvVyddVmZ0UnFkSG1WW21GUSpBcW5DLGZGREF1ZlAxc0VPZ1ZCMG5JRnFeOT5eVScxKGY0LCosIltiS0xoX0huO2UnVkohKiZQLTBIKjtRUEg4c0kjSmw0WVtHQkZSTUJiVUEyVV1HIVBMWDg2UEInZ05CQEVoY2dARHROV0BjUy4rSERPXDEhODZUcTwla24wTEYzbXBvP2dyOnNiS1VkUWUsPGEta2QqYTFpQmBqNjNtYSFwWEppOGY6MmI1Ylgkc1pKQU0iJDc4NmIyVThqSVJPO0hEPFFEJFpaLWFoJD0obj10b082cmFcJW5ASkZeUkU/KCo9VF4/dWhjOyxYPTRWPzRwIm0yNSxdcE5Vc2wkTihAW3JvcjBBXyhidFRpcWcoVkxgNXBcJjNkPVojWCc5LidbR15hJT8tb3IsL2NFKFxnRzBlWE4hKCU2VUNLb3M1WG46KmskJmBMK1UnbCZLJ0cpUVBFOipcS0xyK2xOJFRicHE1NmY7WVQ5KUtXUzpeZFRqVj8qRFdAN1ZWTjZkW0BHZEYrbT89LCIhVmU3a24qSzRaZlYyU1g6YiIoPFpKQCliNVdnTzRqPmAhWjMmT2RoVictSnMyb15MYDplYGBaS1N1V1Y1dVE0UV5PXig6OERycSUlSFMwSEpLKmszaGphIWshNnJtWFBxQiZZVW8tRzQrVUsjKCw3ZSIkTWk8Z0BYRnRHcSI7R3JwMF0uQmVXNW1TYiJLQkdgaS5nTjpuOlxIKGNCNFZkbUJXYzEpO0pOKlRsPUlPRTkhSiNaLS1URmZDbSVIQU8vLGFYTm09NjQnQUQ8QDhPaFtfb1Rfajo7WHQ+M2Ndc1krUTtUJyxAOyhdYGxWJFlXY0BsLEEjUWRYX1ZJL2shXyFhcDB0JztvJyJuSEc6TidYaUYtKlJvJl5cQC9CPzxZOlk7VmZGb0F0Ij5xIjZPSkJjKWhrNilmKk5hQTA0YyE6Ymt1WEUnZ2AmbD1ZPjc3LWprZklAMyxrTkopOkE0I1JsbnJuYFdELFxbImlVM11UalVyZW4pczpKPlRWVTpeNDNgc1pSYkBXLGoxb01wSj4iW2ZZVWZjWj1KVl5vW09kJFBFT049W1djPD5UMyZTdUglQiUzOjkqMWooWzEuWlVFVm5vW0tOXFRRb1MtOCJPaFpsdEU7KnQoWSorMDA0RWMkQXAiUXJhNVhOSzBhOSpmdUpNRT1KbSk5YDQ1WEVGZVVXIWpETy0nWUlELG0pOSclMCJpKjc/aDplLmVbJGVDQk5VbT5mZ3EwSlYiYkBCUjlxPGQlcDk/JC8zTVddbSE3ZTFUNE81YEZIOitZaHVcZSEiMXVPY0sqLSU/T3Q0U0NkZCMwdWE0b1wvKiJCOkQyaC5VUEZMOUYlbWExXDZYLnJkbzZkL0g/KDYsI2o+VSxdJ1hYJ1Y0V3Q2XVBbS3MuPEN0MyMqLkF1VGZKPyxeYkUkPCJPdUg/Z1E3XGowbjIkP0c3QmghRWZBOVUxNzU1ZFVCJV9JMGRDPkMsO3RjWU4zc29iZjU/aixaM09UTithS0MtYTUlJ1duJ1xnajElXmk7PlhYTjFDcVZETzNtcy9iZ1JuaExgbj89Uy1jWGY+JTRCL180aTRVLTddblhFYmRJLk8jQGUwX2dOK1drXTFHKXFAZFFJRTM7N1UsT0VAKFxsJ0crMj0zNzEvNkUzZ00pUzBxbCkmPUkwXW5fL3M3KTBAKmEtNC8hNm8jVSVnMVZKOnApKG5rMnFVU1g/TnVeVUVtQltFOChcYGlaYiYsUzg9VjozOzZJVCpaY20lI3FrQDgpUyhebFVKUmsjY1IxMmlEYDVUV01faWckZlohaTFoVlQoWSdCb0w8PmdUQGtSa15nLSdDXUYwWThuVlhOPC9RPmJoJENKU1kvQDZhKUEtQVRMcF1iVjJkXU5ZJCdoUDhoXnIwKFBgSGMxP11FQDpDaFReUCkmPUcsSSktP0s7Vk5xRGdLPm1aYi4xakc2Qk8iIjJgYEhYN1poSlFNTXVsRiNaL2cvW0InXEM8QSNMMD5FLWBMUFtqMEZJKF51MCxJSj1maGhZa2RQO0tVZlxbKFtmQ2ZtJWZzMj8tPS1BNWJBTi0hUmtMXlZiUWZXRGRNJUs2KFJKbywvYTdoM0xlNTghUFBgL0JRcjgqISo5K0BBTSYnRWddNWRgb2FmVnMnYjpTOiZiaVUqWU4tbWcwWXJxSTwiJG4hYE1uRy5ZY2o2PVVMSWNQWWxzPCxYbk4yOmBRXlpnJkswYSZIdXJkUF1TbClSQ09YTi4wLUA8NHQ5JUEpKEMoYltLLVtMMStrdD02YW1lb25DRGVVUms9UVhmNScnbTJHOXVORU8xX1VQTixRU187Q0plZWFxJTFBOD8ibD00PihoZzlJKW9uQ0MqTG42PTRYZjdtMWtTaWFwTkVPQXA7OUBCZzU8bGQicUVlXWNIWmM6YHBnYiNiWlQ+SixkJFZeVypORDpdLU0rO0tEKGRfWGgpRlZaOE5qK0FVOyMhQTdCWzIkKnVnRkRYOkIpIzRJTXNOJ29MXWAnTCZRX3AjZF10a3VBaFNlZk9ka28kajtkKVVQWWYqUU9mTmAsPDlRZVhDP0dXRjU4WiQoXnUpYkFMVHF+PmVuZHN0cmVhbQplbmRvYmoKMTQgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggNDc0MQo+PgpzdHJlYW0KR2F1YUQ+QXI5OSckJm8uLjBfYWI0VSZ1SzBCQTpXTnBRc21YZWBBUyFeNiVyN1VnMDwnXFE7XCVcY2FLWWREQi0wP2Q4akxTbVFvaVtGXVUlIVIyKy9uXXJrSS5Cai5zJ0RqYmhDUm1CW3Q5Oi9gP3U7UGUkUVdeTW9FZiknLydeajMkTCM1Nj42TWxVK2QhQzZUPUkvRWAxV183OjYxW0pKU1MoJCFMOWcpX1d0WDNMJXFoaktYIWo+KiVzZzRcX0xYRlIyWmtaa0NNMC5kdS86KytCUGlnKSZIVjdTLSUsMj5xV2JEbW5uUltuTF4/VyxmSU9tP1ZwYkleTSM9cShCZVFWSEIrbS5MPkhjYWRzODpSNGFbNFhWLilXU0JmVUVZK1QtOERFZkhvI3NtIitpUDAqc1IyLyQhVEA9SzRPbWJtPzcvUV5fVjhaYC8+PmhSZm91RzFAUFBVQDkvanIkaU5dW3VuT2YlNm9MIWJzMCZWb0Y9J2hkTmJsXkxGSCVkMm5PaS5rVyhgcVIwaGhkOyctIVwrbFtvXmRuXnBcM19CRktGM1JkZTEpXj0/aT1SMy01VllpVWMkU1JBZWxTSVxtIT4rNG41ZUgwcVpqXEZ1Y0ZDWW9ZYEMxInIzZVwzZyRcRnI7M0NMOVRQW0JDOkpJMVtSUV45Ol0sYkxmJVpJOyZhaHFrNiFQSTMlbjQ9N1dscEwjS0guKyNlWDtgI0hKLiomaT04XmAxJFQrI2VZJmlmLjpnTlo1YU1rRGVCX1xEXzRKVUdrL01uN3BoNFEsYT9pbEMwSSs2JEwwOSsidDFUZV9kUjVyaic5MyswSz1IRjwhSkxhNkkkXVxsLStoKDJOZD5YV2ZeSCg4JllXTDtjJUtvV1FQL1pALy4qVGJlVWxiY3JiV1NBLCRqZV0ndTYkWSgnNCw5JUZbbnRKKiNqTzdSLDVAKUpMSiJDIz1eMGIrYiJGb1piajEwNHNsckEsISxQQCUvK3FacltzOE0hVXE4TFZDcTFoR1FEMTxuOFYiJypPNSMsP3RjXTwvWjUsdUIwcnBdKEJcc0RiZlQ1LXNJQnBIX1Jxam9eYzVBNEQyUzFYYFEzR2xccmslRVtXTFMiLzJaIUJ0ODBARiVmOCtHOXNpYVIpM0knTDFENC5XaytJL0Atb0lSPjY6azhRV0wyPzptWF9eSVI5cVk+b1FiTD5kODdfTlNlWHJeLzFMP0Arb2FOdFNNWTE6aU4wQWA9LFtYQFB0VDh1JE00PDxdISpEYV5KTWIhSGBwWz44J1BuNVBDYzUzKEVJYVhAaiNUVF9yPik4IWk4OHUkUzZGamsmcnRNWiplbFZTbT8/UF1NNG45bTElITZYYT9DVGZkLz8jLUlsQTEhSVRTJDwtUydzTHFCSytccWg6MUxCWlg3bGlSOUgmaWNmTWFaVCk5ZTlua2tMSFYkXmEsU3MkPm9kWVldVjUlSmE6aGkkVFtUMlQrMj89RyExO0RKTWE0WipdPE9GOXA+V24vcDdXVjpfakNOcCc1ZG5lPE45KkNfci8ydGQ+cUlhLCFKIyNHYUVfQS8hZVBbPW9XMGRUNlF1aEZLY1JsZ1pkcjNBJVQmLy5CQ05ETmVaSFZgcGJyQD83NjR1OG1MSlM5bSpaNkAxUEFqZmU2UjgxamNmITFiX2wwN0A5V2A0SWVMXFM6b3BkdGhKXC5yZCJdNyFWZUJvM3VvR0JDZDNkP2QoXjx0L2piOVhETjlDYylmXCtIUT1tJl5XNj08Xy9VaitXK3Q5IylTPlcuYU1cTDs+MS8/SSprMmFGczFdMVlAQlFjUzRSOW9eP3FyQz00VS5uUjY3dGU1QDVJIjlqRVAwXiNUVFxrNVNAQ0huW1NWcGcjbmcvVUpHakUjKFY7JGUnTmhwXk5xLUdiOVlIWzhkXVVhXD8uX110XD9ARiw6V2VoX0FdPUcwVjIoYU9eNFdFcCcrW2x0PGBBSEBFTypQSl5GOkdRI1RGUlhwUCYodGVkXlNnbjlUWC1FMENgU2tmbG9OQ0tFQm8scWBWMz1nIkEtQkduWHFeNVlBOkBxZURsJmNXMkRyZFJaUk4mJG9lOlxvXXN0QDoia1lYXU5ZaTg+JiVRJlRPT1EjazFpXDlFPl8rKVNMcjwtb21iXlE6XEhDa0JSLTY6YSxwWkYnXThOXCteQlUmOEc6aDoyY1JZOjJUOSY6Oi8qTCJLTXJObSpsNj5fTElPODJeKlAnP2xSPUcxMjMjMW5AdSRaVDUqKGQ4P0xRPSVfcDo2S0c2UFpPYjRUWTttLTIrNmdPLmRNI29YUiIldCFyJyRrXENoOEFVbGY7YDBpNVNOUWc2UV84WDUxLXRVKnBYb1s0SiQ4U185ZSxeYHIiSVA2OWVFY1hBLXMvYUppUW5EIyE9LydmPFpgaDtrOkxRbD5eKEdLZ2B0UTBnaGxCJF1qWFcjXGZaWmxZOC8sODMiIy1fJz48Yy1QNj9XYGQlLTE7c1JeZTtQP2Etcm8ibG5AOFRPNS88KXQjTklWS2tGdDZjRCluSlc0QVdcPlpSVyJCYzJEOyk8bVVZK0oyZVpUQDRSQ0g3MS5cXWBfNmZtS1pKNTBgL2c5bUkxRjhdI2NWMSdBJ0BLK2o5RjlyamNeR3VVNV8qQjNUMF1CQGcvcDZOIytLI0dlWjdIZnAxcTc2R0ohMz82MEFRJi1xRS4vaTwmJDRBYShAM0pkJHAiLGFfaV9TUEAhSFMvUSUzIkIvZ1RQQW41YiMpUjw1b3Bkcz1iMm5HMzhBclU1bWNvZEMmTDQlaWwvOj8vYkBGVyJdNDEwWVtDPkRQLF9zVStPP3E6IVZvMCxmITxYVG9kVFtWNiE8a0xKIShhZXBRL0lCaDgzS0ZnJmxhcDUjRFldOm1sZDIqNUAxMzE7YkxzWVFQYlM3MzlPbylEKC5LZ0NoYC5YQXVoXllFZ2xDPDQkL1R0XDpFZXFQQTFBZUApN3NnLElTYS45VEhOSCJCLzU9KVc/KShiYFFqWk4lSD44W0BVXiE4Ym02KypKZCtCMiIlTydhSiU0LEhlPlAua2hvSUc4YTxwcTFzOyZQREtiOWM8R2M4Mz5oK3AlbGU5LzRhSV9eQzZSLzczaGFYVDY3bUs1X2BZLDUiJlZFWyhgM1otTTE3a11IVmIrbDg3M3RHIkckQWY3UDhOUT0zOVJIJSxeVWZiRm4mODVHPydTY2dOKVhUKV9gPG8pUmRmdShFOyVrcGY3SictZUVFZDs8JXI3WDJYZ0EiU0BcOStwaDU0aFpqYGc6JWIjOFAjXlRvY21gSThEZzFsb1U1NHJGTkhCLGdEbmhSJ0InSmtNYVlHbnVgPCE5Z2RWM0U+VD8iJ0o2ZlhvOUBCOCwnKSJGNyUnXV9BaktCYWxpUiIwTFE8TVlLMmZ0W3BZP1hIUWskb0pBZU45b3I/Zy9wMGRaRj1pIWMwb0xQQTwxLG0ycCFnKGJCYjh1MyVqL1ZVOCkvT2dpMjU3NFZ1bi44TUldaEI/KWxsP3R1M0VEKlp0ZUsxN2dYYFx0Oz9jNVhtKktJO1JFTjgzZydoSDFbTkVqcS9APz1gPFNRPzckOWUuaSpHWDxtaE05Q20hVW8nJkBxMEtMLFxjT0NhOypnTTgtSUhxSiZRW2pDMWNmSnB0K29Qb1BFRFBZJjZSU1s5P2Y8OTBAISNqZ0RuIjhvP2teYnBTKVJxREQhRUl0YE1fLl0zRipBaD5QNz9WYEJaJlRydVtOVVpxT0FdaFJnVlJxVzlDZk8pU2ltSmNKJW5gXCc0LkgwYTQpLyQhLj8rO1FdO1wlP3JyQnVKWHNKb3BLTD1tVktXbTs5VmsxPEplTD8nWmhscWYrX2JMLiolNyRBSyl1KGFAWT5KQ3VVXy4raVVtZDgxLkphKkkoV29oUjxgS1thTW0sc2dTRVFeOHVyJjB0YSZcX0N1L1oiLj4xLyY9NWlCJDc6LjRQbXAlcWpqY2xpXG5DJGg5Jz4+KzI2XWNVPFVLQSZoSDpHMHNXKkZFaWJaQTo1dEMqS04lM1lFR2cjUztyYXIuXzo1JmZvPHFkSVduNDgkQlovIUxtY21OXixHXXJORzNyVT88JGxybjROVi9UY1lXN3UsQzxPKik/aEYjQ2tjQyopKC0yZU9GaiEjLHU/YkVGOiJxZWFVTmRjMGNuK3JwJW40XUtMJEAtMjJqQltbYj1oRzB0K1tQU0dRKVpRPilYIm9gVSxzQ3EzO10lJTstNGQ6UUs1Ml9JRyYtZjtKTiZrbj1saFtRTCdmaV4oaT1xKWFJPi83b2NtXyY0KCIsUTUiRT9INVVFay9mLkB0RFNObXRQcSdPYUtvKWYnVHJrL0RWK2hxVEVKQjNPN3AlMWE0dCNROHNlXE5gOnJvLSk9citVLW9HOVVgTGIxJnVqSj1sWU4zc2U3MnAkVUBbUFNNMiZrWyxGUTBHMkFTb0RjIyxOKHJedVQwZUtvMThicEc1SjJKTHM5UF5xXzM2bEpzdCI7X3N0TydtIXUtI1Q1Vj9fLjFiNzYnMCsjKVI7Nk41P2kiW0BVXiE4UTlXPSJgXT9cYk1DXGYzVjdWdWRpL28jKkJbLUc5aEpMIS9AQmM3VGluZT8/MHBmbUMlJHJYXC5nNiZAISJBSS9JPDc+ZmkrY0tUYjoxYFpjPDNKYSFsQ29lNzZhZE9UJHNtaV4zVjBnUFJLYVdsaEpRLF1nSEZWSTEoXVxMW1A3OWhOIjxiT2l0MVUkTE8kPypeQi8/K3E6TS0hV1w+MUM0ZzoqZydpTi8wO1hXPVMhZipnOVdVMSZyVV5ETiRKQ24+MGxtTTl1PXFOZToiYkVyP1cpIW9aIjFtWjJHSSZAJnIpTWBFY3FlVCI7a15FP0lUZl9pO04hLyklZWthSV08QSU/LGdoWFA1WSsqcDY2RDhBLSc4MWU5c1FQSSQndW9XUmBOISY6TF5ZJGlTcFwmPzhmTTZSQCdrMVdQOGZwOWBFIllDJ18iK1tRQj8lJTdEcE41LzsnVUVcXWRAaHFCQTRzZVZfWkNIRU5DK3FYKSFAa19jODNJOCZ0QmVLIl9qLUA3S3VwWWYuW2lINCoiZ1tgN1N1OUZEbFcjQT1HRVI9XTItSV9AYiVOVihLbFE8U05USWRAb182XE9RYGs3azJOKjhVdSw4NzhhWD0hbTVMWjFtLVBvN2Bcc21FJjxRRVZAWmBzMmUoaV9cJj87J0xwPGNjazFcXmxnWm5oNmxLclopYTZgXUQiaUc9bmE9SCJRSlJNQ11WVCkzU2BlY0Y5WF5QXC9hajpgMjIxOUZRSUU9cXM9IiQiOmpDV1ZzYHEibmlNJS9cKnIpUk4vXWRBbXAyX086VzJkOW1zOU4lMjssQEBhOS8/S3AkLmllcClPSGJcRUNkOi1ZbmZwdTZZPGwrYnA7aDQkNzNcT09TNidRJztULjwpZU9DLi08RHNqVixMLmclOnAtQVhaPVcjQjZ0bmR0VTlmMk5RS2QlWmctPzhbLz5zJDwmP0REcktRZ3VlMGgsLyRTLzxJTyleaVkpPXBsazloLGUmUmkoRSQhU0V0JCFoLlheWyU+KFgxWnNNTDdRWGsyQW1XXEJNZFg6Nj84RUlvLzZtPGtNb3RdWCg/bTRvTW9RdFIuI11ATXBIIm82Mz1tS1pVYUo/SERWdCRwdCpGdD51U3FPLCopX21NWUBKLUBBVCRCM1crazMmY1JYTVU5YF9DbWhwRzIuL21TSFcpZ2YrT2JUamItM1MhJCQ4ZiQvcWBFRi06OSthQEJQWD51SzsrI3NTOzNZRCNbYC89W11ObFstUTptdXBJLWsrIz9kKjkwOTpYT1lmRXEyZkJNVWw8Y2hcMVBJV2ZKJUJeTUJoVmxGKV0mSl9EKy9OXFQlQ1dAQlVSMkhDJnRaZyZIL2I+YWEzQmNGKVRbRmwnUDdSKnRLV25NbVYxLVFcVmMsT2phYFxhUS03byVmQCpONzREbDU0Wm5SJlZeZltdcWtpUm1sKmVNUllCQCNvbWVsRmw2WW5aLzdJTk8wdHM1Y0kiT04jQVM8LjNsWHVRVko4UG1ENis1c0FnS04uLG9dZCpuU0IvRiIxP2hOb0hFdSE/a1VrTjU0aWZlMk9kR2BFWl0ncW4+JFJYKjJxLG5DWGFyIkhJQFI6RmVDWE46KjRLdUNRbmRvJW06bWxSJW1DbU1PR1NzU29nWGpvPik4Y1xrZ11GKnJWbys8MWZYJGQtVWZiYS5OOkpHLyo7NlJZTyllQC5EOERTYnMjTGVsdGZ+PmVuZHN0cmVhbQplbmRvYmoKMTUgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjc0Mgo+PgpzdHJlYW0KR2F1STs/JCJjLyZyLGxKLnNAZEszTHBKNk8hT2c1Ll5rTCRbOzxsYTQ0PyIiNXFMI2ZOX0ghQTtFRj9PbXNxa0EmUiFVVWdhXGtqNlM9KFpdLUpGTShCPjFAT0onYUdtaURNZDojTUI0JEMkOmUoSmxMay1LZChPJS9xLk4oV2pVSEUlXV4iIW9gLHVOXCtMYykhIygkOC85ZWBGPGknLFM6WDdNZEwnV2xoREtxVF8rWEFYWy1qczYiYk9NcSc8KzlqOzhzTSZtX2M8VWtHQEo7J2FlTjMyREJFMDJlVnFxUjRWS2Fmcl4qKiVccjpSYzdjTUIqbF5CTlYpLFdROlEmRWo3SkVrVCNxIzZmXTFXcW86I1grVEUxM1d0RipKJ09yYzs3bjtQOWtIcnJcSWcwX21gITtGQjUjLjVfJHNJPEI9JWguTzgnRCNFU0lpMyxIPjFEck5UJjwnOzlOPWxKP08hMEg7T1hjMlJCVG0qRXJcKENrZGJ1L2tCVCw9XjxfPzZjcWM0Ukg2JzkkTlQqR18/SipaLVJEQj1NXjsnTmo+bF1mPl1AOUBIT0ojQCtwSUdFOGIxXkNGbFMwUEdGLzA8QWtQZ0ouKWtjamM/VXBbRGNfcUxIN2VAcjZvMi9iQE9vdUowJzNaP19jUDhrQCxFOSsmYSRscXNTK0pHVHAvRXJyXDJRY2lySmk7InQ1SEUpLmQ/REsqYVdwYFNoRVdXZGNwbTQtUEIyIT87bF5Ral08UkFiQ290IXVbWDo2TnBoYWcsWW5WMlAnNlJeQyRDdS0tQ2RHcEskPyZCbVBNXTBeTCk2JyQ+ND9EK0xlWycsNyRNTE86dTtXRzw6aEFhRmE3c2ZcZlJHTGYnNiEsTDpHVzMtcXJWJmBBSiJlMFQnNWU1RmMpcClrTC1aRDxuKC0ua2RxZTwqS146PGomalY3ampNWFlEOU4xYklmIVkoXmhxY2NzJyw5RS80ai5gNWZkO0JSRlRrUltmb1dEXTJda0guOWhvNyo1ak5BVERHYU4oQEZAZXNIQnVvJk9WMzUtIS9mcC5dXC1Lb1lQbyZeW2RaLUU1S2pjOi9UdEIrPGJRcDw/cCE8YV5rTERFTFQkV1liPzdNXCMhWzddRCxpbFtbNyclcEZhRGJXNmIwViZZL1smQ01ZM19PbyhPJlM5Wm5rIl9ZcGMuaVw2PlhVaFk5NWUmMm5bYkNoOzolPypjNTdTN1JHW2g3bi1hSzUoOmhiaGtuQlReQFFvRjZxM1Q+KkUlW21XOjRZWkksK1g2PDNeS1RwZ2hZRiJOIWxBOWc6Py4+cVNEaENvYl8yN1tGb2snQz1Gc0ZAXjkiO1ZBbEcpaDVYUD9OKU5NaWY7bVFDVytXUVpaX2VKNGhTdSw/X05UcWhpIlFqX2U1NUloVk0nSUgyV3E3QDFuMmBQJSNfYW4hbVhra1JFcDZOTGJCSHUhb25dQmAiaixqMjFcMjRFWkpcaDhdN049I1RWaSZNWzEiWEwyU3IlcHNja1xVbHQ1NWJldFg5Um1DbylTbUJbYWglXGpqbjhlKCE6a3VWNVFLYyk8NUxPIzRCNlBFQihCL0E5bGJ0KyJZVE86SnApanVcTGUoNSEnVnNlW1hFbmJDUVQ0WTNdVU1UcnJvcjZUaW1gbGMoUy5ZaEBaciVAV00ubjA5U3UoXjJXdCgwKFVHcmZBZF1GazdAI1FTLihrJThxN0lmNXBxaFMxMlZzb2FNOFUvSlhWSENXQ2lVUDxXK2oySkwnLzpeV0cpRWpObz0zZStbMzsvJEg4XmljYnVOMV5uSScjP1A3JlNNJjc3PF5UM0BXcShjNWRxJkcuPCwudCthVWUuKT1fLC5ZdSM+MHFQZFRSOWZgJGo4XEszKUk/ZT4mW247OXEzJ1MvQ29bZFp0ZUlhM2hkWTNsTkEuOC01QSRDNDUmTyNdTzZvbWM0M2diWF8wW1o3NV4/KC5HZShlPz10UChecjYxQHUtaEI3cjNiKC5PIS9wOXMxOGg7NnUnU05EUyFhO19zYFRUayFqdTtpIjVPLEltdGhfTlkzTiQ3USUxPidiVFdLRU1jPjNkQmIhTyhtUzNnLTxrIUU7JkEhX1NcQChBVyZ1USotIkZvOUxARUZTO2Y8az11Y1lJKF4yLGtQU2opKSZzYGt0Ti1cZSZvRW46NG5aUENxa09tVCRcS0U7Y0Uxb2k6ZCp0blgkYDheWy04dCY0ck1vQCtsTFFQOURmQkRTU05oaSZbV0w1ZThwZ1kqL1pkY2A4U2w1aiQ0MCswUE02cFFJI1VYREMoWiJkQ2hhLlwvMzY2R0NELTA6RlpgL1phWTs4Lk0rIShgVTZhWGo9TidGXUlvaXNRYjVTY2pubXUiS2lIZEJbXjQ8S2dTcGA1c2pbMjZWRTxeI24tOD5eXTdPOk1pZFdjXys/SiJzUjc0KGUwI2tPMFxvY2FJLjM7Iz4oLyEqOlMzOG5hNzI4bz9TLkdkY0cyVjFGKS82dEhUZkdGOnJhSGpPcD5CNHUnYikuRDE3NCxhSVRHRE9RI0Y9IWRVX1I8dSxiI15LUmAkUkMtbWwzVTsyNSlHNDxuZyQ6TWZvNCdTNmVbWkMhPTZSJ1BQMmxPK29LKWFvWVFOSUFBJmNHUG9TYyRXW0NJXWIwXnBIOGM4My5sZmRXLiFzYk11aEBhMGAnK29mLzYxLEFlQ2RYQVdBJTJTMD0sWTM5OkUlWzVrRXI8cmphTj5YVGRbZHIoITdqVWtvKSQoR11gRixoMTdkK0YsOXMxVSZEJE82bS5wRTEmUEJYQiRxNnU2VFlPN0ovcEh0JWFpMk9nJ1ddVVxNOzdbU2JGR0RDOiJYXlA8SWEyQig6Kjo5JXM/TkxmVE1EMlg5ZDZFO1hacDEuO2RVOFJbNStibFBsczpPZ04hZGArZXIyOlA4NSRmJkQrOzQhVmcmQGk3XyxcbWJvMCpCaEBWNmpTREZpVVU+bEBpXy5ZR0gmWjAvIWAtUVU/Tll0UyxPUCFnTT89Y3ElQDI3b0NfKzErNEV1PSZnLCRqZ0ImUlIpSmdUUFNAKClQTHUrMDZVJ1ZVZmwvWTdcXSNWS04mdDlvUDVHblRkVUZMXE8hdEdcaSY6QEJlaVxQa2lzK1xcQGheL0laJy9taXFZZEhvP1ZIIz0lbj1pQUAsJExcVlRnQkFfLjNrRSVsOzlUN15aKWUrYmVsQm9vRj08O0xBTUc3VC9hRGhJMk5bJVcvJjM5Lm0sSz1OTjIkTWBSaDJtZFIiNUMnLUxwL2psYkhrUik9ZG82J1RNUUdWZSQ9I20iUmtKdT0+LylVLEBWbDBNTisrKjFFa2JobEJackQvaG9eQSYkXWhfNjhsZFRBdCc/cFRtcls8Rlk8PCk7WUInOF86T10jNzEnLUg9Ll8tblg/WkNvMlQrXSRHRjsnQDJOP2dZYXQtOTEtciI5IXJbX0txcHEzQFc+QVAwL2V1JiJqSzIjamRVRz8/NkxeZDtZLkRfbi9LSDY9XGBAW2pCQ0soJWtebyJCbFlyNFx1Wm9NPi5iLTFoJjldYyElKHFITG1FZzw/cldhRVlDREhBUGU9czZUWU5yTydVQD0palU5b0NRSExLaWlnISFgSCdqM18rNn4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMTIgMDAwMDAgbiAKMDAwMDAwMDIxOSAwMDAwMCBuIAowMDAwMDAwMzI3IDAwMDAwIG4gCjAwMDAwMDA0MzkgMDAwMDAgbiAKMDAwMDAwMDY0NCAwMDAwMCBuIAowMDAwMDAwODQ5IDAwMDAwIG4gCjAwMDAwMDEwNTQgMDAwMDAgbiAKMDAwMDAwMTI1OSAwMDAwMCBuIAowMDAwMDAxMzI4IDAwMDAwIG4gCjAwMDAwMDE3MzcgMDAwMDAgbiAKMDAwMDAwMTgxNSAwMDAwMCBuIAowMDAwMDA1NjIyIDAwMDAwIG4gCjAwMDAwMTA0NzYgMDAwMDAgbiAKMDAwMDAxNTMwOSAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxkMGIwNmM1ZDBhMWMzMDViMWJiYjA4NGY1ZTZkOTAyMj48ZDBiMDZjNWQwYTFjMzA1YjFiYmIwODRmNWU2ZDkwMjI+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDEwIDAgUgovUm9vdCA5IDAgUgovU2l6ZSAxNgo+PgpzdGFydHhyZWYKMTgxNDMKJSVFT0YK" target="_blank" rel="noopener" aria-label="Abrir el informe completo en formato PDF">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5M8 13h8M8 16h6"/></svg>
+            <span>Abrir informe PDF</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="toolbar" aria-label="Controles de resultados">
+        <label class="search-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.2 4.2"/></svg>
+          <input id="student-search" type="search" placeholder="Buscar estudiante" autocomplete="off" aria-label="Buscar estudiante por nombre">
+        </label>
+        <label>
+          <span class="print-only">Orden: ponderado, de mayor a menor</span>
+          <select id="sort-order" aria-label="Ordenar resultados">
+            <option value="rank">Ponderado · mayor a menor</option>
+            <option value="global">Global · mayor a menor</option>
+            <option value="name">Nombre · A a Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="table-scroll">
+        <table aria-label="Puntajes individuales Saber 11">
+          <thead>
+            <tr>
+              <th class="numeric" scope="col">#</th>
+              <th scope="col">Rank</th>
+              <th scope="col">Estudiante</th>
+              <th class="numeric" scope="col">Ponderado</th>
+              <th class="numeric" scope="col">Global</th>
+              <th class="numeric" scope="col">Lectura</th>
+              <th class="numeric" scope="col">Matemáticas</th>
+              <th class="numeric" scope="col">Sociales</th>
+              <th class="numeric" scope="col">Ciencias</th>
+              <th class="numeric" scope="col">Inglés</th>
+            </tr>
+          </thead>
+          <tbody id="student-rows"><tr><td class="loading" colspan="10">Cargando datos institucionales…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="data-note">
+        <span>Empates en ponderado comparten rank; la secuencia continúa sin saltos.</span>
+        <span>Fuente: informe institucional de resultados Saber 11 · 2026</span>
+      </div>
+      <div id="load-error" class="error-state" hidden></div>
+    </section>
+  </main>
+
+  <script id="embedded-report-data" type="application/json">{"institution": "Institución Educativa Manuel Rodríguez Torices de San Diego", "municipality": "San Diego", "department": "Cesar", "country": "Colombia", "year": 2026, "exam": "Saber 11", "summary": {"students": 100, "globalAverage": 261.68, "weightedAverage": 52.34, "highestGlobal": 429, "lowestGlobal": 172}, "areas": [{"key": "reading", "label": "Lectura crítica", "average": 55.01}, {"key": "math", "label": "Matemáticas", "average": 54.06}, {"key": "social", "label": "Sociales y ciudadanas", "average": 48.79}, {"key": "science", "label": "Ciencias naturales", "average": 52.21}, {"key": "english", "label": "Inglés", "average": 50.16}], "students": [{"name": "Keneth David Castro Arzuaga", "global": 429, "reading": 80, "math": 84, "social": 80, "science": 100, "english": 84, "weighted": 85.85, "rank": 1}, {"name": "Pelaez Rios Luis David", "global": 392, "reading": 69, "math": 100, "social": 71, "science": 73, "english": 79, "weighted": 78.31, "rank": 2}, {"name": "Luz Karine Murgas Dangond", "global": 342, "reading": 73, "math": 75, "social": 57, "science": 68, "english": 71, "weighted": 68.46, "rank": 3}, {"name": "Romero Gómez Daniel David", "global": 340, "reading": 69, "math": 70, "social": 67, "science": 69, "english": 60, "weighted": 68.08, "rank": 4}, {"name": "Daniela Stefania Mejía Martínez", "global": 334, "reading": 69, "math": 67, "social": 68, "science": 63, "english": 67, "weighted": 66.77, "rank": 5}, {"name": "Keyla Mariana Gomez Manjarres", "global": 332, "reading": 75, "math": 61, "social": 65, "science": 65, "english": 65, "weighted": 66.38, "rank": 6}, {"name": "Ternera Rosado María Daniela", "global": 328, "reading": 65, "math": 66, "social": 62, "science": 66, "english": 75, "weighted": 65.54, "rank": 7}, {"name": "Luis David Mendoza Iseda", "global": 325, "reading": 65, "math": 63, "social": 60, "science": 67, "english": 79, "weighted": 64.92, "rank": 8}, {"name": "Quintero Murgas Jesus Daniel", "global": 322, "reading": 65, "math": 74, "social": 55, "science": 65, "english": 61, "weighted": 64.46, "rank": 9}, {"name": "Edinson Enrique Borja Peñaloza", "global": 319, "reading": 73, "math": 61, "social": 62, "science": 63, "english": 52, "weighted": 63.77, "rank": 10}, {"name": "Rios Molina Emanuel David", "global": 318, "reading": 77, "math": 65, "social": 54, "science": 58, "english": 64, "weighted": 63.54, "rank": 11}, {"name": "Maria Belen Gomez Ferias", "global": 317, "reading": 65, "math": 65, "social": 60, "science": 68, "english": 50, "weighted": 63.38, "rank": 12}, {"name": "Rafael Andres Amaya Florez", "global": 317, "reading": 64, "math": 67, "social": 57, "science": 64, "english": 67, "weighted": 63.31, "rank": 13}, {"name": "Juan David Bueno Simanca", "global": 315, "reading": 69, "math": 70, "social": 66, "science": 50, "english": 55, "weighted": 63.08, "rank": 14}, {"name": "Padilla Oñate Nikol Alejandra", "global": 314, "reading": 65, "math": 64, "social": 56, "science": 68, "english": 57, "weighted": 62.77, "rank": 15}, {"name": "Sehuanes Trujillo Ismairi Yugreisi", "global": 302, "reading": 64, "math": 61, "social": 61, "science": 58, "english": 54, "weighted": 60.46, "rank": 16}, {"name": "Luna Baquero Romero", "global": 302, "reading": 69, "math": 55, "social": 65, "science": 57, "english": 47, "weighted": 60.38, "rank": 17}, {"name": "Mariangel Araujo Calderon", "global": 300, "reading": 63, "math": 63, "social": 62, "science": 56, "english": 49, "weighted": 60.08, "rank": 18}, {"name": "Irene Sofia Bohorquez Zuleta", "global": 295, "reading": 66, "math": 60, "social": 56, "science": 55, "english": 56, "weighted": 59.0, "rank": 19}, {"name": "Salgado Ortega Sol Maria", "global": 294, "reading": 63, "math": 63, "social": 55, "science": 56, "english": 54, "weighted": 58.85, "rank": 20}, {"name": "Vera Dovales Leider Stik", "global": 294, "reading": 59, "math": 61, "social": 53, "science": 65, "english": 50, "weighted": 58.77, "rank": 21}, {"name": "Daniela Marcela Márquez Martínez", "global": 292, "reading": 60, "math": 48, "social": 61, "science": 61, "english": 68, "weighted": 58.31, "rank": 22}, {"name": "Peralta Palmezano Luis Alejandro", "global": 286, "reading": 57, "math": 66, "social": 50, "science": 57, "english": 53, "weighted": 57.15, "rank": 23}, {"name": "Andres Daniel Muñoz Guerra", "global": 285, "reading": 60, "math": 61, "social": 51, "science": 57, "english": 53, "weighted": 56.92, "rank": 24}, {"name": "Taliana Lucia Fuentes Severiche", "global": 285, "reading": 54, "math": 57, "social": 57, "science": 59, "english": 59, "weighted": 56.92, "rank": 24}, {"name": "Mariangel Arguelles Lopez", "global": 284, "reading": 64, "math": 48, "social": 60, "science": 57, "english": 52, "weighted": 56.85, "rank": 25}, {"name": "Aylen Michell Amaya Yepes", "global": 283, "reading": 61, "math": 58, "social": 51, "science": 58, "english": 53, "weighted": 56.69, "rank": 26}, {"name": "Rueda Florez Maria Teresa", "global": 283, "reading": 65, "math": 62, "social": 48, "science": 56, "english": 43, "weighted": 56.62, "rank": 27}, {"name": "Karla Daniela Nuñez Raudales", "global": 278, "reading": 56, "math": 60, "social": 51, "science": 55, "english": 57, "weighted": 55.62, "rank": 28}, {"name": "Deivy Joseth Blandon Lacera", "global": 275, "reading": 62, "math": 48, "social": 52, "science": 58, "english": 56, "weighted": 55.08, "rank": 29}, {"name": "Elver Luis Guzman Zuleta", "global": 275, "reading": 58, "math": 59, "social": 53, "science": 52, "english": 48, "weighted": 54.92, "rank": 30}, {"name": "Jose Ricardo Lopez Araujo", "global": 273, "reading": 62, "math": 54, "social": 49, "science": 52, "english": 59, "weighted": 54.62, "rank": 31}, {"name": "Sebastian Andres Gomez Molina", "global": 273, "reading": 60, "math": 65, "social": 43, "science": 53, "english": 46, "weighted": 54.54, "rank": 32}, {"name": "Nicoll Sharay Dangond Cardenas", "global": 271, "reading": 60, "math": 53, "social": 55, "science": 50, "english": 50, "weighted": 54.15, "rank": 33}, {"name": "Jesus Armando Camargo Larios", "global": 266, "reading": 53, "math": 58, "social": 53, "science": 53, "english": 41, "weighted": 53.23, "rank": 34}, {"name": "Lineys Carolina Altamar Rivero", "global": 266, "reading": 54, "math": 52, "social": 49, "science": 58, "english": 52, "weighted": 53.15, "rank": 35}, {"name": "Moisés David Lora Ustariz", "global": 265, "reading": 54, "math": 55, "social": 48, "science": 57, "english": 48, "weighted": 53.08, "rank": 36}, {"name": "Lizz Gabriela Muñoz Hincapie", "global": 265, "reading": 56, "math": 49, "social": 55, "science": 54, "english": 47, "weighted": 53.0, "rank": 37}, {"name": "Yuliana Carolina Barrios Barrios", "global": 264, "reading": 49, "math": 61, "social": 51, "science": 54, "english": 42, "weighted": 52.85, "rank": 38}, {"name": "Ramos Navarro Samuel Yesid", "global": 262, "reading": 48, "math": 54, "social": 55, "science": 55, "english": 45, "weighted": 52.38, "rank": 39}, {"name": "Peraza Bula Emmanuel Andres", "global": 262, "reading": 49, "math": 61, "social": 47, "science": 51, "english": 56, "weighted": 52.31, "rank": 40}, {"name": "Luis Martinez Sanchez", "global": 261, "reading": 57, "math": 54, "social": 51, "science": 50, "english": 43, "weighted": 52.23, "rank": 41}, {"name": "Ustariz Mendoza Emmanuel David", "global": 260, "reading": 55, "math": 52, "social": 47, "science": 54, "english": 52, "weighted": 52.0, "rank": 42}, {"name": "Posada Vásquez Camilo Andres", "global": 259, "reading": 54, "math": 56, "social": 46, "science": 50, "english": 55, "weighted": 51.77, "rank": 43}, {"name": "Sebastian Felipe Calderon Hernandez", "global": 259, "reading": 57, "math": 41, "social": 57, "science": 54, "english": 46, "weighted": 51.77, "rank": 43}, {"name": "Álvarez Diaz Sofia Victoria", "global": 258, "reading": 58, "math": 50, "social": 51, "science": 48, "english": 49, "weighted": 51.54, "rank": 44}, {"name": "Gabriel Enrique Medina Guerrero", "global": 257, "reading": 55, "math": 55, "social": 51, "science": 48, "english": 42, "weighted": 51.46, "rank": 45}, {"name": "Villalobos Arias Jose Carlos", "global": 257, "reading": 54, "math": 48, "social": 50, "science": 49, "english": 65, "weighted": 51.38, "rank": 46}, {"name": "Sanderson David Arzuaga Villero", "global": 256, "reading": 59, "math": 46, "social": 46, "science": 58, "english": 39, "weighted": 51.23, "rank": 47}, {"name": "Ventura Padilla Sheila Isabel", "global": 256, "reading": 55, "math": 49, "social": 48, "science": 56, "english": 42, "weighted": 51.23, "rank": 47}, {"name": "Juan Sebastián Maquiria Mármol", "global": 255, "reading": 54, "math": 58, "social": 42, "science": 51, "english": 47, "weighted": 50.92, "rank": 48}, {"name": "Danna Briyeth Gaitan Collazos", "global": 253, "reading": 54, "math": 50, "social": 52, "science": 49, "english": 44, "weighted": 50.69, "rank": 49}, {"name": "Elsy Marcela Mendoza Bolaños", "global": 253, "reading": 57, "math": 44, "social": 54, "science": 47, "english": 52, "weighted": 50.62, "rank": 50}, {"name": "Jaider Fabian Andrade Mejia", "global": 252, "reading": 54, "math": 57, "social": 49, "science": 48, "english": 32, "weighted": 50.46, "rank": 51}, {"name": "Oñate Pinto Cristian Camilo", "global": 252, "reading": 55, "math": 57, "social": 36, "science": 56, "english": 43, "weighted": 50.38, "rank": 52}, {"name": "Rosa Margarita Martinez Sanchez", "global": 250, "reading": 53, "math": 52, "social": 51, "science": 46, "english": 44, "weighted": 50.0, "rank": 53}, {"name": "Luis Santiago Bermudez Lozano", "global": 250, "reading": 42, "math": 56, "social": 51, "science": 54, "english": 40, "weighted": 49.92, "rank": 54}, {"name": "Juan Diego Martinez Rodriguez", "global": 249, "reading": 59, "math": 55, "social": 42, "science": 49, "english": 32, "weighted": 49.77, "rank": 55}, {"name": "Tudares Rincones Stefano Andres", "global": 248, "reading": 50, "math": 56, "social": 40, "science": 54, "english": 45, "weighted": 49.62, "rank": 56}, {"name": "Cristian David Gulfo De Oro", "global": 248, "reading": 51, "math": 55, "social": 42, "science": 53, "english": 41, "weighted": 49.54, "rank": 57}, {"name": "Salcedo Gomez Stiven Andres", "global": 247, "reading": 54, "math": 46, "social": 44, "science": 49, "english": 62, "weighted": 49.31, "rank": 58}, {"name": "Maria Clara Calderon Murgas", "global": 246, "reading": 59, "math": 36, "social": 52, "science": 51, "english": 46, "weighted": 49.23, "rank": 59}, {"name": "Jose David Guillen Ruiz", "global": 244, "reading": 47, "math": 50, "social": 48, "science": 47, "english": 58, "weighted": 48.77, "rank": 60}, {"name": "Joel David Lopez Manjarres", "global": 243, "reading": 49, "math": 61, "social": 46, "science": 42, "english": 39, "weighted": 48.69, "rank": 61}, {"name": "Shayra Michell Castilla Araujo", "global": 243, "reading": 50, "math": 53, "social": 44, "science": 50, "english": 40, "weighted": 48.54, "rank": 62}, {"name": "Sharol Michel Becerra Mendoza", "global": 242, "reading": 45, "math": 55, "social": 47, "science": 48, "english": 45, "weighted": 48.46, "rank": 63}, {"name": "Elimar Daniela Guillen Quintero", "global": 242, "reading": 58, "math": 42, "social": 52, "science": 42, "english": 47, "weighted": 48.38, "rank": 64}, {"name": "Robles Becerra Efrain José", "global": 242, "reading": 50, "math": 47, "social": 49, "science": 46, "english": 53, "weighted": 48.38, "rank": 64}, {"name": "Orozco Bermudez Karen Yulieth", "global": 239, "reading": 48, "math": 50, "social": 43, "science": 49, "english": 52, "weighted": 47.85, "rank": 65}, {"name": "Carlos Daniel Nuñez Raudales", "global": 237, "reading": 50, "math": 56, "social": 41, "science": 48, "english": 31, "weighted": 47.38, "rank": 66}, {"name": "Ramírez Pinedo María Daniela", "global": 237, "reading": 53, "math": 50, "social": 46, "science": 40, "english": 49, "weighted": 47.38, "rank": 66}, {"name": "Zorrillo Raudales Carmen Daniela", "global": 236, "reading": 51, "math": 46, "social": 46, "science": 45, "english": 50, "weighted": 47.23, "rank": 67}, {"name": "Tejeda De la hoz Valeria", "global": 233, "reading": 52, "math": 51, "social": 37, "science": 45, "english": 52, "weighted": 46.69, "rank": 68}, {"name": "Vega Oñate Jose Miguel", "global": 233, "reading": 48, "math": 54, "social": 45, "science": 44, "english": 33, "weighted": 46.62, "rank": 69}, {"name": "Deisi Julianis Muñoz Fragozo", "global": 232, "reading": 49, "math": 52, "social": 37, "science": 51, "english": 36, "weighted": 46.38, "rank": 70}, {"name": "Javier Enrique Luquez Junco", "global": 232, "reading": 49, "math": 54, "social": 38, "science": 39, "english": 63, "weighted": 46.38, "rank": 70}, {"name": "Juan Diego Egea Sierra", "global": 231, "reading": 48, "math": 57, "social": 39, "science": 45, "english": 34, "weighted": 46.23, "rank": 71}, {"name": "Restrepo Torres Jhoel Sebastian", "global": 231, "reading": 48, "math": 50, "social": 42, "science": 44, "english": 48, "weighted": 46.15, "rank": 72}, {"name": "Shelsin Meriño Socarras", "global": 230, "reading": 41, "math": 50, "social": 50, "science": 44, "english": 44, "weighted": 46.08, "rank": 73}, {"name": "Yira Marcela Daza Mendoza", "global": 230, "reading": 50, "math": 52, "social": 42, "science": 42, "english": 40, "weighted": 46.0, "rank": 74}, {"name": "Sánchez Iseda Karla Milena", "global": 229, "reading": 51, "math": 44, "social": 39, "science": 48, "english": 49, "weighted": 45.77, "rank": 75}, {"name": "Dulce Maria Mendoza Charris", "global": 226, "reading": 41, "math": 43, "social": 46, "science": 47, "english": 57, "weighted": 45.23, "rank": 76}, {"name": "Emmanuel Arzuaga Suárez", "global": 223, "reading": 38, "math": 48, "social": 43, "science": 48, "english": 50, "weighted": 44.69, "rank": 77}, {"name": "Silva Barrios Samuel David", "global": 223, "reading": 49, "math": 45, "social": 43, "science": 37, "english": 57, "weighted": 44.54, "rank": 78}, {"name": "Socarras Fernandez Carol Sofia", "global": 223, "reading": 49, "math": 47, "social": 40, "science": 39, "english": 54, "weighted": 44.54, "rank": 78}, {"name": "Padilla Arcos Luciana", "global": 222, "reading": 47, "math": 43, "social": 45, "science": 43, "english": 44, "weighted": 44.46, "rank": 79}, {"name": "Ospina Ortega Veronica Isabel", "global": 222, "reading": 49, "math": 48, "social": 36, "science": 42, "english": 51, "weighted": 44.31, "rank": 80}, {"name": "Yorleidis Arrieta Sanjuan", "global": 221, "reading": 48, "math": 44, "social": 42, "science": 44, "english": 41, "weighted": 44.23, "rank": 81}, {"name": "Padilla Montesino Adriana Isabel", "global": 220, "reading": 41, "math": 44, "social": 38, "science": 51, "english": 51, "weighted": 44.08, "rank": 82}, {"name": "Johan David Herran Daza", "global": 219, "reading": 43, "math": 47, "social": 37, "science": 47, "english": 48, "weighted": 43.85, "rank": 83}, {"name": "Palmera Ramos Izaira Melissa", "global": 218, "reading": 53, "math": 38, "social": 43, "science": 38, "english": 50, "weighted": 43.54, "rank": 84}, {"name": "Laura Daniela Mendoza Iseda", "global": 214, "reading": 46, "math": 45, "social": 34, "science": 46, "english": 43, "weighted": 42.77, "rank": 85}, {"name": "Zuleta Quintero Rudys Mayibrith", "global": 214, "reading": 49, "math": 36, "social": 40, "science": 45, "english": 46, "weighted": 42.77, "rank": 85}, {"name": "Elieth Margarita Fernandez Aguirre", "global": 213, "reading": 43, "math": 47, "social": 36, "science": 45, "english": 42, "weighted": 42.69, "rank": 86}, {"name": "María Paula Herrera Rangel", "global": 211, "reading": 51, "math": 43, "social": 33, "science": 39, "english": 50, "weighted": 42.15, "rank": 87}, {"name": "Sanjuan Fernandez Mariangel", "global": 203, "reading": 45, "math": 48, "social": 30, "science": 44, "english": 28, "weighted": 40.69, "rank": 88}, {"name": "Jahira Velissa Miranda Mendoza", "global": 202, "reading": 39, "math": 40, "social": 34, "science": 49, "english": 40, "weighted": 40.46, "rank": 89}, {"name": "Ruiz Guerra Jairo Andres", "global": 194, "reading": 40, "math": 41, "social": 30, "science": 44, "english": 39, "weighted": 38.77, "rank": 90}, {"name": "Nikoll Shaday Delahoz Rivera", "global": 192, "reading": 43, "math": 36, "social": 36, "science": 38, "english": 41, "weighted": 38.46, "rank": 91}, {"name": "Helena Del Mar Díaz Bonilla", "global": 172, "reading": 35, "math": 32, "social": 29, "science": 41, "english": 36, "weighted": 34.38, "rank": 92}], "historicalAverages": {"2025": {"reading": 54.62, "math": 54.89, "social": 47.78, "science": 52.98, "english": 49.77}, "2024": {"reading": 56.78, "math": 53.88, "social": 49.71, "science": 54.18, "english": 51.85}, "2023": {"reading": 54.51, "math": 52.97, "social": 47.52, "science": 49.53, "english": 50.55}, "2022": {"reading": 52.02, "math": 48.26, "social": 44.69, "science": 48.26, "english": 49.92}, "2021": {"reading": 51.72, "math": 46.2, "social": 44.49, "science": 47.75, "english": 47.56}, "2020": {"reading": 54.09, "math": 50.28, "social": 49.08, "science": 48.28, "english": 42.85}, "2019": {"reading": 51.47, "math": 48.52, "social": 44.17, "science": 47.62, "english": 46.64}, "2018": {"reading": 54.0, "math": 50.0, "social": 50.0, "science": 53.0, "english": 49.0}, "2017": {"reading": 55.09, "math": 50.1, "social": 52.96, "science": 52.68, "english": 48.22}, "2016": {"reading": 51.11, "math": 48.34, "social": 50.11, "science": 51.71, "english": 50.26}, "2015": {"reading": 46.9, "math": 47.23, "social": 47.87, "science": 47.84, "english": 46.51}, "2014": {"reading": 46.48, "math": 47.63, "social": 48.31, "science": 48.01, "english": 46.24}}}</script>
+  <script>
+    const numberFormat = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 0 });
+    const decimalFormat = new Intl.NumberFormat("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const searchInput = document.querySelector("#student-search");
+    const sortSelect = document.querySelector("#sort-order");
+    const comparisonYears = document.querySelector("#comparison-years");
+    const comparisonNote = document.querySelector("#comparison-note");
+    const toggleEvolutionButton = document.querySelector("#toggle-evolution");
+    const evolutionPanel = document.querySelector("#evolution-panel");
+    const evolutionChart = document.querySelector("#evolution-chart");
+    const evolutionLegend = document.querySelector("#evolution-legend");
+    const generateAnalysisButton = document.querySelector("#generate-analysis");
+    const analysisReport = document.querySelector("#analysis-report");
+    const exportAnalysisButton = document.querySelector("#export-analysis-pdf");
+    const downloadAnalysisLink = document.querySelector("#download-analysis-html");
+    const tableBody = document.querySelector("#student-rows");
+    const countLabel = document.querySelector("#result-count");
+    const errorBox = document.querySelector("#load-error");
+    const embeddedReportData = document.querySelector("#embedded-report-data");
+    let reportData;
+    let selectedComparisonYear;
+    let currentAnalysisDownloadUrl;
+
+    function renderMetrics(data) {
+      document.querySelector("#metric-students").textContent = numberFormat.format(data.summary.students);
+      document.querySelector("#metric-global").textContent = decimalFormat.format(data.summary.globalAverage);
+      document.querySelector("#metric-weighted").textContent = decimalFormat.format(data.summary.weightedAverage);
+      document.querySelector("#metric-high").textContent = numberFormat.format(data.summary.highestGlobal);
+      document.querySelector("#metric-low").textContent = numberFormat.format(data.summary.lowestGlobal);
+    }
+
+    function renderAreas(areas, historicalAverages, selectedYear) {
+      const list = document.querySelector("#area-list");
+      const previous = historicalAverages[String(selectedYear)];
+      comparisonNote.textContent = `Variación por prueba: 2026 menos ${selectedYear}, expresada en puntos sobre 100.`;
+      list.replaceChildren(...areas.map((area) => {
+        const row = document.createElement("div");
+        row.className = "area-row";
+        const name = document.createElement("span");
+        name.className = "area-name";
+        name.textContent = area.label;
+        const bars = document.createElement("div");
+        bars.className = "area-comparison-bars";
+        bars.setAttribute("role", "img");
+        bars.setAttribute("aria-label", `${area.label}: 2026 ${decimalFormat.format(area.average)}, ${selectedYear} ${decimalFormat.format(previous[area.key])}`);
+        for (const [year, value, isPrevious] of [
+          [2026, area.average, false],
+          [selectedYear, previous[area.key], true],
+        ]) {
+          const line = document.createElement("div");
+          line.className = isPrevious ? "comparison-line previous" : "comparison-line";
+          const yearLabel = document.createElement("span");
+          yearLabel.className = "comparison-year";
+          yearLabel.textContent = year;
+          const track = document.createElement("div");
+          track.className = "area-track";
+          const bar = document.createElement("div");
+          bar.className = "area-bar";
+          bar.style.width = `${Math.max(0, Math.min(100, value))}%`;
+          const score = document.createElement("strong");
+          score.className = "comparison-value";
+          score.textContent = decimalFormat.format(value);
+          track.append(bar);
+          line.append(yearLabel, track, score);
+          bars.append(line);
+        }
+        const deltaValue = area.average - previous[area.key];
+        const delta = document.createElement("strong");
+        delta.className = `area-delta ${deltaValue > 0 ? "positive" : deltaValue < 0 ? "negative" : "neutral"}`;
+        delta.textContent = `${deltaValue > 0 ? "+" : deltaValue < 0 ? "−" : ""}${decimalFormat.format(Math.abs(deltaValue))} pts`;
+        row.append(name, bars, delta);
+        return row;
+      }));
+    }
+
+    function renderComparisonControls(areas, historicalAverages) {
+      const years = Object.keys(historicalAverages).sort((a, b) => Number(b) - Number(a));
+      selectedComparisonYear = years[0];
+      const buttons = years.map((year) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "year-button";
+        button.textContent = year;
+        button.setAttribute("aria-pressed", String(year === selectedComparisonYear));
+        button.addEventListener("click", () => {
+          selectedComparisonYear = year;
+          buttons.forEach((yearButton) => yearButton.setAttribute("aria-pressed", String(yearButton === button)));
+          renderAreas(areas, historicalAverages, selectedComparisonYear);
+        });
+        return button;
+      });
+      comparisonYears.replaceChildren(...buttons);
+      renderAreas(areas, historicalAverages, selectedComparisonYear);
+    }
+
+    function renderEvolutionChart(areas, historicalAverages) {
+      const svgNamespace = "http://www.w3.org/2000/svg";
+      const years = [...Object.keys(historicalAverages), "2026"].sort((a, b) => Number(a) - Number(b));
+      const series = areas.map((area, areaIndex) => ({
+        ...area,
+        color: ["#397b63", "#e66c54", "#b78522", "#4d9a99", "#719780"][areaIndex],
+        values: years.map((year) => year === "2026"
+          ? area.average
+          : historicalAverages[year][area.key]),
+      }));
+      const allValues = series.flatMap((area) => area.values);
+      const minimum = Math.floor(Math.min(...allValues) / 5) * 5;
+      const maximum = Math.ceil(Math.max(...allValues) / 5) * 5;
+      const plot = { left: 62, right: 936, top: 24, bottom: 326 };
+      const width = plot.right - plot.left;
+      const height = plot.bottom - plot.top;
+      const xFor = (index) => plot.left + (width * index) / (years.length - 1);
+      const yFor = (value) => plot.bottom - ((value - minimum) / (maximum - minimum)) * height;
+
+      function svgElement(name, attributes = {}) {
+        const element = document.createElementNS(svgNamespace, name);
+        Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+        return element;
+      }
+
+      const chartParts = [
+        svgElement("title", { id: "evolution-title" }),
+        svgElement("desc", { id: "evolution-description" }),
+      ];
+      chartParts[0].textContent = "Evolución histórica de los promedios Saber 11 por prueba";
+      chartParts[1].textContent = `Cinco curvas de promedios anuales desde ${years[0]} hasta 2026; escala vertical de ${minimum} a ${maximum} puntos.`;
+
+      for (let value = minimum; value <= maximum; value += 5) {
+        const y = yFor(value);
+        chartParts.push(svgElement("line", {
+          class: "evolution-grid",
+          x1: plot.left,
+          x2: plot.right,
+          y1: y,
+          y2: y,
+        }));
+        const label = svgElement("text", {
+          class: "evolution-axis-label",
+          "text-anchor": "end",
+          x: plot.left - 12,
+          y: y + 5,
+        });
+        label.textContent = value;
+        chartParts.push(label);
+      }
+
+      years.forEach((year, index) => {
+        if (index % 2 !== 0 && year !== "2026") return;
+        const label = svgElement("text", {
+          class: "evolution-axis-label",
+          "text-anchor": "middle",
+          x: xFor(index),
+          y: plot.bottom + 28,
+        });
+        label.textContent = year;
+        chartParts.push(label);
+      });
+
+      series.forEach((area) => {
+        const coordinates = area.values.map((value, index) => [xFor(index), yFor(value)]);
+        const path = svgElement("path", {
+          class: "evolution-line",
+          d: coordinates.map(([x, y], index) => `${index === 0 ? "M" : "L"}${x},${y}`).join(" "),
+          stroke: area.color,
+        });
+        chartParts.push(path);
+        coordinates.forEach(([x, y], index) => {
+          const point = svgElement("circle", {
+            class: "evolution-point",
+            cx: x,
+            cy: y,
+            r: yearPointRadius(index, years.length),
+            fill: area.color,
+          });
+          const title = svgElement("title");
+          title.textContent = `${area.label}, ${years[index]}: ${decimalFormat.format(area.values[index])}`;
+          point.append(title);
+          chartParts.push(point);
+        });
+      });
+      evolutionChart.replaceChildren(...chartParts);
+
+      evolutionLegend.replaceChildren(...series.map((area) => {
+        const item = document.createElement("li");
+        item.className = "evolution-legend-item";
+        const swatch = document.createElement("span");
+        swatch.className = "evolution-swatch";
+        swatch.style.backgroundColor = area.color;
+        const label = document.createElement("span");
+        label.textContent = area.label;
+        item.append(swatch, label);
+        return item;
+      }));
+
+      function yearPointRadius(index, yearCount) {
+        return index === 0 || index === yearCount - 1 || index % 2 === 0 ? 5 : 3.5;
+      }
+    }
+
+    toggleEvolutionButton.addEventListener("click", () => {
+      const isOpening = evolutionPanel.hidden;
+      evolutionPanel.hidden = !isOpening;
+      toggleEvolutionButton.setAttribute("aria-expanded", String(isOpening));
+      toggleEvolutionButton.textContent = isOpening ? "Ocultar evolución general" : "Ver evolución general";
+      if (isOpening && reportData) {
+        renderEvolutionChart(reportData.areas, reportData.historicalAverages);
+        generateAnalyticalReport({ download: true });
+      }
+    });
+
+    function formatChange(value) {
+      const rounded = Math.round(value * 100) / 100;
+      return `${rounded > 0 ? "+" : rounded < 0 ? "−" : ""}${decimalFormat.format(Math.abs(rounded))}`;
+    }
+
+    function generateAnalyticalReport({ download = false } = {}) {
+      if (!reportData || !selectedComparisonYear) return;
+      const historical = reportData.historicalAverages[String(selectedComparisonYear)];
+      const comparisons = reportData.areas.map((area) => ({
+        ...area,
+        previous: historical[area.key],
+        change: Math.round((area.average - historical[area.key]) * 100) / 100,
+      }));
+      const bestArea = [...reportData.areas].sort((a, b) => b.average - a.average)[0];
+      const greatestIncrease = [...comparisons].sort((a, b) => b.change - a.change)[0];
+      const greatestDecrease = [...comparisons].sort((a, b) => a.change - b.change)[0];
+
+      document.querySelector("#analysis-title").textContent = `Comparativo 2026 vs. ${selectedComparisonYear}`;
+      document.querySelector("#analysis-summary").textContent =
+        `La cohorte 2026 incluye ${numberFormat.format(reportData.summary.students)} estudiantes. ` +
+        `El promedio global fue ${numberFormat.format(reportData.summary.globalAverage)} sobre 500 y el ponderado ${decimalFormat.format(reportData.summary.weightedAverage)} sobre 100.`;
+      const increaseText = greatestIncrease.change > 0
+        ? `Mayor aumento: ${greatestIncrease.label} (${formatChange(greatestIncrease.change)} puntos).`
+        : "No hubo aumentos entre las pruebas comparadas.";
+      const decreaseText = greatestDecrease.change < 0
+        ? `Mayor disminución: ${greatestDecrease.label} (${formatChange(greatestDecrease.change)} puntos).`
+        : "No hubo disminuciones entre las pruebas comparadas.";
+      document.querySelector("#analysis-highlights").textContent =
+        `Área con mayor promedio en 2026: ${bestArea.label} (${decimalFormat.format(bestArea.average)}). ${increaseText} ${decreaseText}`;
+      document.querySelector("#analysis-year-header").textContent = selectedComparisonYear;
+      const chronologicalYears = Object.keys(reportData.historicalAverages).sort((a, b) => Number(a) - Number(b));
+      const baselineYear = chronologicalYears[0];
+      const trendRows = reportData.areas.map((area) => {
+        const observations = chronologicalYears.map((year) => ({
+          year,
+          value: reportData.historicalAverages[year][area.key],
+        }));
+        observations.push({ year: String(reportData.year), value: area.average });
+        const highest = observations.reduce((best, item) => item.value > best.value ? item : best);
+        const lowest = observations.reduce((worst, item) => item.value < worst.value ? item : worst);
+        const sinceBaseline = area.average - reportData.historicalAverages[baselineYear][area.key];
+        const item = document.createElement("li");
+        item.textContent =
+          `${area.label}: ${formatChange(sinceBaseline)} puntos desde ${baselineYear}; ` +
+          `máximo ${highest.year} (${decimalFormat.format(highest.value)}) y ` +
+          `mínimo ${lowest.year} (${decimalFormat.format(lowest.value)}).`;
+        return item;
+      });
+      document.querySelector("#analysis-trends").replaceChildren(...trendRows);
+
+      const rows = comparisons.map((comparison) => {
+        const row = document.createElement("tr");
+        const values = [
+          comparison.label,
+          decimalFormat.format(comparison.average),
+          decimalFormat.format(comparison.previous),
+          `${formatChange(comparison.change)} pts`,
+        ];
+        values.forEach((value, index) => {
+          const cell = document.createElement("td");
+          cell.textContent = value;
+          if (index > 0) cell.classList.add("numeric");
+          if (index === 3) cell.className = `numeric ${comparison.change > 0 ? "analysis-positive" : comparison.change < 0 ? "analysis-negative" : ""}`;
+          row.append(cell);
+        });
+        return row;
+      });
+      document.querySelector("#analysis-rows").replaceChildren(...rows);
+      analysisReport.hidden = false;
+      exportAnalysisButton.hidden = false;
+      generateAnalysisButton.setAttribute("aria-expanded", "true");
+      if (download) downloadAnalyticalReport();
+      analysisReport.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function downloadAnalyticalReport() {
+      const reportCopy = analysisReport.cloneNode(true);
+      reportCopy.removeAttribute("hidden");
+      reportCopy.querySelector("#export-analysis-pdf")?.remove();
+      reportCopy.querySelector("#download-analysis-html")?.remove();
+      reportCopy.querySelector("#analysis-download-status")?.remove();
+      if (!evolutionPanel.hidden && evolutionChart.childElementCount) {
+        const chartSection = document.createElement("section");
+        chartSection.className = "download-chart-section";
+        const heading = document.createElement("h3");
+        heading.textContent = "Evolución general 2014–2026";
+        chartSection.append(heading, evolutionChart.cloneNode(true), evolutionLegend.cloneNode(true));
+        reportCopy.insertBefore(chartSection, reportCopy.querySelector(".analysis-table-wrap"));
+      }
+      const filename = `Reporte_analitico_Saber11_2026_vs_${selectedComparisonYear}.html`;
+      const style = `
+        body{max-width:920px;margin:32px auto;padding:0 22px;color:#182622;font:15px/1.55 Arial,sans-serif}
+        h1,h2,h3{color:#173d35}h1{font-family:Georgia,serif;font-size:28px;font-weight:500}
+        .analysis-report{display:block!important;margin:0;padding:0;border:0}
+        .report-heading{display:block;margin-bottom:18px}.section-kicker{color:#397b63;font-size:11px;font-weight:bold;text-transform:uppercase}
+        .analysis-summary,.analysis-highlights,.analysis-caveat{max-width:880px}
+        .analysis-highlights{padding:12px 0;border-block:1px solid #d9e2dd}
+        .analysis-trends li{margin:8px 0}.analysis-table{width:100%;border-collapse:collapse}
+        .analysis-table th{background:#173d35;color:white;text-align:left}.analysis-table td,.analysis-table th{padding:9px;border-bottom:1px solid #d9e2dd}
+        .analysis-table .numeric{text-align:right}.analysis-positive{color:#397b63;font-weight:bold}.analysis-negative{color:#bd5945;font-weight:bold}
+        .download-chart-section{margin:24px 0}.download-chart-section svg{display:block;width:100%;height:auto}
+        .evolution-legend{display:flex;flex-wrap:wrap;gap:8px 18px;padding:0;list-style:none}
+        .evolution-legend-item{display:inline-flex;align-items:center;gap:7px;font-size:12px}
+        .evolution-swatch{width:18px;height:4px}.evolution-axis-label{font:15px Arial,sans-serif;fill:#66746e}
+        @media print{body{margin:0 auto;padding:0}.download-chart-section{break-before:page}}
+      `;
+      const documentHtml = `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${filename.replace(/\.html$/, "")}</title><style>${style}</style></head><body><header><p>INFORME INSTITUCIONAL · SABER 11 · 2026</p><h1>Institución Educativa Manuel Rodríguez Torices</h1></header>${reportCopy.outerHTML}</body></html>`;
+      const blob = new Blob([documentHtml], { type: "text/html;charset=utf-8" });
+      if (currentAnalysisDownloadUrl) URL.revokeObjectURL(currentAnalysisDownloadUrl);
+      const objectUrl = URL.createObjectURL(blob);
+      currentAnalysisDownloadUrl = objectUrl;
+      downloadAnalysisLink.href = objectUrl;
+      downloadAnalysisLink.download = filename;
+      downloadAnalysisLink.hidden = false;
+      downloadAnalysisLink.click();
+      const status = document.querySelector("#analysis-download-status");
+      status.textContent = `Informe listo: ${filename}. Si la descarga automática no inicia, usa Descargar informe o Exportar PDF.`;
+      status.hidden = false;
+    }
+
+    function renderPodium(students) {
+      const list = document.querySelector("#podium-list");
+      const topRanks = [...new Set(students.map((student) => student.rank))].slice(0, 10);
+      const leaders = students.filter((student) => topRanks.includes(student.rank));
+      list.replaceChildren(...leaders.map((student) => {
+        const item = document.createElement("li");
+        item.className = "podium-item";
+        const rank = document.createElement("span");
+        rank.className = "podium-rank";
+        rank.textContent = numberFormat.format(student.rank);
+        const name = document.createElement("span");
+        name.className = "podium-name";
+        name.textContent = student.name;
+        const score = document.createElement("strong");
+        score.className = "podium-score";
+        score.textContent = decimalFormat.format(student.weighted);
+        item.append(rank, name, score);
+        return item;
+      }));
+    }
+
+    function sortedStudents(students) {
+      const sort = sortSelect.value;
+      return [...students].sort((a, b) => {
+        if (sort === "global") return b.global - a.global || a.rank - b.rank || a.name.localeCompare(b.name, "es");
+        if (sort === "name") return a.name.localeCompare(b.name, "es");
+        return a.rank - b.rank || a.name.localeCompare(b.name, "es");
+      });
+    }
+
+    function renderTable(students) {
+      tableBody.replaceChildren(...students.map((student, studentIndex) => {
+        const row = document.createElement("tr");
+        const values = [studentIndex + 1, student.rank, student.name, decimalFormat.format(student.weighted), ...[
+          student.global, student.reading, student.math, student.social, student.science, student.english,
+        ].map((value) => numberFormat.format(value))];
+        values.forEach((value, index) => {
+          const cell = document.createElement("td");
+          cell.textContent = value;
+          if (index === 0) cell.className = "row-number-cell numeric";
+          if (index === 1) cell.className = "rank-cell numeric";
+          if (index === 2) cell.className = "student-name";
+          if (index === 3) cell.className = "weighted-cell numeric";
+          if (index > 2) cell.classList.add("numeric");
+          row.append(cell);
+        });
+        return row;
+      }));
+      countLabel.textContent = `${numberFormat.format(students.length)} de ${numberFormat.format(reportData.students.length)} estudiantes`;
+    }
+
+    function applyFilters() {
+      if (!reportData) return;
+      const query = searchInput.value.trim().toLocaleLowerCase("es");
+      const matches = reportData.students.filter((student) => student.name.toLocaleLowerCase("es").includes(query));
+      renderTable(sortedStudents(matches));
+    }
+
+    searchInput.addEventListener("input", applyFilters);
+    sortSelect.addEventListener("change", applyFilters);
+    generateAnalysisButton.addEventListener("click", () => generateAnalyticalReport({ download: true }));
+    exportAnalysisButton.addEventListener("click", () => {
+      const originalTitle = document.title;
+      const restoreScreen = () => {
+        document.body.classList.remove("print-analysis");
+        document.title = originalTitle;
+        window.removeEventListener("afterprint", restoreScreen);
+      };
+      document.body.classList.add("print-analysis");
+      document.title = `Reporte analítico Saber 11 2026 vs ${selectedComparisonYear}`;
+      window.addEventListener("afterprint", restoreScreen);
+      window.print();
+    });
+    const reportRequest = embeddedReportData
+      ? Promise.resolve(JSON.parse(embeddedReportData.textContent))
+      : fetch("./informe_icfes_2026_datos.json").then((response) => {
+          if (!response.ok) throw new Error("No fue posible cargar el informe de resultados.");
+          return response.json();
+        });
+    reportRequest
+      .then((data) => {
+        reportData = data;
+        renderMetrics(data);
+        renderComparisonControls(data.areas, data.historicalAverages);
+        renderPodium(data.students);
+        applyFilters();
+      })
+      .catch((error) => {
+        errorBox.hidden = false;
+        errorBox.textContent = `${error.message} Verifica que el archivo de datos esté junto a esta página y ábrela desde el servidor local.`;
+        tableBody.replaceChildren();
+        countLabel.textContent = "Datos no disponibles";
+      });
+  </script>
+</body>
+</html>
