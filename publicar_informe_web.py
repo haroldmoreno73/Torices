@@ -9,6 +9,7 @@ HTML_SOURCE = BASE_DIR / "informe_icfes_2026.html"
 DATA_SOURCE = BASE_DIR / "informe_icfes_2026_datos.json"
 PDF_SOURCE = BASE_DIR / "informe_icfes_2026_ponderado_y_posicion.pdf"
 CREST_SOURCE = BASE_DIR / "escudo_Torices.jpg"
+PROMO_IMAGE_SOURCE = BASE_DIR / "resultado_saber11_orgullo_torices.png"
 HTML_OUTPUT = OUTPUT_DIR / "index.html"
 
 
@@ -48,6 +49,8 @@ def main():
     ):
         private_asset.unlink(missing_ok=True)
     HTML_OUTPUT.write_text(html, encoding="utf-8")
+    if PROMO_IMAGE_SOURCE.exists():
+        (OUTPUT_DIR / PROMO_IMAGE_SOURCE.name).write_bytes(PROMO_IMAGE_SOURCE.read_bytes())
     print(f"Interfaz publica creada: {HTML_OUTPUT}")
     print(f"Estudiantes incluidos: {report_data['summary']['students']}")
     print("Archivos publicados: 1 HTML independiente")

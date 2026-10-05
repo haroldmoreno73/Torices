@@ -54,11 +54,29 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 32px;
+      gap: 24px;
       max-width: 1440px;
       min-height: 242px;
       margin: 0 auto;
       padding: 34px 40px 32px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin-left: auto;
+    }
+    .header-banner {
+      display: block;
+      width: min(230px, 26vw);
+      max-width: 230px;
+      height: auto;
+      padding: 8px 10px;
+      border: 1px solid rgb(255 255 255 / 24%);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 20px rgb(0 0 0 / 12%);
+      object-fit: contain;
     }
     .institution-crest {
       position: absolute;
@@ -363,7 +381,10 @@
         <h1>Institución Educativa<br>Manuel Rodríguez Torices</h1>
         <p class="masthead-subtitle">Resultados de las pruebas Saber 11 · 2026</p>
       </div>
-      <div class="report-stamp"><span class="stamp-dot"></span><span>CONSOLIDADO 2026</span></div>
+      <div class="header-brand">
+        <img class="header-banner" src="./resultado_saber11_orgullo_torices.png" alt="Resultado Saber 11 · Orgullo Torices" width="230" height="140">
+        <div class="report-stamp"><span class="stamp-dot"></span><span>CONSOLIDADO 2026</span></div>
+      </div>
       <img class="institution-crest" src="./escudo_Torices.jpg" width="54" height="73" alt="Escudo de la Institución Educativa Manuel Rodríguez Torices">
     </div>
   </header>

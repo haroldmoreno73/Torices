@@ -54,11 +54,29 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 32px;
+      gap: 24px;
       max-width: 1440px;
       min-height: 242px;
       margin: 0 auto;
       padding: 34px 40px 32px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin-left: auto;
+    }
+    .header-banner {
+      display: block;
+      width: min(230px, 26vw);
+      max-width: 230px;
+      height: auto;
+      padding: 8px 10px;
+      border: 1px solid rgb(255 255 255 / 24%);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 20px rgb(0 0 0 / 12%);
+      object-fit: contain;
     }
     .institution-crest {
       position: absolute;
@@ -363,7 +381,10 @@
         <h1>Institución Educativa<br>Manuel Rodríguez Torices</h1>
         <p class="masthead-subtitle">Resultados de las pruebas Saber 11 · 2026</p>
       </div>
-      <div class="report-stamp"><span class="stamp-dot"></span><span>CONSOLIDADO 2026</span></div>
+      <div class="header-brand">
+        <img class="header-banner" src="./resultado_saber11_orgullo_torices.png" alt="Resultado Saber 11 · Orgullo Torices" width="230" height="140">
+        <div class="report-stamp"><span class="stamp-dot"></span><span>CONSOLIDADO 2026</span></div>
+      </div>
       <img class="institution-crest" src="data:image/jpeg;base64,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" width="54" height="73" alt="Escudo de la Institución Educativa Manuel Rodríguez Torices">
     </div>
   </header>
