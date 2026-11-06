@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fundamentos conceptuales y metodológicos de las cinco etapas de la gestión de proyectos de software.">
+<title>Fundamentos de Gestión de Proyectos de Software</title>
+<style>
+:root{
+  --navy:#17365d;--blue:#245b91;--cyan:#eaf3fb;--ink:#233044;--muted:#64748b;
+  --line:#d9e2ec;--paper:#fff;--bg:#f3f6fa;--green:#eaf6ef;--gold:#fff6df;
+  --shadow:0 10px 30px rgba(23,54,93,.08);--radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.68 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+header.hero{background:linear-gradient(130deg,#102b4c,#245b91);color:white;padding:58px 22px 46px}
+.hero-inner,.layout,.footer-inner{max-width:1180px;margin:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:800;color:#c9e1f7}
+h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.12;max-width:850px;margin:12px 0}
+.hero p{max-width:780px;color:#e2edf8;font-size:1.08rem;margin:14px 0 0}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.pill{border:1px solid #ffffff55;border-radius:99px;padding:6px 12px;font-size:.83rem;color:#f2f7fc}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;padding:28px 20px 60px}
+nav{position:sticky;top:18px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);max-height:calc(100vh - 36px);overflow:auto}
+nav strong{display:block;color:var(--navy);font-size:.9rem;margin:0 0 10px}
+nav a{display:block;padding:6px 8px;border-radius:8px;color:#42536a;font-size:.88rem;line-height:1.4}
+nav a:hover{background:var(--cyan);text-decoration:none;color:var(--navy)}
+main{min-width:0}
+section,.stage{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,34px);margin-bottom:22px;box-shadow:var(--shadow)}
+section.case-brief{display:none;position:fixed;inset:0 0 84px;overflow-y:auto;overflow-x:hidden;margin:0;border:0;border-radius:0;box-shadow:none;padding:0;background:linear-gradient(120deg,#063b25,#0b6134 68%,#13743b);color:#f7fff7;}
+section.case-brief.active-slide{display:flex}
+.case-brief .case-cover{position:relative;display:flex;flex-direction:column;justify-content:space-between;width:100%;max-width:none;margin:0;padding:38px 6% 34px;overflow:hidden;}
+.case-cover::after{content:"";position:absolute;inset:0 0 0 auto;width:32%;border-left:1px solid #ffffff20;background:repeating-linear-gradient(135deg,transparent 0 38px,#ffffff08 39px 40px);pointer-events:none;}
+.case-cover-header,.case-cover-main,.case-cover-footer{position:relative;z-index:1;}
+.case-cover-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:16px;border-bottom:1px solid #ffffff55;font-size:.78rem;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;}
+.case-cover-header strong{font-size:.9rem;letter-spacing:.04em;}
+.case-cover-main{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);align-items:center;gap:7%;flex:1;padding:30px 0;}
+.case-cover-kicker{margin:0 0 18px;color:#d4ef89;font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
+.case-cover h1{max-width:760px;margin:0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:3.6rem;line-height:1.08;font-weight:500;}
+.case-cover-lead{max-width:640px;margin:22px 0 0;color:#e3f2e7;font-size:1.08rem;line-height:1.65;}
+.case-cover-profile{padding:10px 0 10px 30px;border-left:2px solid #c8d92d;}
+.case-person{display:grid;grid-template-columns:88px minmax(0,1fr);align-items:center;gap:14px;margin-bottom:16px;}
+.case-profile-photo{display:block;width:88px;height:88px;object-fit:cover;object-position:center 38%;border:2px solid #ffffffbd;border-radius:50%;box-shadow:0 8px 20px #002b1766;}
+.case-cover-profile .profile-label{margin:0 0 8px;color:#d4ef89;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
+.case-cover-profile h2{margin:0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(.9rem,1.3vw,1.2rem);font-weight:500;white-space:nowrap;}
+.case-cover-profile p{margin:0;color:#e3f2e7;font-size:.95rem;line-height:1.55;}
+.case-cover-facts{margin-top:22px;}
+.case-cover-facts div{display:block;padding:10px 0;border-top:1px solid #ffffff35;font-size:.84rem;line-height:1.45;}
+.case-cover-facts strong{display:block;margin-bottom:3px;color:#d4ef89;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+.case-cover-footer{display:flex;align-items:flex-start;gap:18px;padding-top:16px;border-top:1px solid #ffffff55;}
+.case-cover-footer span{flex:0 0 4px;align-self:stretch;background:#c8d92d;}
+.case-cover-footer p{max-width:900px;margin:0;color:#f0f8ef;font-size:.92rem;line-height:1.5;font-weight:600;}
+@media(max-width:760px){section.case-brief{inset:0 0 70px}.case-brief .case-cover{padding:28px 24px}.case-cover-main{grid-template-columns:1fr;gap:26px;padding:32px 0}.case-cover h1{font-size:2.7rem}.case-cover-profile{padding-left:18px}.case-cover-profile h2{font-size:1.5rem}.case-cover-header{align-items:flex-start;flex-direction:column;gap:6px}.case-cover::after{width:24%;}}
+@media(max-width:760px){.case-person{grid-template-columns:88px minmax(0,1fr)}.case-profile-photo{width:88px;height:88px}.case-cover-profile h2{font-size:1.5rem}}
+@media(max-width:420px){.case-cover h1{font-size:2.2rem}.case-person{grid-template-columns:72px minmax(0,1fr);gap:12px}.case-profile-photo{width:72px;height:72px}.case-cover-profile h2{font-size:1.18rem}.case-cover-facts div{grid-template-columns:92px 1fr;gap:8px}.case-cover-footer p{font-size:.84rem}}
+.case-brief.active-slide ~ .deck-hint{display:none;}
+h2{font-size:1.65rem;line-height:1.25;color:var(--navy);margin:0 0 16px}
+h3{font-size:1.15rem;color:var(--blue);margin:24px 0 8px}
+h4{font-size:1rem;color:var(--navy);margin:18px 0 6px}
+p{margin:8px 0 13px}
+.lead{font-size:1.08rem;color:#42536a}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.card h3{margin:0 0 7px}
+.callout{background:var(--cyan);border-left:4px solid var(--blue);padding:14px 17px;border-radius:8px;margin:16px 0}
+.callout.green{background:var(--green);border-color:#39835a}
+.callout.gold{background:var(--gold);border-color:#c58b1b}
+.stage-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.stage-number{width:46px;height:46px;flex:0 0 46px;border-radius:13px;background:var(--navy);color:white;display:grid;place-items:center;font-weight:800;font-size:1.1rem}
+.stage-head h2{margin:0}
+.subtitle{color:var(--muted);font-weight:600;margin-top:2px}
+ul,ol{padding-left:22px;margin:8px 0 14px}
+li{padding-left:3px;margin:4px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:10px 11px;text-align:left;vertical-align:top}
+th{background:#edf3f9;color:var(--navy);font-weight:750}
+tr:nth-child(even) td{background:#fbfcfe}
+.small{font-size:.88rem;color:var(--muted)}
+.kpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.kpi div{background:#f6f9fc;border:1px solid var(--line);padding:14px;border-radius:12px}
+.kpi b{display:block;color:var(--navy);font-size:1.05rem}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:18px 0}
+.flow div{padding:13px 10px;border-radius:10px;background:#edf4fb;border:1px solid #d3e2f1;text-align:center}
+.flow b{display:block;color:var(--navy);font-size:.9rem}
+.flow span{font-size:.78rem;color:#52647a}
+.transversal{background:var(--gold);border:1px solid #f0dfb6;border-radius:12px;padding:13px 16px;text-align:center;font-weight:700;color:#785719}
+.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#f1f5f9;padding:3px 7px;border-radius:6px;white-space:nowrap}
+footer{background:#102b4c;color:#d9e6f3;padding:24px 20px}
+footer p{margin:0;font-size:.88rem}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+button{border:0;border-radius:9px;padding:10px 15px;font:inherit;font-weight:700;cursor:pointer}
+button.primary{background:white;color:var(--navy)}button.secondary{background:#ffffff1c;color:white;border:1px solid #ffffff66}
+@media(max-width:850px){.layout{grid-template-columns:1fr}nav{position:relative;top:auto;max-height:none}.flow{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+@media(max-width:560px){.kpi{grid-template-columns:1fr}table{display:block;overflow-x:auto;white-space:normal}header.hero{padding-top:40px}}
+@media print{
+ body{background:white;font-size:10pt}.hero{padding:25px!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .layout{display:block;padding:12px 0}.layout nav,.actions{display:none!important}
+ section,.stage{box-shadow:none;break-inside:avoid;border:1px solid #bbb;margin-bottom:12px;padding:18px}
+ a{color:inherit;text-decoration:none}footer{background:white;color:#333;border-top:1px solid #bbb}
+ h2,h3{break-after:avoid}table{font-size:8.5pt}
+}
+
+/* Modo presentación: un tema por pantalla */
+html, body { width:100%; height:100%; overflow:hidden; }
+body { background:#edf2f7; }
+.layout { display:block; max-width:none; padding:0; margin:0; }
+.layout nav { display:none !important; }
+main { display:block; min-width:0; }
+.hero, main > section {
+  position:fixed; inset:0 0 84px; width:100vw; height:auto;
+  overflow-y:auto; overflow-x:hidden; margin:0; border:0; border-radius:0;
+  box-shadow:none; padding:clamp(24px,5vw,72px);
+  display:none; overscroll-behavior:contain;
+}
+.hero { align-items:center; }
+.hero.active-slide { display:flex; }
+.hero-inner { width:min(1120px,100%); }
+main > section.active-slide { display:block; }
+main > section { padding-bottom:110px; }
+main > section { padding-bottom:36px; }
+main > section > * { max-width:1180px; margin-left:auto; margin-right:auto; }
+main > section h2 { font-size:clamp(1.7rem,3.2vw,2.8rem); }
+main > section h3 { font-size:clamp(1.05rem,1.8vw,1.4rem); }
+main > section p, main > section li { font-size:clamp(.95rem,1.25vw,1.12rem); }
+main > section table { font-size:clamp(.78rem,1vw,.98rem); }
+main > section .grid, main > section .kpi { max-width:1180px; }
+.deck-controls {
+  position:fixed; z-index:1000; left:auto; right:clamp(12px,3vw,42px); bottom:16px; transform:none;
+  display:flex; align-items:center; gap:10px; padding:9px 12px;
+  background:#102b4cf2; color:white; border:1px solid #ffffff35;
+  border-radius:14px; box-shadow:0 8px 28px #102b4c35;
+  font-size:.9rem; backdrop-filter:blur(8px); max-width:calc(100vw - 24px);
+}
+.deck-controls button { background:#fff; color:#17365d; padding:9px 13px; white-space:nowrap; }
+.deck-controls button:disabled { opacity:.4; cursor:not-allowed; }
+.deck-count { min-width:66px; text-align:center; font-variant-numeric:tabular-nums; }
+.deck-progress { position:fixed; z-index:1001; top:0; left:0; height:5px; background:#3b82b8; transition:width .2s ease; }
+.deck-hint { position:fixed; z-index:999; top:14px; right:18px; color:#64748b; background:#ffffffdf;
+  border-radius:99px; padding:5px 10px; font-size:.75rem; }
+.hero .actions { margin-top:28px; }
+@media(max-width:700px) {
+ .hero, main > section { inset:0 0 70px; padding:24px 18px 24px; }
+ .deck-controls { right:10px; bottom:9px; gap:6px; padding:7px; }
+ .deck-controls button { padding:8px 10px; font-size:.82rem; }
+ .deck-hint { display:none; }
+ .flow { grid-template-columns:1fr; }
+ .grid,.kpi { grid-template-columns:1fr; }
+}
+@media print {
+ html,body { height:auto; overflow:visible; }
+ .hero,main > section { position:static; display:block !important; width:auto;height:auto;overflow:visible;page-break-after:always;padding:24px;margin:0;border:1px solid #bbb; }
+ .deck-controls,.deck-progress,.deck-hint { display:none !important; }
+ .layout { display:block; }
+}
+
+
+/* Identidad visual UPC */
+:root {
+  --upc-green:#16833b;
+  --upc-deep:#075b2b;
+  --upc-mid:#45a83d;
+  --upc-light:#eaf5e9;
+  --upc-lime:#c8d92d;
+  --upc-yellow:#fff59d;
+  --upc-ink:#25352b;
+  --upc-line:#cfe2d0;
+  --navy:var(--upc-deep);
+  --blue:var(--upc-green);
+  --cyan:var(--upc-light);
+  --ink:var(--upc-ink);
+  --line:var(--upc-line);
+}
+body { background:#f4f8f3; }
+.hero, main > section { border-top:7px solid var(--upc-green); }
+.hero {
+  background:
+    linear-gradient(100deg,rgba(3,47,25,.88),rgba(5,82,40,.70) 55%,rgba(8,75,39,.35)),
+    url("https://cdn.semanariolacalle.com/2019/11/UPC-ELECCIONES-VIRTUALES-22-scaled.jpg") center 48%/cover no-repeat;
+  color:#fff;
+}
+.hero::after {
+  content:""; position:absolute; inset:auto 0 0 0; height:11px;
+  background:linear-gradient(90deg,var(--upc-deep) 0 42%,#fff 42% 58%,var(--upc-green) 58% 100%);
+}
+.hero-inner { position:relative; z-index:1; padding-top:58px; }
+.hero-inner { padding-top:clamp(145px,18vh,205px); }
+.hero .eyebrow { color:#e2f5df; }
+.hero h1 { text-shadow:0 2px 18px #002b17aa; }
+.hero p { color:#f1fff1; text-shadow:0 1px 8px #002b17a8; }
+.hero .pill { background:#ffffff18; border-color:#ffffff8a; }
+.hero .primary { background:#fff; color:var(--upc-deep); }
+.hero .secondary { background:var(--upc-green); border-color:#ffffff88; }
+main > section {
+  background:
+    linear-gradient(0deg,rgba(255,255,255,.965),rgba(255,255,255,.965)),
+    url("https://cdn.semanariolacalle.com/2019/11/UPC-ELECCIONES-VIRTUALES-22-scaled.jpg") center/cover fixed;
+}
+main > section h2 { color:var(--upc-deep); border-bottom:2px solid #dcebdc; padding-bottom:12px; }
+main > section h3 { color:var(--upc-green); }
+.stage-number { background:var(--upc-green); }
+.callout { background:#edf7ec; border-left-color:var(--upc-green); }
+.callout.green { background:#e5f3e5; border-color:var(--upc-mid); }
+.callout.gold { background:#fff9dc; border-color:#d3bd28; }
+th { background:#e7f3e6; color:var(--upc-deep); }
+tr:nth-child(even) td { background:#f8fbf7; }
+.card { border-color:#d5e7d4; }
+.kpi div { background:#f1f8ef; border-color:#d7e8d4; }
+.flow div { background:#e9f5e8; border-color:#cfe5ce; }
+.flow b { color:var(--upc-deep); }
+.transversal { background:#fff9df; border-color:#e9dc9b; color:#675d1b; }
+footer { background:var(--upc-deep); border-top:6px solid var(--upc-lime); }
+.deck-controls { background:rgba(5,76,35,.96); }
+.deck-controls button { color:var(--upc-deep); }
+.deck-progress { background:var(--upc-lime); }
+.deck-hint { color:var(--upc-deep); }
+.deliverables a { font-size:.88em; font-weight:700; text-decoration:underline; text-decoration-color:#78a77a; text-underline-offset:2px; }
+.deliverables a:hover { color:var(--upc-deep); text-decoration-color:currentColor; }
+.guide-reference { margin:0 0 16px; font-size:.86rem; }
+.guide-reference a { display:inline-block; padding:6px 10px; border-left:3px solid var(--upc-green); border-radius:4px; background:#edf7ec; color:var(--upc-deep); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+.guide-reference a:hover { background:#e2f1e0; }
+.guide-title-link { color:inherit; text-decoration:underline; text-decoration-color:var(--upc-lime); text-underline-offset:5px; }
+
+.upc-brand {
+  position:relative; z-index:1; width:max-content; max-width:100%; margin:0 0 18px auto;
+  display:flex; align-items:center; gap:12px; padding:7px 11px;
+  border:1px solid #d9e8d8; border-radius:13px; background:#ffffffed;
+  box-shadow:0 5px 18px #063b1b18;
+}
+.upc-brand img { display:block; width:clamp(45px,5vw,64px); height:58px; object-fit:contain; }
+.upc-brand img + img { width:clamp(48px,5.5vw,70px); }
+.upc-cover-brand {
+  position:absolute; z-index:8; top:clamp(20px,4vw,42px); right:clamp(18px,4vw,56px);
+  display:flex; align-items:center; gap:14px; padding:10px 14px;
+  background:#ffffffed; border:1px solid #ffffffaa; border-radius:16px;
+  box-shadow:0 8px 28px #002b1745;
+}
+.upc-cover-brand img { width:clamp(66px,8vw,100px); height:clamp(68px,8vw,102px); object-fit:contain; }
+@media(max-width:700px) {
+ .upc-brand { top:auto; right:auto; margin-bottom:12px; padding:4px 7px; gap:6px; }
+ .upc-brand img { width:34px;height:38px; }
+ .upc-brand img + img { width:36px; }
+ .upc-cover-brand { top:12px;right:12px;padding:6px 8px;gap:6px; }
+ .upc-cover-brand img { width:48px;height:50px; }
+ .hero-inner { padding-top:100px; }
+}
+
+#conceptos { padding:20px clamp(18px,4vw,52px) 28px; }
+#conceptos .upc-brand { margin-bottom:8px; padding:4px 8px; }
+#conceptos .upc-brand img { height:42px; }
+#conceptos h2 { font-size:clamp(1.45rem,2.7vw,2.2rem); margin-bottom:10px; }
+#conceptos .concepts-definitions { gap:12px; margin:0 auto 8px; }
+#conceptos .concepts-definitions .card { padding:10px 12px; }
+#conceptos .concepts-definitions h3 { font-size:1rem; line-height:1.25; margin:0 0 5px; }
+#conceptos .concepts-definitions p { font-size:.9rem; line-height:1.38; margin:0; }
+#conceptos > h3 { font-size:1rem; margin:10px auto 5px; }
+#conceptos table { font-size:.82rem; line-height:1.25; margin:5px auto 0; }
+#conceptos th, #conceptos td { padding:5px 8px; }
+
+@media(max-width:700px) {
+ #conceptos { padding:16px 18px 24px; }
+ #conceptos .concepts-definitions { grid-template-columns:1fr; }
+}
+
+
+</style>
+</head>
+<body>
+<section class="case-brief" id="caso-inicial">
+  <div class="case-cover">
+   <div class="case-cover-header">
+    <strong>Universidad Popular del Cesar</strong>
+    <span>Ingeniería de Sistemas · Gestión de proyectos de software</span>
+   </div>
+   <div class="case-cover-main">
+    <div>
+          <h1>Formación tecnología y experiencia académica</h1>
+     <p class="case-cover-lead">Un perfil que conecta la formación en Ingeniería de Sistemas con estudios de posgrado, docencia y competencias en herramientas digitales.</p>
+    </div>
+    <div class="case-cover-profile">
+      <div class="case-person">
+       <img class="case-profile-photo" src="perfil1.jpg" alt="Retrato de Harold Moreno Bonilla" width="88" height="88">
+       <div>
+        <p class="profile-label">Perfil profesional</p>
+        <h2>Harold Moreno Bonilla</h2>
+       </div>
+      </div>
+     <p>Ingeniero de sistemas con formación Doctoral en gerencia en tecnología, Magister en telemática.</p>
+     <div class="case-cover-facts">
+      <div><strong>Experiencia</strong><span>Docencia universitaria y Asesor en transformación Digital.</span></div>
+      <div><strong>Competencias</strong><span>Sistemas IoT-semi-Industrial, Diseño de SIstemas de Información, arquitectura en la nube.</span></div>
+     </div>
+    </div>
+   </div>
+   <div class="case-cover-footer">
+    <span aria-hidden="true"></span>
+    <p>El caso muestra cómo la gestión de proyectos de software articula conocimiento técnico, liderazgo y comprensión organizacional para generar valor.</p>
+   </div>
+  </div>
+</section>
+
+<header class="hero">
+ <div class="upc-cover-brand" aria-label="Universidad Popular del Cesar e Ingeniería de Sistemas">
+  <img src="data:image/jpeg;base64,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" alt="Escudo de la Universidad Popular del Cesar">
+  <img src="data:image/jpeg;base64,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" alt="Escudo del programa de Ingeniería de Sistemas">
+ </div>
+
+ <div class="hero-inner">
+  <div class="eyebrow">Material académico · Ingeniería de software</div>
+  <h1>Fundamentos de la gestión de proyectos de software</h1>
+  <p>Fundamentación conceptual, metodológica y aplicación comercial de los cinco grupos de procesos: inicio, planificación, ejecución, monitoreo y control, y cierre.</p>
+  <div class="hero-meta">
+   <span class="pill">Gestión de proyectos</span><span class="pill">Ingeniería de Sistemas</span><span class="pill">Enfoque comercial</span>
+  </div>
+  <div class="actions">
+   <button class="primary" onclick="window.print()">Imprimir / Guardar como PDF</button>
+   <button class="secondary" onclick="document.getElementById('referencias').scrollIntoView()">Consultar referencias</button>
+  </div>
+
+ </div>
+</header>
+
+<div class="layout">
+<nav aria-label="Tabla de contenido">
+ <strong>Contenido de la página</strong>
+ <a href="#introduccion">1. Introducción</a>
+ <a href="#conceptos">2. Conceptos fundamentales</a>
+ <a href="#procesos">3. Cinco grupos de procesos</a>
+ <a href="#inicio">4. Inicio</a>
+ <a href="#planificacion">5. Planificación</a>
+ <a href="#ejecucion">6. Ejecución</a>
+ <a href="#monitoreo">7. Monitoreo y control</a>
+ <a href="#cierre">8. Cierre</a>
+ <a href="#integracion">9. Integración</a>
+ <a href="#ciclo">10. Gestión y ciclo de vida</a>
+ <a href="#enfoques">11. Enfoques predictivos y ágiles</a>
+ <a href="#indicadores">12. Indicadores</a>
+ <a href="#caso">13. Caso integrador</a>
+ <a href="#conclusiones">14. Conclusiones</a>
+ <a href="#referencias">15. Referencias</a>
+</nav>
+
+<main>
+<section id="introduccion">
+ <h2>1. Introducción</h2>
+ <p class="lead">La gestión de proyectos de software o de sistemas de información no es simplemente “programar” ni “instalar un sistema”. Es la aplicación coordinada de conocimientos, habilidades, herramientas y técnicas para definir, organizar, ejecutar, controlar y cerrar un esfuerzo orientado a crear, adaptar, integrar o evolucionar una solución digital que entregue valor al negocio o a la organización.</p>
+ <div class="callout"><strong>No es lo mismo:</strong>
+  <ul>
+   <li><strong>Proyecto:</strong> esfuerzo temporal y único, con objetivos, alcance, recursos y fechas definidas; se inicia para producir un resultado concreto y termina con su cierre formal (PMI, 2021; ISO/IEC/IEEE, 2019).</li>
+   <li><strong>Gestión:</strong> conjunto de actividades de planificación, organización, dirección, seguimiento y control para lograr los objetivos del proyecto dentro de restricciones de alcance, costo, tiempo, calidad y riesgo (PMI, 2021; ISO/IEC/IEEE, 2019).</li>
+   <li><strong>Software:</strong> conjunto de programas, datos, reglas, interfaces y configuraciones que automatizan funciones, soportan procesos de negocio y permiten servicios digitales; es la solución técnica o el producto generado (SWEBOK, 2024; Pressman &amp; Maxim, 2020).</li>
+  </ul>
+ </div>
+ <p>La gestión de proyectos de software o de sistemas de información integra estas dimensiones: necesidades del cliente, alcance, cronograma, costo, calidad, riesgos, recursos, comunicaciones, adquisiciones, cambio y aceptación de resultados. No se reduce a la ingeniería de software ni a la operación rutinaria de un sistema; tampoco es una actividad improvisada, un paquete de tareas aisladas o la mera compra de licencias. Implica coordinar la solución técnica con los objetivos organizacionales, las personas involucradas y el contexto de negocio.</p>
+ <p>En ese sentido, la gestión de proyectos de software o de sistemas de información es la capacidad de orientar la creación y evolución de soluciones digitales hacia resultados verificables, sostenibles y valiosos para la organización, asegurando que el proyecto cumpla sus metas y que la solución generada responda al problema real que motivó su desarrollo. Esta perspectiva es coherente con los estándares del PMI, ISO/IEC/IEEE y la guía SWEBOK, que distinguen entre la dirección del proyecto, el ciclo de vida del software y la operación del sistema resultante.</p>
+</section>
+
+<section id="conceptos">
+ <h2>2. Proyecto y gestión de proyectos de software</h2>
+ <div class="grid concepts-definitions">
+  <article class="card">
+   <h3>2.1. ¿Qué es un proyecto de software?</h3>
+   <p>Es un esfuerzo temporal y organizado que utiliza recursos humanos, financieros y tecnológicos para crear, adaptar, integrar o implementar un producto o servicio basado en software, con objetivos y criterios de aceptación definidos. Es temporal porque tiene un inicio y un cierre formal, aunque el producto pueda continuar operando y recibiendo mantenimiento.</p>
+  </article>
+  <article class="card">
+   <h3>2.2. ¿Qué es la gestión de proyectos de software?</h3>
+   <p>Es la dirección y coordinación del trabajo necesario para alcanzar los objetivos del proyecto con restricciones y criterios acordados. Busca equilibrar alcance, cronograma, presupuesto, calidad, riesgos y valor para el negocio, promoviendo la comunicación entre patrocinadores, usuarios, equipo técnico y demás interesados.</p>
+  </article>
+ </div>
+ <h3>2.3. Elementos fundamentales</h3>
+ <table><thead><tr><th>Elemento</th><th>Aplicación en software</th></tr></thead><tbody>
+ <tr><td>Alcance</td><td>Funciones, servicios, entregables y límites del producto y del proyecto.</td></tr>
+ <tr><td>Tiempo</td><td>Actividades, dependencias, hitos, iteraciones y fechas.</td></tr>
+ <tr><td>Costo</td><td>Personal, infraestructura, licencias, servicios, operación y contingencias.</td></tr>
+ <tr><td>Calidad</td><td>Grado en que el producto y el proceso cumplen requisitos y criterios acordados.</td></tr>
+ <tr><td>Recursos</td><td>Personas, herramientas, infraestructura, datos y conocimiento.</td></tr>
+ <tr><td>Riesgos</td><td>Eventos inciertos que pueden afectar objetivos o beneficios.</td></tr>
+ <tr><td>Interesados</td><td>Patrocinadores, clientes, usuarios, proveedores, equipo y reguladores.</td></tr>
+ <tr><td>Valor de negocio</td><td>Beneficios operativos, económicos, sociales o estratégicos que se esperan.</td></tr>
+ </tbody></table>
+</section>
+
+<section id="procesos">
+ <h2>3. Los cinco grupos de procesos de la gestión de proyectos</h2>
+ <p>El enfoque clásico del Project Management Institute organiza la dirección de proyectos en cinco grupos de procesos: inicio, planificación, ejecución, monitoreo y control, y cierre. En este material se denominan etapas por facilidad didáctica. Sin embargo, técnicamente son grupos de procesos y no necesariamente fases secuenciales: pueden solaparse, repetirse y adaptarse al ciclo de vida predictivo, iterativo, incremental o ágil.</p>
+ <div class="flow">
+  <div><b>1. Inicio</b><span>Autorizar</span></div>
+  <div><b>2. Planificación</b><span>Preparar</span></div>
+  <div><b>3. Ejecución</b><span>Construir</span></div>
+  <div><b>4. Monitoreo y control</b><span>Medir y ajustar</span></div>
+  <div><b>5. Cierre</b><span>Aceptar y transferir</span></div>
+ </div>
+ <div class="transversal">Monitoreo y control acompaña el desempeño durante todo el proyecto.</div>
+</section>
+
+<section class="stage" id="inicio">
+ <div class="stage-head"><div class="stage-number">01</div><div><h2>4. Primera etapa: <a class="guide-title-link" href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Inicio del proyecto</a></h2><div class="subtitle">Identificación y autorización</div></div></div>
+ <p>El inicio reúne las actividades que permiten reconocer una necesidad u oportunidad, determinar por qué conviene emprender el proyecto y autorizar formalmente su existencia. En software, supone comprender el problema del usuario o de la organización antes de decidir qué solución construir.</p>
+ <div class="callout"><b>Pregunta central:</b> ¿Qué necesidad se atenderá y por qué vale la pena invertir en esta iniciativa?</div>
+ <h3>Objetivos y actividades</h3>
+ <ul>
+  <li>Identificar el problema, oportunidad o necesidad.</li><li>Definir objetivos iniciales y resultados esperados.</li>
+  <li>Identificar patrocinador, cliente, usuarios y otros interesados.</li>
+  <li>Realizar una evaluación preliminar de viabilidad técnica, económica, operativa, legal y temporal.</li>
+  <li>Establecer supuestos, restricciones y riesgos iniciales.</li>
+  <li>Preparar y aprobar el acta de constitución del proyecto.</li>
+ </ul>
+ <h3>Entregables habituales</h3>
+ <p class="small">Las referencias enlazadas están seleccionadas por su pertinencia directa con cada entregable del proyecto; no son formatos oficiales de la UPC.</p>
+ <ul class="deliverables">
+  <li>Acta de constitución o <i>Project Charter</i>. 
+  <li>Justificación o caso de negocio inicial. </li>
+  <li>Registro preliminar de interesados. </li>
+  <li>Objetivos de alto nivel, supuestos y restricciones. 
+  <li>Evaluación preliminar de viabilidad. </li>
+ </ul>
+ <h3>Ejemplo aplicado al sistema de inventarios</h3>
+ <ul><li><b>Problema:</b> una distribuidora agrícola pierde mercancía por falta de control de existencias y vencimientos.</li><li><b>Oportunidad:</b> desarrollar una aplicación web para registrar productos, entradas, salidas y alertas.</li><li><b>Interesados:</b> gerente, personal de almacén, vendedores, contador y clientes.</li><li><b>Decisión:</b> autorizar el análisis y la planificación detallada, sujeto a viabilidad y presupuesto.</li></ul>
+</section>
+
+<section class="stage" id="planificacion">
+ <div class="stage-head"><div class="stage-number">02</div><div><h2>5. Segunda etapa: Planificación del proyecto</h2><div class="subtitle">Organización, diseño de la ruta y preparación</div></div></div>
+ <p>La planificación convierte los objetivos generales en una estrategia de trabajo verificable. Define qué se entregará, cómo se realizará, quién será responsable, cuánto costará, cuánto tiempo tomará y cómo se controlarán los riesgos y la calidad. En software incorpora la planificación de requisitos, arquitectura, construcción, pruebas, despliegue, seguridad y transición a operación.</p>
+ <div class="callout"><b>Pregunta central:</b> ¿Cómo se desarrollará y administrará el proyecto?</div>
+ <h3>Objetivos y actividades</h3>
+ <ul>
+  <li>Definir alcance, exclusiones y criterios de aceptación.</li><li>Identificar y priorizar requisitos funcionales y no funcionales.</li>
+  <li>Diseñar o seleccionar la arquitectura y las tecnologías.</li><li>Descomponer el trabajo en entregables y paquetes de trabajo (EDT/WBS).</li>
+  <li>Estimar esfuerzo, duración, costos y recursos.</li><li>Construir cronograma, presupuesto y asignación de responsabilidades.</li>
+  <li>Planificar calidad, pruebas, seguridad, comunicaciones, adquisiciones y gestión de cambios.</li>
+  <li>Identificar riesgos, analizar su probabilidad e impacto y definir respuestas.</li>
+ </ul>
+ <h3>Entregables habituales</h3>
+ <ul class="deliverables">
+  <li>Plan para la dirección del proyecto. </li>
+  <li>Documento de requisitos o especificación de requisitos de software. </li>
+  <li>Arquitectura y diseño de alto nivel. </li>
+  <li>EDT/WBS, cronograma y presupuesto. </li>
+  <li>Matriz de riesgos y planes de respuesta. </li>
+  <li>Plan de calidad, pruebas, comunicaciones y cambios. </li>
+ </ul>
+ <h3>Ejemplo aplicado al sistema de inventarios</h3>
+ <ul><li><b>Alcance incluido:</b> usuarios, productos, inventario, movimientos y reportes.</li><li><b>Exclusiones:</b> nómina, contabilidad integral y aplicación móvil nativa.</li><li><b>Requisitos funcionales:</b> registrar productos y actualizar existencias al confirmar una salida.</li><li><b>Requisitos no funcionales:</b> autenticación, respaldo, disponibilidad y tiempos de respuesta acordados.</li><li><b>Plan de trabajo:</b> iteraciones de dos semanas, con demostración y retroalimentación al cierre de cada iteración.</li></ul>
+</section>
+
+<section class="stage" id="ejecucion">
+ <div class="stage-head"><div class="stage-number">03</div><div><h2>6. Tercera etapa: Ejecución del proyecto</h2><div class="subtitle">Construcción, coordinación e integración</div></div></div>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <p>La ejecución consiste en realizar el trabajo definido en el plan para producir los entregables. En software incluye configurar ambientes, desarrollar componentes, gestionar código, integrar módulos, documentar, probar y coordinar al equipo. No equivale únicamente a codificar: también comprende gestionar personas, comunicaciones, proveedores, calidad y participación de los interesados.</p>
+ <div class="callout"><b>Pregunta central:</b> ¿Cómo convertimos los requisitos y diseños en entregables utilizables?</div>
+ <h3>Objetivos y actividades</h3>
+ <ul>
+  <li>Preparar repositorios, ambientes y herramientas.</li><li>Desarrollar interfaces, lógica de negocio, servicios y bases de datos.</li>
+  <li>Integrar módulos y sistemas externos cuando corresponda.</li><li>Aplicar control de versiones, revisión de código y prácticas de integración continua.</li>
+  <li>Ejecutar pruebas unitarias, de integración y otras pruebas planificadas.</li><li>Documentar arquitectura, instalación, operación y uso.</li>
+  <li>Coordinar al equipo, resolver impedimentos y comunicar avances.</li><li>Producir incrementos o versiones verificables del producto.</li>
+ </ul>
+ <h3>Entregables habituales</h3>
+ <ul class="deliverables">
+  <li>Código fuente y componentes desarrollados. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/140641734/5.26+-+Source+Code+Quality+Analysis+Report+Minimum+Content" target="_blank" rel="noopener noreferrer">Ficha de análisis de calidad del código</a></li>
+  <li>Versiones ejecutables o incrementos del producto. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695677/5.16+-+VDD+-+Version+Description+Document" target="_blank" rel="noopener noreferrer">Ficha de versión y entrega de software</a></li>
+  <li>Bases de datos, APIs e interfaces integradas. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695667/5.07+-+SDD+-+Software+Data+Dictionary" target="_blank" rel="noopener noreferrer">Ficha de diccionario de datos</a>; <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695656/5.02+-+IDD+-+Interface+Design+Description" target="_blank" rel="noopener noreferrer">ficha de diseño de interfaces</a>; <a href="https://spec.openapis.org/oas/latest.html" target="_blank" rel="noopener noreferrer">ejemplo de especificación OpenAPI</a></li>
+  <li>Resultados de pruebas y defectos registrados. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695672/5.11+-+STR+-+Software+Test+Report" target="_blank" rel="noopener noreferrer">Ficha de informe de pruebas</a>; <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695655/5.01+-+CR-PR+-+Software+Change+Request+-+Problem+Report" target="_blank" rel="noopener noreferrer">ficha de problemas y cambios</a></li>
+  <li>Documentación técnica y funcional actualizada. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695674/5.13+-+SwDD+-+Software+Design+Description" target="_blank" rel="noopener noreferrer">Ficha de diseño de software</a>; <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695673/5.12+-+SUM+-+Software+User+Manual" target="_blank" rel="noopener noreferrer">ficha de manual de usuario</a></li>
+ </ul>
+ <h3>Ejemplo aplicado al sistema de inventarios</h3>
+ <ul><li>Se construye primero el módulo de autenticación; luego productos y existencias; posteriormente movimientos y reportes.</li><li>Al registrar una salida, el sistema valida la disponibilidad y actualiza el inventario.</li><li>El equipo utiliza Git para versionar el código y revisiones de cambios antes de integrar funcionalidades.</li></ul>
+</section>
+
+<section class="stage" id="monitoreo">
+ <div class="stage-head"><div class="stage-number">04</div><div><h2>7. Cuarta etapa: Monitoreo y control</h2><div class="subtitle">Medición, comparación y acciones correctivas</div></div></div>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <p>El monitoreo y control observa el desempeño real, lo compara con las líneas base y los criterios aprobados, identifica desviaciones y gestiona respuestas. En proyectos de software se controlan cronograma, costos, alcance, calidad, riesgos, cambios, defectos, seguridad y satisfacción de los interesados. Esta actividad ocurre durante todo el proyecto y puede generar ajustes en la planificación y en la ejecución.</p>
+ <div class="callout"><b>Pregunta central:</b> ¿El proyecto avanza de acuerdo con lo acordado y qué debemos corregir?</div>
+ <h3>Objetivos y actividades</h3>
+ <ul>
+  <li>Recopilar datos de avance y desempeño.</li><li>Comparar resultados reales con cronograma, presupuesto y alcance aprobados.</li>
+  <li>Revisar calidad, defectos, cobertura y resultados de pruebas.</li><li>Actualizar riesgos, incidentes, impedimentos y dependencias.</li>
+  <li>Evaluar solicitudes de cambio y sus impactos.</li><li>Aprobar e implementar acciones correctivas o preventivas.</li><li>Comunicar el estado y escalar desviaciones relevantes.</li>
+ </ul>
+ <h3>Entregables habituales</h3>
+ <ul class="deliverables">
+  <li>Informes de desempeño y tableros de seguimiento. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695659/5.05+-+Metrics+-+Software+Metrics+Report" target="_blank" rel="noopener noreferrer">Ficha de métricas de software</a>; <a href="https://www.pmi.org/learning/search?search=project+performance+metrics" target="_blank" rel="noopener noreferrer">referencia de métricas y rendimiento del proyecto</a></li>
+  <li>Registro de riesgos, incidentes y defectos actualizado. <a href="https://www.pmi.org/learning/search?search=risk+register+issue+log" target="_blank" rel="noopener noreferrer">Referencia de registro de riesgos e incidencias</a>; <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695655/5.01+-+CR-PR+-+Software+Change+Request+-+Problem+Report" target="_blank" rel="noopener noreferrer">ficha de problemas e incidentes</a></li>
+  <li>Solicitudes y decisiones de cambio. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695655/5.01+-+CR-PR+-+Software+Change+Request+-+Problem+Report" target="_blank" rel="noopener noreferrer">Ficha de solicitud de cambio</a>; <a href="https://www.pmi.org/learning/search?search=change+request+configuration+management" target="_blank" rel="noopener noreferrer">control de cambios y configuración</a></li>
+  <li>Acciones correctivas y preventivas. <a href="https://www.pmi.org/learning/search?search=corrective+preventive+actions" target="_blank" rel="noopener noreferrer">Guía de acciones correctivas y preventivas</a></li>
+  <li>Pronósticos y actualizaciones autorizadas al plan. <a href="https://www.pmi.org/learning/search?search=forecasting+project+plan+updates" target="_blank" rel="noopener noreferrer">Referencia de pronósticos y actualización del plan</a>; <a href="https://www.nasa.gov/seh/6-7-technical-assessment" target="_blank" rel="noopener noreferrer">ficha de seguimiento de desempeño</a></li>
+ </ul>
+ <h3>Ejemplo aplicado al sistema de inventarios</h3>
+ <ul><li>El módulo de reportes presenta un retraso de dos semanas por dificultades de integración.</li><li>El gerente analiza el impacto en el plazo y el costo, prioriza los reportes indispensables y propone una acción correctiva.</li><li>Una solicitud para incorporar facturación electrónica se evalúa por alcance, costo, plazo, seguridad y obligaciones legales antes de aprobarse.</li></ul>
+</section>
+
+<section class="stage" id="cierre">
+ <div class="stage-head"><div class="stage-number">05</div><div><h2>8. Quinta etapa: Cierre del proyecto</h2><div class="subtitle">Aceptación, transferencia y finalización formal</div></div></div>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <p>El cierre formaliza la finalización del proyecto o de una fase. Comprueba que los entregables hayan sido completados y aceptados, transfiere el producto y la información necesaria a quienes lo operarán, concluye compromisos administrativos y registra las lecciones aprendidas. El cierre del proyecto no significa necesariamente que termine la vida del software: pueden continuar garantía, soporte, operación y mantenimiento bajo acuerdos específicos.</p>
+ <div class="callout"><b>Pregunta central:</b> ¿Se entregó y aceptó lo acordado y quedaron claras las responsabilidades posteriores?</div>
+ <h3>Objetivos y actividades</h3>
+ <ul>
+  <li>Verificar el cumplimiento del alcance y los criterios de aceptación.</li><li>Completar pruebas de aceptación y resolver defectos bloqueantes.</li>
+  <li>Desplegar o transferir el producto al entorno operativo.</li><li>Entregar código, manuales, configuraciones y documentación acordada.</li>
+  <li>Capacitar a usuarios y administradores.</li><li>Formalizar aceptación, cierre contractual y administrativo.</li>
+  <li>Evaluar resultados y documentar lecciones aprendidas.</li><li>Transferir responsabilidades de operación, soporte y mantenimiento.</li>
+ </ul>
+ <h3>Entregables habituales</h3>
+ <ul class="deliverables">
+  <li>Acta de aceptación y acta de entrega. <a href="https://www.pmi.org/learning/search?search=acceptance+criteria+handover" target="_blank" rel="noopener noreferrer">Referencia a criterios de aceptación y entrega</a></li>
+  <li>Versión final del software y elementos contractualmente acordados. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695677/5.16+-+VDD+-+Version+Description+Document" target="_blank" rel="noopener noreferrer">Ficha de descripción y entrega de versión</a></li>
+  <li>Manuales de usuario, administración e instalación. <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695673/5.12+-+SUM+-+Software+User+Manual" target="_blank" rel="noopener noreferrer">Ficha de manual de usuario</a>; <a href="https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695676/5.15+-+Train+-+Software+Training+Plan" target="_blank" rel="noopener noreferrer">guía de capacitación</a></li>
+  <li>Informe final y evaluación del proyecto. <a href="https://www.nasa.gov/seh/3-9-project-phase-f-closeout" target="_blank" rel="noopener noreferrer">Productos de cierre y reporte final</a>; <a href="https://www.nasa.gov/seh/6-7-technical-assessment" target="_blank" rel="noopener noreferrer">guía de evaluación y resultados</a></li>
+  <li>Registro de lecciones aprendidas y pendientes transferidos. <a href="https://www.nasa.gov/seh/3-9-project-phase-f-closeout" target="_blank" rel="noopener noreferrer">Guía de cierre, archivo y lecciones aprendidas</a></li>
+ </ul>
+ <h3>Ejemplo aplicado al sistema de inventarios</h3>
+ <ul><li>La empresa valida que los módulos acordados funcionan y firma el acta de aceptación.</li><li>Se despliega la aplicación, se capacita al personal y se entrega la documentación.</li><li>El soporte posterior se gestiona mediante un acuerdo de garantía o mantenimiento, separado del cierre formal.</li></ul>
+</section>
+
+<section id="integracion">
+ <h2>9. Integración de los cinco grupos de procesos</h2>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <table><thead><tr><th>Grupo de procesos</th><th>Pregunta orientadora</th><th>Resultado característico</th></tr></thead><tbody>
+ <tr><td>Inicio</td><td>¿Qué problema u oportunidad atenderemos?</td><td>Proyecto autorizado y objetivos iniciales.</td></tr>
+ <tr><td>Planificación</td><td>¿Qué se hará, cómo, cuándo, con quién y con qué recursos?</td><td>Planes, requisitos, cronograma y presupuesto.</td></tr>
+ <tr><td>Ejecución</td><td>¿Cómo producimos los entregables?</td><td>Software e incrementos desarrollados.</td></tr>
+ <tr><td>Monitoreo y control</td><td>¿Cómo sabemos si avanzamos correctamente?</td><td>Mediciones, decisiones y acciones ante desviaciones.</td></tr>
+ <tr><td>Cierre</td><td>¿Qué se entregó y quién lo acepta y opera?</td><td>Aceptación, transferencia y cierre formal.</td></tr>
+ </tbody></table>
+ <p>Los grupos de procesos pueden superponerse. El monitoreo y control es transversal: acompaña la ejecución y contrasta continuamente el desempeño con los planes. En enfoques iterativos y ágiles, planificación, ejecución, revisión y adaptación se repiten en cada iteración.</p>
+</section>
+
+<section id="ciclo">
+ <h2>10. Gestión del proyecto y ciclo de vida del software: una distinción necesaria</h2>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <p>Los grupos de procesos de dirección del proyecto no son idénticos a las actividades técnicas del ciclo de vida del software. La gestión organiza y gobierna el proyecto; la ingeniería de software define procesos técnicos para especificar, diseñar, construir, verificar, validar, desplegar, operar y mantener el producto. Ambas perspectivas se integran.</p>
+ <table><thead><tr><th>Gestión del proyecto</th><th>Actividades técnicas que pueden desarrollarse</th></tr></thead><tbody>
+ <tr><td>Inicio</td><td>Exploración de necesidades, identificación de usuarios y análisis inicial.</td></tr>
+ <tr><td>Planificación</td><td>Planificación de requisitos, arquitectura, pruebas y despliegue.</td></tr>
+ <tr><td>Ejecución</td><td>Análisis detallado, diseño, codificación, integración y pruebas.</td></tr>
+ <tr><td>Monitoreo y control</td><td>Revisión de calidad, métricas, defectos, cambios y riesgos técnicos.</td></tr>
+ <tr><td>Cierre</td><td>Validación final, aceptación, transición a operación y documentación.</td></tr>
+ </tbody></table>
+ <div class="callout gold"><b>Importante:</b> la correspondencia es orientativa, no una equivalencia rígida. Por ejemplo, las pruebas pueden realizarse desde etapas tempranas y repetirse durante cada iteración.</div>
+</section>
+
+<section id="enfoques">
+ <h2>11. Enfoques predictivos y ágiles</h2>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <p>La gestión de proyectos puede adaptarse a distintos ciclos de vida. La elección depende de la incertidumbre, regulación, criticidad, tamaño, cultura organizacional y posibilidad de obtener retroalimentación frecuente.</p>
+ <table><thead><tr><th>Aspecto</th><th>Predictivo</th><th>Ágil / adaptativo</th></tr></thead><tbody>
+ <tr><td>Planificación</td><td>Se define una planificación amplia al comienzo y se controla mediante líneas base.</td><td>Se planifica progresivamente y se reordena el trabajo según aprendizaje y valor.</td></tr>
+ <tr><td>Requisitos</td><td>Se procura estabilizar y documentar anticipadamente.</td><td>Se refinan y priorizan de manera continua.</td></tr>
+ <tr><td>Entrega</td><td>Puede concentrarse en hitos o entregas planificadas.</td><td>Se busca entregar incrementos frecuentes y utilizables.</td></tr>
+ <tr><td>Cambios</td><td>Se evalúan mediante control formal de cambios.</td><td>Se incorporan al backlog y se priorizan según valor y capacidad.</td></tr>
+ <tr><td>Seguimiento</td><td>Cronograma, costos, alcance y desempeño frente al plan.</td><td>Objetivo de iteración, flujo, incremento, calidad y retroalimentación.</td></tr>
+ </tbody></table>
+ <p>Ningún enfoque elimina la necesidad de gestionar alcance, costos, riesgos, calidad y aceptación.</p>
+</section>
+
+<section id="indicadores">
+ <h2>12. Indicadores útiles para el seguimiento</h2>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <table><thead><tr><th>Indicador</th><th>Qué permite observar</th><th>Precaución de interpretación</th></tr></thead><tbody>
+ <tr><td>Cumplimiento de hitos</td><td>Avance frente a fechas planificadas.</td><td>Un hito cumplido no demuestra por sí solo calidad o valor.</td></tr>
+ <tr><td>Variación de costo (CV)</td><td>EV − AC; diferencia entre valor ganado y costo real.</td><td>Debe usarse con datos consistentes de valor ganado.</td></tr>
+ <tr><td>Defectos abiertos y severidad</td><td>Estado de problemas identificados.</td><td>El número aislado no refleja toda la calidad.</td></tr>
+ <tr><td>Cobertura de pruebas</td><td>Parte del código o requisitos cubiertos por pruebas.</td><td>Cobertura alta no garantiza pruebas adecuadas.</td></tr>
+ <tr><td>Requisitos aceptados</td><td>Progreso de validación de requisitos.</td><td>Debe medirse con criterios de aceptación claros.</td></tr>
+ <tr><td>Satisfacción del usuario</td><td>Percepción y experiencia de los usuarios.</td><td>Conviene combinar encuestas con evidencia de uso.</td></tr>
+ </tbody></table>
+ <div class="callout"><b>Valor ganado:</b> <span class="formula">CV = EV − AC</span>, donde EV es el valor del trabajo efectivamente ganado y AC es el costo real incurrido. Si CV es negativo, el costo real supera el valor ganado del trabajo realizado.</div>
+</section>
+
+<section id="caso">
+ <h2>13. Caso integrador: sistema comercial de inventarios</h2>
+ <p class="guide-reference"><a href="https://ocw.unican.es/pluginfile.php/2141/course/section/1959/GP-t2.1.pdf" target="_blank" rel="noopener noreferrer">Guía universitaria: Gestión de Proyectos Software (PDF en español)</a></p>
+ <p>Una distribuidora regional de productos agrícolas registra sus existencias en hojas de cálculo. Tiene diferencias entre inventario físico y registros, pérdidas por vencimiento y dificultad para identificar productos de alta rotación. La dirección considera contratar el desarrollo de un sistema web comercial.</p>
+ <table><thead><tr><th>Etapa</th><th>Aplicación resumida</th></tr></thead><tbody>
+ <tr><td>Inicio</td><td>Documentar el problema, interesados, beneficios esperados y autorización para estudiar la solución.</td></tr>
+ <tr><td>Planificación</td><td>Definir alcance, requisitos, arquitectura, equipo, cronograma, presupuesto, riesgos y pruebas.</td></tr>
+ <tr><td>Ejecución</td><td>Desarrollar autenticación, productos, movimientos, alertas y reportes; integrar y probar.</td></tr>
+ <tr><td>Monitoreo y control</td><td>Comparar avance y costos, revisar defectos, controlar cambios y gestionar riesgos.</td></tr>
+ <tr><td>Cierre</td><td>Validar con usuarios, desplegar, capacitar, entregar manuales y formalizar aceptación.</td></tr>
+ </tbody></table>
+ <div class="callout green"><b>Valor esperado:</b> mejorar el control de mercancías, reducir pérdidas, disponer de información confiable y apoyar las decisiones comerciales.</div>
+</section>
+
+<section id="conclusiones">
+ <h2>14. Conclusiones</h2>
+ <ul>
+  <li>La gestión de proyectos de software integra decisiones de negocio, organización y tecnología.</li>
+  <li>Los cinco grupos de procesos proporcionan una estructura para autorizar, planificar, ejecutar, controlar y cerrar el trabajo.</li>
+  <li>La planificación debe contemplar requisitos funcionales y no funcionales, arquitectura, calidad, seguridad, pruebas y transición.</li>
+  <li>El monitoreo y control es transversal y permite responder a cambios y desviaciones.</li>
+  <li>El éxito debe evaluarse por el cumplimiento de acuerdos y por el valor que la solución produce para sus usuarios y la organización.</li>
+  <li>La entrega del software no equivale al fin de su vida útil: operación, soporte y mantenimiento pueden continuar.</li>
+ </ul>
+</section>
+
+<section id="referencias">
+ <h2>15. Referencias bibliográficas y normativas</h2>
+ <ol>
+  <li>Project Management Institute. (2022). <i>A Guide to the Project Management Body of Knowledge (PMBOK® Guide)</i> (7th ed.) and <i>The Standard for Project Management</i>. Project Management Institute.</li>
+  <li>Project Management Institute. (2017). <i>A Guide to the Project Management Body of Knowledge (PMBOK® Guide)</i> (6th ed.). Project Management Institute. Referencia útil para estudiar explícitamente los cinco grupos de procesos.</li>
+  <li>ISO/IEC/IEEE. (2019). <i>ISO/IEC/IEEE 16326:2019, Systems and software engineering — Life cycle processes — Project management.</i> International Organization for Standardization.</li>
+  <li>ISO/IEC/IEEE. (2017). <i>ISO/IEC/IEEE 12207:2017, Systems and software engineering — Software life cycle processes.</i> International Organization for Standardization.</li>
+  <li>IEEE Computer Society. (2024). <i>Guide to the Software Engineering Body of Knowledge (SWEBOK Guide), Version 4.0.</i> IEEE Computer Society.</li>
+  <li>Pressman, R. S., &amp; Maxim, B. R. (2020). <i>Software Engineering: A Practitioner's Approach</i> (9th ed.). McGraw-Hill.</li>
+  <li>Sommerville, I. (2016). <i>Software Engineering</i> (10th ed.). Pearson.</li>
+  <li>Schwaber, K., &amp; Sutherland, J. (2020). <i>The Scrum Guide.</i> <a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>.</li>
+ </ol>
+ <p class="small">Nota bibliográfica: las normas ISO/IEC/IEEE se citan por la edición identificada en la referencia. Antes de una adopción contractual o institucional, debe verificarse en el catálogo oficial si existe una edición, enmienda o adopción nacional posterior.</p>
+
+ <h3>Identidad visual institucional UPC</h3>
+ <p>La paleta verde y blanca y la aplicación de la marca se basan en el Manual de Identidad Visual Corporativa de la Universidad Popular del Cesar. Se incorporan los dos escudos suministrados por el usuario: el de la Universidad Popular del Cesar y el del programa de Ingeniería de Sistemas. Las fotografías del campus se utilizan como ambientación visual.</p>
+ <ul>
+  <li><a href="https://ips.unicesar.edu.co/index.php/es/normatividad/doc_download/16-manual-de-identidad-institucional" target="_blank" rel="noopener">Manual de Identidad Visual Corporativa UPC</a>.</li>
+  <li><a href="https://commons.wikimedia.org/wiki/File:LOGO_UNICESAR_2024.png" target="_blank" rel="noopener">Logotipo UPC 2024 – Wikimedia Commons (CC BY-SA 4.0)</a>.</li>
+  <li><a href="https://cdn.semanariolacalle.com/2019/11/UPC-ELECCIONES-VIRTUALES-22-scaled.jpg" target="_blank" rel="noopener">Fotografía del campus – Semanario La Calle</a>.</li>
+  <li><a href="https://3.bp.blogspot.com/-v2Yrw9WZRdo/U0wbd9VCVPI/AAAAAAAAAAg/IBtDI3woXYE/s1600/Universidad%2BPopular%2Bdel%2BCesar.jpg" target="_blank" rel="noopener">Escudo histórico UPC – imagen de referencia</a>.</li>
+ </ul>
+
+</section>
+</main>
+</div>
+<footer><div class="footer-inner"><p><strong>Fundamentos de la gestión de proyectos de software</strong> · Material de apoyo académico para Ingeniería de Sistemas. Página HTML autónoma, adaptable a dispositivos móviles e imprimible.</p></div></footer>
+
+<script>
+(() => {
+  const slides = [document.querySelector("section.case-brief"), document.querySelector("header.hero"), ...document.querySelectorAll("main > section")];
+  const upcLogo = "data:image/jpeg;base64,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";
+  const systemsLogo = "data:image/jpeg;base64,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";
+  document.querySelectorAll("main > section").forEach(section => {
+    const brand = document.createElement("div");
+    brand.className = "upc-brand";
+    brand.innerHTML = `<img src="${upcLogo}" alt="Escudo de la Universidad Popular del Cesar"><img src="${systemsLogo}" alt="Escudo del programa de Ingeniería de Sistemas">`;
+    section.insertBefore(brand, section.firstChild);
+  });
+
+  if (!slides.length) return;
+  let current = 0;
+
+  const progress = document.createElement("div");
+  progress.className = "deck-progress";
+  document.body.appendChild(progress);
+
+  const hint = document.createElement("div");
+  hint.className = "deck-hint";
+  hint.textContent = "Usa ← → o los botones para avanzar";
+  document.body.appendChild(hint);
+
+  const controls = document.createElement("div");
+  controls.className = "deck-controls";
+  controls.setAttribute("aria-label", "Controles de presentación");
+  controls.innerHTML = `
+    <button type="button" id="deck-prev" aria-label="Tema anterior">← Anterior</button>
+    <span class="deck-count" id="deck-count" aria-live="polite"></span>
+    <button type="button" id="deck-next" aria-label="Tema siguiente">Siguiente →</button>`;
+  document.body.appendChild(controls);
+
+  const prev = controls.querySelector("#deck-prev");
+  const next = controls.querySelector("#deck-next");
+  const count = controls.querySelector("#deck-count");
+
+  function show(index) {
+    current = Math.max(0, Math.min(index, slides.length - 1));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active-slide", i === current);
+      slide.setAttribute("aria-hidden", i === current ? "false" : "true");
+      slide.scrollTop = 0;
+    });
+    count.textContent = `${current + 1} / ${slides.length}`;
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    document.title = `${current + 1}/${slides.length} · Fundamentos de Gestión de Proyectos de Software`;
+    history.replaceState(null, "", `#${slides[current].id || "portada"}`);
+  }
+
+  prev.addEventListener("click", () => show(current - 1));
+  next.addEventListener("click", () => show(current + 1));
+  document.addEventListener("keydown", (event) => {
+    if (["ArrowRight", "PageDown", " "].includes(event.key)) {
+      event.preventDefault(); show(current + 1);
+    } else if (["ArrowLeft", "PageUp"].includes(event.key)) {
+      event.preventDefault(); show(current - 1);
+    } else if (event.key === "Home") {
+      show(0);
+    } else if (event.key === "End") {
+      show(slides.length - 1);
+    }
+  });
+
+  // Permite abrir directamente un tema mediante su identificador en la URL.
+  const requested = location.hash.slice(1);
+  const requestedIndex = slides.findIndex(slide => slide && slide.id === requested);
+  show(requestedIndex >= 0 ? requestedIndex : 0);
+})();
+</script>
+
+</body>
+</html>
