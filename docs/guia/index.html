@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guía interactiva universitaria sobre las actividades previas al Project Charter en proyectos de software.">
+<title>Guía interactiva | Fase de iniciación de proyectos de software</title>
+<style>
+:root{--navy:#17365d;--blue:#245b91;--gold:#d5a642;--ink:#1e293b;--muted:#64748b;--paper:#fff;--bg:#f2f5f9;--line:#dbe3ed;--green:#18794e;--red:#b42318}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.62 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(120deg,#102b4c,#245b91);color:white;padding:42px 22px 34px;border-bottom:5px solid var(--gold)}
+.hero{max-width:1150px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;font-weight:700;color:#f3d68c}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:.55rem 0 1rem;max-width:900px}.hero p{max-width:800px;color:#e4edf7;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.pill{border:1px solid #ffffff55;border-radius:99px;padding:5px 12px;font-size:.83rem}
+.layout{max-width:1250px;margin:24px auto;padding:0 18px;display:grid;grid-template-columns:265px minmax(0,1fr);gap:24px}
+nav{position:sticky;top:14px;align-self:start;background:white;border:1px solid var(--line);border-radius:14px;padding:16px;max-height:calc(100vh - 28px);overflow:auto}
+nav strong{display:block;color:var(--navy);margin:0 0 9px}nav a{display:block;text-decoration:none;color:#475569;padding:7px 9px;border-radius:7px;font-size:.9rem}nav a:hover,nav a.active{background:#eaf1f8;color:var(--navy);font-weight:650}
+main{min-width:0}.panel{background:white;border:1px solid var(--line);border-radius:15px;padding:clamp(19px,3vw,30px);margin-bottom:20px;box-shadow:0 3px 14px #16324f08}
+h2{color:var(--navy);font-size:1.65rem;line-height:1.2;margin:0 0 14px}h3{color:#234d78;margin:23px 0 8px;font-size:1.15rem}h4{margin:15px 0 6px;color:#334155}
+.lead{font-size:1.08rem;color:#475569}.callout{border-left:4px solid var(--gold);background:#fff8e8;padding:13px 16px;border-radius:0 9px 9px 0;margin:15px 0}.teacher{border-left:4px solid #3478b8;background:#edf5fc;padding:13px 16px;border-radius:0 9px 9px 0;margin:15px 0}.student{border-left:4px solid var(--green);background:#eef8f2;padding:13px 16px;border-radius:0 9px 9px 0;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px}.tile{background:#f7f9fc;border:1px solid var(--line);border-radius:11px;padding:15px}.tile b{color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.94rem}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#edf3f9;color:#183b61}tr:nth-child(even) td{background:#fafbfd}
+.flow{display:grid;gap:8px;max-width:720px;margin:20px auto}.step{background:#edf4fb;border:1px solid #cbdced;border-radius:10px;padding:13px;text-align:center;font-weight:650;color:#173b61}.arrow{text-align:center;color:#8294a8;font-size:1.25rem}
+details{border:1px solid var(--line);border-radius:10px;padding:12px 15px;margin:10px 0;background:#fcfdff}summary{font-weight:700;color:#234d78;cursor:pointer}
+label{display:block;font-weight:650;margin:11px 0 5px}input,select,textarea{font:inherit;width:100%;padding:10px 11px;border:1px solid #bac7d6;border-radius:8px;background:white;color:var(--ink)}textarea{min-height:90px;resize:vertical}
+button{border:0;border-radius:8px;background:var(--blue);color:white;padding:10px 15px;font:inherit;font-weight:650;cursor:pointer}button:hover{filter:brightness(.93)}button.secondary{background:#e8eef5;color:#24466c;border:1px solid #cbd6e2}button.gold{background:#9a6b13}button.danger{background:#a83232}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.small{font-size:.87rem;color:var(--muted)}.checklist label{font-weight:500;display:flex;gap:9px;align-items:flex-start}.checklist input{width:auto;margin-top:6px}
+.progress{height:9px;background:#e7edf4;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:var(--green);transition:width .2s}.score{font-size:1.4rem;font-weight:800;color:var(--navy)}
+.quiz-q{padding:13px 0;border-bottom:1px solid var(--line)}.quiz-q p{font-weight:650;margin:0 0 7px}.quiz-q label{font-weight:450;margin:5px 0}
+footer{max-width:1150px;margin:0 auto;padding:20px;color:var(--muted);font-size:.88rem}
+.institutional-cover{position:relative;display:grid;grid-template-rows:auto 1fr auto;align-items:center;min-height:100vh;min-height:100svh;padding:clamp(28px,6vh,64px) clamp(22px,7vw,100px);overflow:hidden;background:linear-gradient(125deg,#0c452b,#14643b 68%,#1d7542);border-bottom:7px solid var(--gold);color:#fff}
+.cover-identity,.cover-main,.cover-instructor{position:relative;z-index:1;width:min(100%,1080px);margin:0 auto}
+.cover-identity{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid #ffffff55}
+.cover-logos{display:flex;align-items:center;justify-self:end;gap:14px}
+.cover-identity img{width:64px;height:64px;object-fit:contain;padding:4px;background:#fff;border-radius:4px}
+.cover-university{margin:0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:3.35rem;font-weight:500;line-height:1.12}
+.cover-main{padding:42px 0}
+.cover-program{margin:0 0 34px;color:#f5dc9b;font-size:.95rem;font-weight:700;letter-spacing:.04em}
+.cover-module{margin:0 0 14px;color:#d9ebdc;font-size:.8rem;font-weight:750;letter-spacing:.14em;text-transform:uppercase}
+.cover-main h1{max-width:850px;margin:0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:3.35rem;font-weight:500;line-height:1.12}
+.cover-instructor{padding-top:18px;border-top:1px solid #ffffff55}
+.cover-instructor-label{margin:0 0 5px;color:#f5dc9b;font-size:.72rem;font-weight:750;letter-spacing:.14em;text-transform:uppercase}
+.cover-instructor p:last-child{margin:0;color:#fff;font-size:1rem;line-height:1.5}
+.cover-instructor strong{font-size:1.12rem}
+@media(max-width:850px){.layout{grid-template-columns:1fr}nav{position:relative;top:0;max-height:none}nav .navlinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2px}}
+@media(max-width:560px){.institutional-cover{min-height:92svh;padding:28px 22px}.cover-identity{grid-template-columns:1fr}.cover-identity img{width:54px;height:54px}.cover-university{font-size:2.45rem}.cover-main{padding:30px 0}.cover-program{margin-bottom:26px}.cover-main h1{font-size:2.45rem}}
+@media print{body{background:white}.institutional-cover{min-height:100vh;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}.layout{display:block;margin:0;max-width:none}nav,.actions,button{display:none!important}.panel{box-shadow:none;break-inside:avoid;border:0;padding:12px}.teacher{background:#f4f8fc}header{background:#17365d!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<section class="institutional-cover" aria-label="Portada institucional">
+ <div class="cover-identity">
+  <p class="cover-university">Universidad Popular del Cesar</p>
+  <div class="cover-logos">
+   <img src="../Logo UPC.jpg" alt="Escudo de la Universidad Popular del Cesar" width="64" height="64">
+   <img src="../Logo ingesistemas.jpg" alt="Escudo del programa de Ingeniería de Sistemas" width="64" height="64">
+  </div>
+ </div>
+ <div class="cover-main">
+  <p class="cover-program">Especialización en Ingeniería de Software</p>
+  <p class="cover-module">Módulo · Proyecto de grado</p>
+  <h1>Gestión de proyectos de software</h1>
+ </div>
+ <div class="cover-instructor">
+  <p class="cover-instructor-label">Docente</p>
+    <p><strong>Dr. Harold Moreno Bonilla</strong><br>Ingeniero de Sistemas</p>
+ </div>
+</section>
+<header>
+ <div class="hero">
+  <div class="eyebrow">Ingeniería de Sistemas · Gestión de Proyectos de Software</div>
+  <h1>Guía interactiva: actividades previas al Project Charter</h1>
+  <p>Guía del estudiante y orientaciones del docente. Del reconocimiento de una necesidad organizacional a la autorización formal de un proyecto de software.</p>
+  <div class="meta"><span class="pill">Nivel de posgrado</span><span class="pill">Modalidad teórico-práctica</span><span class="pill">PMI / PMBOK</span></div>
+ </div>
+</header>
+<div class="layout">
+<nav aria-label="Índice de contenidos">
+ <strong>Contenido de la guía</strong>
+ <div class="navlinks">
+ <a href="#inicio">Presentación y propósito</a><a href="#resultados">Competencias y resultados</a><a href="#ruta">Ruta de trabajo</a>
+ <a href="#caso">Caso integrador</a><a href="#a1">1. Necesidad</a><a href="#a2">2. Diagnóstico</a><a href="#a3">3. Stakeholders</a><a href="#a4">4. Alternativas</a><a href="#a5">5. Viabilidad</a><a href="#a6">6. Business Case</a><a href="#a7">7. Recursos</a><a href="#a8">8. Riesgos</a><a href="#charter">Project Charter</a><a href="#evaluacion">Evaluación</a><a href="#docente">Orientaciones docentes</a><a href="#fuentes">Fuentes</a>
+ </div>
+</nav>
+<main>
+<section class="panel" id="inicio">
+ <h2>1. Presentación de la guía</h2>
+ <p class="lead">Un proyecto no debe comenzar escribiendo código. Antes es necesario comprender qué necesidad se atenderá, quién la experimenta, qué alternativas existen y si la solución propuesta es conveniente y realizable.</p>
+ <p>Esta guía desarrolla la fase de análisis que prepara la elaboración del <em>Project Charter</em> o Acta de Constitución del Proyecto. Está dirigida a estudiantes de Ingeniería de Sistemas que trabajarán en equipos sobre una organización real o un caso simulado.</p>
+ <div class="callout"><b>Idea central:</b> el Project Charter autoriza formalmente la existencia del proyecto y proporciona autoridad al director del proyecto para utilizar recursos organizacionales. No reemplaza el análisis previo ni equivale al plan detallado para dirigir el proyecto.</div>
+ <h3>¿Qué se espera producir?</h3>
+ <div class="grid"><div class="tile"><b>Comprensión</b><br>Diagnóstico sustentado de una necesidad.</div><div class="tile"><b>Decisión</b><br>Comparación de opciones y análisis de viabilidad.</div><div class="tile"><b>Justificación</b><br>Business Case con beneficios, costos y valor esperado.</div><div class="tile"><b>Autorización</b><br>Project Charter coherente con los análisis.</div></div>
+</section>
+<section class="panel" id="resultados">
+ <h2>2. Competencia y resultados de aprendizaje</h2>
+ <p>Analiza necesidades organizacionales y problemáticas del entorno para formular propuestas de proyectos de software, evaluando su pertinencia, viabilidad, interesados, riesgos y beneficios, como fundamento para elaborar el Project Charter.</p>
+ <ol><li>Identificar problemas susceptibles de abordarse mediante soluciones de software.</li><li>Diagnosticar causas, efectos y contexto de una situación.</li><li>Identificar y analizar a los stakeholders.</li><li>Proponer y comparar alternativas tecnológicas y no tecnológicas.</li><li>Evaluar preliminarmente la viabilidad técnica, económica, operativa, legal y temporal.</li><li>Elaborar un Business Case y estimaciones iniciales de recursos.</li><li>Identificar riesgos iniciales y respuestas posibles.</li><li>Integrar los resultados en un Project Charter.</li></ol>
+ <h3>Organización sugerida</h3>
+ <table><tr><th>Elemento</th><th>Propuesta</th></tr><tr><td>Duración</td><td>12 horas de trabajo guiado, ajustables al curso.</td></tr><tr><td>Equipos</td><td>3 a 5 estudiantes.</td></tr><tr><td>Metodología</td><td>Aprendizaje basado en proyectos, análisis de caso y trabajo colaborativo.</td></tr><tr><td>Producto</td><td>Expediente de iniciación: ocho insumos y un Project Charter.</td></tr></table>
+</section>
+<section class="panel" id="ruta">
+ <h2>3. Ruta de trabajo</h2>
+ <p>La secuencia siguiente es una ruta didáctica recomendada. En la práctica, algunas actividades pueden desarrollarse de manera iterativa.</p>
+ <div class="flow"><div class="step">1. Necesidad u oportunidad<br><small>¿Por qué se requiere una intervención?</small></div><div class="arrow">↓</div><div class="step">2. Diagnóstico del problema<br><small>¿Qué ocurre y cuáles son sus causas?</small></div><div class="arrow">↓</div><div class="step">3. Identificación de stakeholders<br><small>¿Quiénes influyen o son afectados?</small></div><div class="arrow">↓</div><div class="step">4. Alternativas de solución<br><small>¿Qué opciones pueden atender la necesidad?</small></div><div class="arrow">↓</div><div class="step">5. Viabilidad preliminar<br><small>¿Es posible y conveniente ejecutarlo?</small></div><div class="arrow">↓</div><div class="step">6. Business Case<br><small>¿Qué valor justifica la inversión?</small></div><div class="arrow">↓</div><div class="step">7. Recursos y 8. Riesgos<br><small>¿Qué se necesitará y qué puede afectar?</small></div><div class="arrow">↓</div><div class="step" style="background:#e8f5ed;border-color:#b9ddc7">9. Project Charter<br><small>Autorización formal del proyecto</small></div></div>
+ <div class="teacher"><b>Orientación docente:</b> explique que esta secuencia no significa que todos los proyectos deban producir ocho documentos independientes. La profundidad y formalidad dependen del tamaño, riesgo, complejidad y políticas de la organización. En el ejercicio académico se separan para hacer visible el razonamiento.</div>
+</section>
+<section class="panel" id="caso">
+ <h2>4. Caso integrador</h2>
+ <h3>Sistema web para la gestión de solicitudes de certificados académicos</h3>
+ <p>Una institución universitaria recibe solicitudes de certificados académicos mediante atención presencial y registros manuales. El personal administrativo transcribe datos en hojas de cálculo y los estudiantes deben acudir o llamar para conocer el estado de sus trámites. La dirección desea estudiar una solución que mejore la atención y permita consultar el avance de cada solicitud.</p>
+ <div class="callout"><b>Importante:</b> el caso no afirma que la única solución sea desarrollar una aplicación. El equipo debe investigar, comparar alternativas y justificar su recomendación.</div>
+ <h3>Preguntas iniciales</h3><ol><li>¿Qué evidencia permitiría confirmar que existen demoras?</li><li>¿Cuáles son los tipos de certificados y actores involucrados?</li><li>¿Qué información personal se procesa?</li><li>¿Qué sistemas institucionales podrían estar relacionados?</li><li>¿Qué restricciones de presupuesto, conectividad o seguridad deben analizarse?</li></ol>
+ <div class="student"><b>Trabajo del estudiante:</b> use el caso como referencia o seleccione una organización de su entorno. No invente datos como si fueran hechos: identifique las hipótesis y proponga cómo validarlas mediante entrevistas, observación, revisión documental o mediciones.</div>
+</section>
+<section class="panel" id="a1">
+ <h2>Actividad 1. Identificación de la necesidad u oportunidad</h2>
+ <h3>Concepto</h3><p>Consiste en reconocer una situación, necesidad o posibilidad de mejora que podría justificar una intervención. Puede surgir de ineficiencias, errores, pérdida de información, requisitos nuevos, cambios en el entorno o posibilidades de ofrecer un mejor servicio.</p>
+ <h3>Distinciones importantes</h3><table><tr><th>Concepto</th><th>Significado</th><th>Ejemplo del caso</th></tr><tr><td>Problema</td><td>Situación no deseada que requiere atención.</td><td>Demoras en el trámite.</td></tr><tr><td>Causa</td><td>Factor que contribuye a producir el problema.</td><td>Registro manual y datos dispersos.</td></tr><tr><td>Consecuencia</td><td>Efecto que genera la situación.</td><td>Consultas repetidas y retrasos.</td></tr><tr><td>Necesidad</td><td>Condición que se requiere satisfacer.</td><td>Gestionar y consultar solicitudes con trazabilidad.</td></tr><tr><td>Oportunidad</td><td>Posibilidad de generar una mejora o valor.</td><td>Rediseñar el servicio con apoyo digital.</td></tr></table>
+ <h3>Procedimiento</h3><ol><li>Delimite la organización, proceso y población afectada.</li><li>Describa la situación actual sin proponer todavía una solución.</li><li>Identifique quién experimenta la necesidad y en qué circunstancias.</li><li>Recoja evidencias: entrevistas, observaciones, registros o indicadores.</li><li>Redacte una declaración breve de necesidad.</li></ol>
+ <h3>Plantilla de trabajo</h3>
+ <label for="org">Organización o contexto</label><input id="org" placeholder="Nombre o descripción de la organización">
+ <label for="situacion">Situación observada</label><textarea id="situacion" placeholder="Describa qué ocurre, dónde y a quién afecta."></textarea>
+ <label for="afectados">Personas o procesos afectados</label><textarea id="afectados"></textarea>
+ <label for="evidencia">Evidencias disponibles y cómo se validarán</label><textarea id="evidencia"></textarea>
+ <label for="necesidad">Declaración preliminar de necesidad</label><textarea id="necesidad" placeholder="La organización necesita... porque..."></textarea>
+ <div class="actions"><button onclick="saveLocal()">Guardar respuestas en este navegador</button><button class="secondary" onclick="downloadText('actividad1.txt',['org','situacion','afectados','evidencia','necesidad'])">Descargar actividad 1</button></div>
+ <div class="student"><b>Entregable:</b> ficha de identificación de la necesidad, acompañada de evidencias o un plan concreto para obtenerlas.</div>
+</section>
+<section class="panel" id="a2">
+ <h2>Actividad 2. Diagnóstico y análisis preliminar del problema</h2>
+ <h3>Concepto</h3><p>El diagnóstico profundiza en la situación identificada para distinguir síntomas, causas y consecuencias. Una solución tecnológica no debe confundirse con el problema: “necesitamos una app” es una propuesta, no un diagnóstico.</p>
+ <h3>Árbol de problemas: ejemplo</h3><div class="flow"><div class="step" style="background:#fff2f0;border-color:#efc6c1">EFECTOS<br><small>Retrasos · consultas repetidas · insatisfacción</small></div><div class="arrow">↑</div><div class="step" style="background:#fff8e8;border-color:#ead6a5">PROBLEMA CENTRAL<br><b>Demoras y falta de trazabilidad en solicitudes de certificados</b></div><div class="arrow">↑</div><div class="step" style="background:#eef7f1;border-color:#c5dfce">CAUSAS<br><small>Registros manuales · información dispersa · seguimiento no estandarizado</small></div></div>
+ <h3>Cómo construirlo</h3><ol><li>Formule el problema central como una condición negativa observable, no como ausencia de una solución.</li><li>Pregunte por qué ocurre para identificar causas directas e indirectas.</li><li>Pregunte qué sucede como resultado para identificar efectos.</li><li>Valide las relaciones con evidencias y con los actores del proceso.</li><li>Delimite el problema: lugar, periodo, proceso y población.</li></ol>
+ <h3>Plantilla de diagnóstico</h3>
+ <label for="causas">Tres o más causas posibles</label><textarea id="causas"></textarea><label for="central">Problema central</label><textarea id="central"></textarea><label for="efectos">Tres o más efectos</label><textarea id="efectos"></textarea><label for="alcanceproblema">Límites del problema y evidencias que lo sustentan</label><textarea id="alcanceproblema"></textarea>
+ <div class="actions"><button onclick="downloadText('actividad2.txt',['causas','central','efectos','alcanceproblema'])">Descargar actividad 2</button></div>
+ <div class="callout"><b>Control de calidad:</b> compruebe que el problema central no esté redactado como “falta de software”. Puede que la causa sea organizacional, normativa, de capacitación o de diseño del proceso.</div>
+ <div class="student"><b>Entregable:</b> árbol de problemas y descripción diagnóstica.</div>
+</section>
+<section class="panel" id="a3">
+ <h2>Actividad 3. Identificación y análisis de stakeholders</h2>
+ <h3>Concepto</h3><p>Los stakeholders son personas, grupos u organizaciones que pueden afectar, verse afectados o percibir que pueden verse afectados por una decisión, actividad o resultado del proyecto.</p>
+ <h3>Ejemplo de interesados</h3><table><tr><th>Interesado</th><th>Interés o expectativa</th><th>Participación posible</th></tr><tr><td>Dirección institucional</td><td>Mejorar el servicio y controlar resultados.</td><td>Patrocinio y decisiones.</td></tr><tr><td>Secretaría académica</td><td>Procesar trámites con menos reprocesos.</td><td>Experto del proceso y usuario funcional.</td></tr><tr><td>Estudiantes</td><td>Solicitar y consultar trámites fácilmente.</td><td>Usuarios finales.</td></tr><tr><td>Equipo de desarrollo</td><td>Requisitos claros y solución realizable.</td><td>Análisis, diseño, construcción y pruebas.</td></tr><tr><td>Área de TI</td><td>Seguridad, integración y soporte.</td><td>Arquitectura y operación.</td></tr><tr><td>Responsable de datos personales</td><td>Tratamiento adecuado de datos.</td><td>Asesoría y control de cumplimiento.</td></tr></table>
+ <h3>Matriz poder–interés</h3><table><tr><th></th><th>Interés bajo</th><th>Interés alto</th></tr><tr><th>Poder alto</th><td>Mantener satisfecho.</td><td>Gestionar de cerca.</td></tr><tr><th>Poder bajo</th><td>Monitorear.</td><td>Mantener informado.</td></tr></table>
+ <h3>Plantilla de interesados</h3><label for="stakeholders">Registre interesados, rol, influencia, interés, expectativa y estrategia de participación</label><textarea id="stakeholders" style="min-height:150px" placeholder="1. Cargo o grupo: ...&#10;Rol: ...&#10;Influencia: alta/media/baja&#10;Interés: alto/medio/bajo&#10;Expectativa: ...&#10;Estrategia: ..."></textarea>
+ <div class="actions"><button onclick="downloadText('actividad3.txt',['stakeholders'])">Descargar actividad 3</button></div>
+ <div class="teacher"><b>Orientación docente:</b> recuerde que el análisis no se limita a usuarios directos. Incluya patrocinadores, áreas de soporte, proveedores, responsables de seguridad y personas que puedan verse afectadas por el tratamiento de datos.</div>
+ <div class="student"><b>Entregable:</b> matriz de mínimo seis interesados y estrategia inicial de involucramiento.</div>
+</section>
+<section class="panel" id="a4">
+ <h2>Actividad 4. Identificación y evaluación de alternativas</h2>
+ <h3>Concepto</h3><p>Se comparan opciones distintas para atender la necesidad. La alternativa puede consistir en mejorar el proceso actual, adquirir una solución existente, configurar una plataforma, contratar un servicio o desarrollar software propio.</p>
+ <h3>Ejemplo ilustrativo</h3><table><tr><th>Criterio</th><th>A. Mejorar proceso manual</th><th>B. Comprar plataforma</th><th>C. Desarrollar sistema</th></tr><tr><td>Costo inicial</td><td>5</td><td>3</td><td>2</td></tr><tr><td>Rapidez de implementación</td><td>4</td><td>4</td><td>2</td></tr><tr><td>Ajuste al proceso</td><td>2</td><td>3</td><td>5</td></tr><tr><td>Escalabilidad</td><td>1</td><td>4</td><td>5</td></tr><tr><td>Control tecnológico</td><td>2</td><td>2</td><td>5</td></tr><tr><th>Total ilustrativo</th><th>14</th><th>16</th><th>19</th></tr></table>
+ <p class="small">Escala de ejemplo: 1 = muy desfavorable; 5 = muy favorable. En “costo inicial”, una puntuación alta significa menor costo. Las puntuaciones deben sustentarse; no son datos reales ni una recomendación universal.</p>
+ <h3>Plantilla de comparación editable</h3><p>Asigne un peso a cada criterio (la suma debe ser 100) y una calificación de 1 a 5 a cada alternativa. Calcule el resultado ponderado: peso × calificación. Mantenga la misma escala y explique los supuestos.</p>
+ <table id="matrix"><tr><th>Criterio</th><th>Peso (%)</th><th>Alternativa A (1–5)</th><th>Alternativa B (1–5)</th><th>Alternativa C (1–5)</th></tr><tr><td><input value="Costo total"></td><td><input type="number" min="0" max="100" value="25" class="weight"></td><td><input type="number" min="1" max="5" value="3" class="rating"></td><td><input type="number" min="1" max="5" value="4" class="rating"></td><td><input type="number" min="1" max="5" value="2" class="rating"></td></tr><tr><td><input value="Ajuste funcional"></td><td><input type="number" min="0" max="100" value="25" class="weight"></td><td><input type="number" min="1" max="5" value="2" class="rating"></td><td><input type="number" min="1" max="5" value="3" class="rating"></td><td><input type="number" min="1" max="5" value="5" class="rating"></td></tr><tr><td><input value="Tiempo"></td><td><input type="number" min="0" max="100" value="20" class="weight"></td><td><input type="number" min="1" max="5" value="4" class="rating"></td><td><input type="number" min="1" max="5" value="4" class="rating"></td><td><input type="number" min="1" max="5" value="2" class="rating"></td></tr><tr><td><input value="Escalabilidad"></td><td><input type="number" min="0" max="100" value="15" class="weight"></td><td><input type="number" min="1" max="5" value="1" class="rating"></td><td><input type="number" min="1" max="5" value="4" class="rating"></td><td><input type="number" min="1" max="5" value="5" class="rating"></td></tr><tr><td><input value="Seguridad y control"></td><td><input type="number" min="0" max="100" value="15" class="weight"></td><td><input type="number" min="1" max="5" value="2" class="rating"></td><td><input type="number" min="1" max="5" value="3" class="rating"></td><td><input type="number" min="1" max="5" value="4" class="rating"></td></tr></table>
+ <div class="actions"><button onclick="calculateMatrix()">Calcular puntuación</button><button class="secondary" onclick="downloadMatrix()">Descargar matriz CSV</button></div><p id="matrixResult" aria-live="polite" class="callout">Complete los criterios y calcule los resultados. La suma de pesos debe ser 100.</p>
+ <label for="decision">Alternativa recomendada y justificación</label><textarea id="decision"></textarea><div class="actions"><button onclick="downloadText('actividad4.txt',['decision'])">Descargar decisión</button></div>
+ <div class="student"><b>Entregable:</b> matriz ponderada, explicación de criterios y recomendación argumentada.</div>
+</section>
+<section class="panel" id="a5">
+ <h2>Actividad 5. Estudio preliminar de viabilidad</h2>
+ <p>La viabilidad analiza si una alternativa puede realizarse y sostenerse dentro de las condiciones de la organización. La valoración inicial no reemplaza estudios especializados, cotizaciones ni asesoría jurídica cuando sean necesarios.</p>
+ <div class="grid"><div class="tile"><b>Técnica</b><br>Arquitectura, tecnologías, infraestructura, integración, competencias y seguridad.</div><div class="tile"><b>Económica</b><br>Costos de construcción, adquisición, operación, capacitación y mantenimiento frente a beneficios.</div><div class="tile"><b>Operativa</b><br>Adopción, procesos, soporte, capacitación y capacidad de operación.</div><div class="tile"><b>Legal</b><br>Contratos, licencias, propiedad intelectual, protección de datos y obligaciones aplicables.</div><div class="tile"><b>Temporal</b><br>Plazo, dependencias, disponibilidad de personal y restricciones del calendario.</div></div>
+ <h3>Escala orientativa</h3><p>1 = muy desfavorable; 2 = desfavorable; 3 = incierto o condicionado; 4 = favorable; 5 = muy favorable. Una calificación no sustituye la explicación y las evidencias.</p>
+ <table><tr><th>Dimensión</th><th>Preguntas para el análisis</th></tr><tr><td>Técnica</td><td>¿Se cuenta con infraestructura, herramientas, conocimientos e integración factibles?</td></tr><tr><td>Económica</td><td>¿Se conocen costos iniciales y recurrentes? ¿Los beneficios justifican el costo?</td></tr><tr><td>Operativa</td><td>¿Los usuarios podrán adoptar y operar el cambio? ¿Quién brindará soporte?</td></tr><tr><td>Legal</td><td>¿Se respetan licencias, contratos y reglas de protección de datos?</td></tr><tr><td>Temporal</td><td>¿El plazo es realista según alcance, equipo y dependencias?</td></tr></table>
+ <h3>Registro de viabilidad</h3><div id="feasibility"></div><label for="viabilityConclusion">Conclusión: viable, viable con condiciones o no viable</label><textarea id="viabilityConclusion"></textarea><div class="actions"><button onclick="downloadFeasibility()">Descargar estudio de viabilidad</button></div>
+ <div class="callout"><b>Advertencia:</b> una puntuación promedio alta no debe ocultar una restricción crítica. Por ejemplo, una solución técnicamente posible puede ser inviable si incumple una obligación legal o no dispone de presupuesto.</div>
+ <div class="student"><b>Entregable:</b> matriz de cinco dimensiones, evidencias, supuestos, restricciones y conclusión.</div>
+</section>
+<section class="panel" id="a6">
+ <h2>Actividad 6. Business Case o caso de negocio</h2>
+ <h3>Concepto</h3><p>El Business Case presenta la razón de negocio para emprender una iniciativa. Describe la necesidad, las opciones consideradas, los costos y beneficios esperados, los riesgos, los supuestos y la recomendación de continuar, revisar o detener la propuesta.</p>
+ <h3>Estructura sugerida</h3><ol><li><b>Resumen ejecutivo:</b> síntesis de la propuesta y decisión solicitada.</li><li><b>Situación actual:</b> problema, contexto y evidencias.</li><li><b>Justificación:</b> por qué se necesita intervenir.</li><li><b>Alternativas:</b> opciones evaluadas y criterios.</li><li><b>Solución recomendada:</b> descripción de alto nivel.</li><li><b>Costos:</b> inversión, operación, licencias, soporte y mantenimiento.</li><li><b>Beneficios:</b> resultados medibles y beneficios cualitativos.</li><li><b>Riesgos y supuestos:</b> factores que afectan el caso.</li><li><b>Viabilidad:</b> síntesis de análisis.</li><li><b>Recomendación:</b> decisión propuesta y condiciones.</li></ol>
+ <h3>Ejemplo de beneficios medibles</h3><p>En vez de afirmar “el sistema será más eficiente”, formule una medida verificable: “reducir el tiempo promedio de trámite de X días a Y días, medido durante los primeros tres meses de operación”. X y Y deben establecerse a partir de una línea base y una meta acordada; no deben inventarse.</p>
+ <h3>Plantilla de Business Case</h3>
+ <label for="bcSummary">Resumen ejecutivo</label><textarea id="bcSummary"></textarea><label for="bcProblem">Problema y evidencia</label><textarea id="bcProblem"></textarea><label for="bcOptions">Alternativas evaluadas y recomendación</label><textarea id="bcOptions"></textarea><label for="bcCosts">Costos iniciales y recurrentes (con supuestos)</label><textarea id="bcCosts"></textarea><label for="bcBenefits">Beneficios y cómo se medirán</label><textarea id="bcBenefits"></textarea><label for="bcRisks">Riesgos, supuestos y restricciones</label><textarea id="bcRisks"></textarea><label for="bcDecision">Recomendación: continuar, revisar o no continuar</label><textarea id="bcDecision"></textarea>
+ <div class="actions"><button onclick="downloadText('business_case.txt',['bcSummary','bcProblem','bcOptions','bcCosts','bcBenefits','bcRisks','bcDecision'])">Descargar Business Case</button></div>
+ <div class="teacher"><b>Orientación docente:</b> diferencie beneficios tangibles (por ejemplo, ahorro de horas o reducción de reprocesos) e intangibles (por ejemplo, transparencia o satisfacción). No presente beneficios como ahorros monetarios sin una metodología de cálculo.</div>
+ <div class="student"><b>Entregable:</b> Business Case con recomendación sustentada.</div>
+</section>
+<section class="panel" id="a7">
+ <h2>Actividad 7. Estimación preliminar de recursos</h2>
+ <p>Identifique recursos necesarios para iniciar y desarrollar el proyecto. En esta fase las estimaciones son de alto nivel, expresan rangos cuando existe incertidumbre y registran los supuestos utilizados.</p>
+ <table><tr><th>Categoría</th><th>Ejemplos</th><th>Aspectos por estimar</th></tr><tr><td>Talento humano</td><td>Patrocinador, director, analista, desarrolladores, QA, soporte.</td><td>Perfiles, disponibilidad y dedicación.</td></tr><tr><td>Hardware</td><td>Equipos, servidores, dispositivos de prueba.</td><td>Compra, alquiler, capacidad y renovación.</td></tr><tr><td>Software</td><td>IDE, base de datos, herramientas de pruebas.</td><td>Licencias, suscripciones y soporte.</td></tr><tr><td>Infraestructura</td><td>Nube, alojamiento, red, respaldo.</td><td>Consumo, seguridad y continuidad.</td></tr><tr><td>Financieros</td><td>Presupuesto, reservas y operación.</td><td>Costos únicos y recurrentes.</td></tr><tr><td>Tiempo</td><td>Etapas, hitos y disponibilidad.</td><td>Duración y dependencias.</td></tr></table>
+ <label for="resources">Inventario de recursos y estimaciones</label><textarea id="resources" style="min-height:170px" placeholder="Recurso | cantidad o perfil | costo/rango | disponibilidad | supuesto"></textarea><label for="resourceAssumptions">Supuestos y exclusiones de la estimación</label><textarea id="resourceAssumptions"></textarea><div class="actions"><button onclick="downloadText('actividad7.txt',['resources','resourceAssumptions'])">Descargar actividad 7</button></div>
+ <div class="student"><b>Entregable:</b> matriz de recursos con cantidades o perfiles, costos preliminares, disponibilidad y supuestos.</div>
+</section>
+<section class="panel" id="a8">
+ <h2>Actividad 8. Identificación inicial de riesgos</h2>
+ <p>Un riesgo es un evento o condición incierta que, si ocurre, afecta uno o más objetivos. Puede representar una amenaza o una oportunidad. En la iniciación se identifican riesgos principales, sin pretender que el registro sea definitivo.</p>
+ <h3>Ejemplo de riesgos</h3><table><tr><th>Riesgo</th><th>Probabilidad</th><th>Impacto</th><th>Respuesta inicial</th></tr><tr><td>Retrasos por requisitos incompletos.</td><td>Media</td><td>Alto</td><td>Talleres de validación y priorización.</td></tr><tr><td>Exposición de datos personales.</td><td>Media</td><td>Muy alto</td><td>Privacidad desde el diseño, controles y revisión especializada.</td></tr><tr><td>Resistencia de usuarios.</td><td>Media</td><td>Medio</td><td>Participación temprana y capacitación.</td></tr><tr><td>Interrupción del servicio de alojamiento.</td><td>Baja/Media</td><td>Alto</td><td>Respaldo, continuidad y acuerdos de servicio.</td></tr><tr><td>Incremento de costos.</td><td>Media</td><td>Alto</td><td>Estimaciones por rangos y control de cambios.</td></tr></table>
+ <h3>Escalas recomendadas</h3><p>Defina criterios consistentes. Ejemplo: probabilidad baja (poco probable), media (posible), alta (probable); impacto bajo (afectación menor), medio (afecta un objetivo) y alto (compromete un objetivo importante). La organización puede establecer escalas numéricas y umbrales propios.</p>
+ <label for="risks">Registre al menos cinco riesgos con causa, evento, efecto, probabilidad, impacto y respuesta</label><textarea id="risks" style="min-height:190px" placeholder="Riesgo 1: Debido a [causa], podría ocurrir [evento], lo que produciría [efecto]. Probabilidad: ... Impacto: ... Respuesta: ..."></textarea><div class="actions"><button onclick="downloadText('actividad8.txt',['risks'])">Descargar actividad 8</button></div>
+ <div class="student"><b>Entregable:</b> registro inicial de al menos cinco riesgos y respuestas propuestas.</div>
+</section>
+<section class="panel" id="charter">
+ <h2>9. Integración: Project Charter</h2>
+ <h3>¿Qué es?</h3><p>El Project Charter o Acta de Constitución del Proyecto es el documento que autoriza formalmente el proyecto. En el marco del PMI, documenta la existencia del proyecto y otorga al director del proyecto autoridad para aplicar recursos organizacionales a las actividades del proyecto, según el nivel autorizado.</p>
+ <h3>Contenido de alto nivel</h3><table><tr><th>Sección</th><th>Qué debe contener</th><th>Insumo previo relacionado</th></tr><tr><td>Nombre y propósito</td><td>Identificación y razón de ser.</td><td>Necesidad y Business Case.</td></tr><tr><td>Objetivos medibles</td><td>Resultados y criterios de éxito.</td><td>Diagnóstico y beneficios.</td></tr><tr><td>Descripción y alcance de alto nivel</td><td>Qué incluye y qué queda fuera.</td><td>Alternativa recomendada.</td></tr><tr><td>Requisitos de alto nivel</td><td>Necesidades principales de usuarios y organización.</td><td>Stakeholders y diagnóstico.</td></tr><tr><td>Entregables principales</td><td>Resultados verificables.</td><td>Solución propuesta.</td></tr><tr><td>Hitos y duración estimada</td><td>Fechas o etapas principales.</td><td>Viabilidad temporal y recursos.</td></tr><tr><td>Presupuesto resumido</td><td>Estimación inicial y límites autorizados.</td><td>Business Case y recursos.</td></tr><tr><td>Riesgos de alto nivel</td><td>Incertidumbres principales.</td><td>Registro inicial de riesgos.</td></tr><tr><td>Patrocinador y director</td><td>Responsables, autoridad y aprobación.</td><td>Gobernanza y stakeholders.</td></tr></table>
+ <h3>Plantilla interactiva de Project Charter</h3>
+ <label for="pName">1. Nombre del proyecto</label><input id="pName">
+ <label for="pSponsor">2. Patrocinador / organización que autoriza</label><input id="pSponsor">
+ <label for="pManager">3. Director del proyecto y autoridad inicial</label><textarea id="pManager"></textarea>
+ <label for="pPurpose">4. Propósito y justificación</label><textarea id="pPurpose"></textarea>
+ <label for="pObjectives">5. Objetivos medibles y criterios de éxito</label><textarea id="pObjectives"></textarea>
+ <label for="pScope">6. Alcance de alto nivel: incluye / no incluye</label><textarea id="pScope"></textarea>
+ <label for="pRequirements">7. Requisitos de alto nivel</label><textarea id="pRequirements"></textarea>
+ <label for="pDeliverables">8. Entregables principales</label><textarea id="pDeliverables"></textarea>
+ <label for="pMilestones">9. Hitos y duración estimada</label><textarea id="pMilestones"></textarea>
+ <label for="pBudget">10. Presupuesto preliminar y supuestos</label><textarea id="pBudget"></textarea>
+ <label for="pRisks">11. Riesgos de alto nivel</label><textarea id="pRisks"></textarea>
+ <label for="pStakeholders">12. Stakeholders principales</label><textarea id="pStakeholders"></textarea>
+ <label for="pApproval">13. Criterios y registro de aprobación</label><textarea id="pApproval" placeholder="Nombre, cargo, fecha y mecanismo de aprobación."></textarea>
+ <div class="actions"><button onclick="downloadCharter()">Descargar Project Charter (.txt)</button><button class="secondary" onclick="window.print()">Imprimir guía / guardar como PDF</button></div>
+ <div class="callout"><b>Nota:</b> el Charter contiene información de alto nivel. El plan para la dirección del proyecto y sus componentes se desarrollan posteriormente con el nivel de detalle apropiado. El Charter no debe prometer alcance, fechas o costos que no tengan fundamento.</div>
+</section>
+<section class="panel" id="evaluacion">
+ <h2>10. Evaluación del aprendizaje</h2>
+ <h3>Rúbrica del expediente de iniciación</h3><table><tr><th>Criterio</th><th>Puntaje</th><th>Desempeño esperado</th></tr><tr><td>Identificación y diagnóstico</td><td>15</td><td>Problema delimitado, causas y efectos coherentes, evidencias o plan de validación.</td></tr><tr><td>Stakeholders</td><td>10</td><td>Interesados relevantes, expectativas e influencia analizadas.</td></tr><tr><td>Alternativas</td><td>10</td><td>Opciones pertinentes y comparación justificada.</td></tr><tr><td>Viabilidad</td><td>15</td><td>Cinco dimensiones analizadas con supuestos y evidencias.</td></tr><tr><td>Business Case</td><td>20</td><td>Justificación, costos, beneficios, riesgos y recomendación consistentes.</td></tr><tr><td>Recursos</td><td>10</td><td>Estimaciones preliminares y supuestos claros.</td></tr><tr><td>Riesgos</td><td>10</td><td>Riesgos relevantes y respuestas iniciales.</td></tr><tr><td>Coherencia documental</td><td>10</td><td>El Charter se deriva de los análisis y está bien presentado.</td></tr><tr><th>Total</th><th>100</th><th></th></tr></table>
+ <h3>Autoevaluación interactiva</h3><p>Marque los elementos que su equipo ya completó. El indicador se actualiza automáticamente.</p><div class="progress"><span id="progressBar"></span></div><p id="progressText" class="small">0 de 9 productos completados.</p><div class="checklist" id="checklist">
+ <label><input type="checkbox"> Ficha de necesidad con evidencias o plan de validación.</label><label><input type="checkbox"> Diagnóstico y árbol de problemas.</label><label><input type="checkbox"> Matriz de stakeholders.</label><label><input type="checkbox"> Matriz de alternativas y recomendación.</label><label><input type="checkbox"> Estudio de viabilidad.</label><label><input type="checkbox"> Business Case.</label><label><input type="checkbox"> Estimación de recursos.</label><label><input type="checkbox"> Registro inicial de riesgos.</label><label><input type="checkbox"> Project Charter revisado y aprobado.</label></div>
+ <h3>Cuestionario de comprobación</h3><div id="quiz">
+ <div class="quiz-q" data-answer="b" data-explain="El proyecto parte de una necesidad o problema; la tecnología es una alternativa que debe evaluarse."><p>1. ¿Cuál es el punto de partida más adecuado para una iniciativa de software?</p><label><input type="radio" name="q1" value="a"> Elegir un lenguaje de programación.</label><label><input type="radio" name="q1" value="b"> Identificar y comprender una necesidad.</label><label><input type="radio" name="q1" value="c"> Comprar un servidor.</label></div>
+ <div class="quiz-q" data-answer="c" data-explain="El Business Case justifica la conveniencia y el valor esperado; el Charter autoriza formalmente el proyecto."><p>2. ¿Cuál es la diferencia principal entre Business Case y Project Charter?</p><label><input type="radio" name="q2" value="a"> Son documentos idénticos.</label><label><input type="radio" name="q2" value="b"> El Charter es el código fuente.</label><label><input type="radio" name="q2" value="c"> El Business Case justifica; el Charter autoriza.</label></div>
+ <div class="quiz-q" data-answer="a" data-explain="Los interesados incluyen a quienes influyen, son afectados o perciben que pueden ser afectados."><p>3. ¿Quién puede ser stakeholder?</p><label><input type="radio" name="q3" value="a"> Un usuario, patrocinador, proveedor o área afectada.</label><label><input type="radio" name="q3" value="b"> Únicamente el director del proyecto.</label><label><input type="radio" name="q3" value="c"> Solo el equipo de programación.</label></div>
+ <div class="quiz-q" data-answer="b" data-explain="La viabilidad considera dimensiones técnicas, económicas, operativas, legales y temporales, entre otras según el contexto."><p>4. ¿Cuál de estas opciones corresponde a una dimensión de viabilidad?</p><label><input type="radio" name="q4" value="a"> Popularidad del lenguaje.</label><label><input type="radio" name="q4" value="b"> Viabilidad operativa.</label><label><input type="radio" name="q4" value="c"> Cantidad de diapositivas.</label></div>
+ <div class="quiz-q" data-answer="a" data-explain="El Charter expresa alcance, objetivos y riesgos de alto nivel; el detalle de planificación se desarrolla después."><p>5. ¿Qué nivel de detalle caracteriza al Project Charter?</p><label><input type="radio" name="q5" value="a"> Alto nivel, suficiente para autorizar y orientar.</label><label><input type="radio" name="q5" value="b"> Cada tarea diaria del programador.</label><label><input type="radio" name="q5" value="c"> El código completo y los casos de prueba.</label></div>
+ </div><div class="actions"><button onclick="gradeQuiz()">Calificar cuestionario</button><button class="secondary" onclick="resetQuiz()">Reiniciar</button></div><div id="quizResult" aria-live="polite"></div>
+ <h3>Preguntas de reflexión</h3><ol><li>¿Por qué no se debe comenzar un proyecto directamente con la programación?</li><li>¿Qué diferencia existe entre una necesidad organizacional y una solución tecnológica?</li><li>¿Qué consecuencias puede generar iniciar sin un estudio de viabilidad?</li><li>¿Puede una solución ser técnicamente viable y económicamente inviable? Argumente.</li><li>¿Por qué los beneficios del Business Case deben poder medirse o verificarse?</li><li>¿Qué autoridad otorga el Project Charter al director del proyecto?</li></ol>
+</section>
+<section class="panel" id="docente">
+ <h2>11. Orientaciones para el docente</h2>
+ <h3>Secuencia didáctica sugerida (12 horas)</h3><table><tr><th>Momento</th><th>Tiempo</th><th>Actividad docente</th><th>Actividad del estudiante</th></tr><tr><td>Contextualización</td><td>1 h</td><td>Presentar el caso y diferenciar problema de solución.</td><td>Identificar actores y preguntas iniciales.</td></tr><tr><td>Diagnóstico</td><td>2 h</td><td>Modelar árbol de problemas y técnicas de recolección.</td><td>Construir ficha de necesidad y diagnóstico.</td></tr><tr><td>Interesados y alternativas</td><td>2 h</td><td>Orientar mapa de stakeholders y matriz ponderada.</td><td>Identificar interesados y comparar opciones.</td></tr><tr><td>Viabilidad y Business Case</td><td>3 h</td><td>Explicar dimensiones y revisión de costos/beneficios.</td><td>Elaborar viabilidad y Business Case.</td></tr><tr><td>Recursos y riesgos</td><td>1.5 h</td><td>Explicar estimación de alto nivel y registro de riesgos.</td><td>Construir matrices iniciales.</td></tr><tr><td>Project Charter</td><td>1.5 h</td><td>Guiar la integración y revisar coherencia.</td><td>Redactar y revisar el Charter.</td></tr><tr><td>Socialización</td><td>1 h</td><td>Moderar sustentaciones y retroalimentar.</td><td>Presentar recomendación y responder preguntas.</td></tr></table>
+ <h3>Recomendaciones metodológicas</h3><ul><li>Solicite que los equipos separen hechos, supuestos e hipótesis.</li><li>Exija evidencias o un plan de validación, no cifras inventadas.</li><li>Promueva entrevistas breves y observación del proceso cuando sea posible.</li><li>Si no existe acceso a una organización, utilice el caso simulado y marque explícitamente los datos hipotéticos.</li><li>Enseñe a comparar una alternativa de no hacer nada o mantener el proceso actual.</li><li>Revise que la alternativa recomendada responda a las causas priorizadas.</li><li>Compruebe que objetivos, alcance, entregables, presupuesto y riesgos del Charter sean coherentes con el Business Case.</li><li>Incluya protección de datos, accesibilidad, seguridad, mantenimiento y sostenibilidad tecnológica en el análisis.</li></ul>
+ <h3>Preguntas para retroalimentar equipos</h3><ul><li>¿Qué evidencia demuestra que el problema existe?</li><li>¿Qué stakeholder podría rechazar la propuesta y por qué?</li><li>¿Qué ocurre si se decide no desarrollar software?</li><li>¿Qué costo recurrente podría haberse omitido?</li><li>¿Qué requisito legal o de seguridad condiciona la solución?</li><li>¿Cómo sabrá la organización que el proyecto tuvo éxito?</li></ul>
+ <div class="teacher"><b>Criterio de aprobación:</b> no valore únicamente la apariencia del documento. Priorice la trazabilidad lógica: necesidad → diagnóstico → alternativas → viabilidad → Business Case → recursos y riesgos → Charter.</div>
+</section>
+<section class="panel" id="fuentes">
+ <h2>12. Referencias y consulta</h2>
+ <ol><li>Project Management Institute. (2021). <em>A Guide to the Project Management Body of Knowledge (PMBOK® Guide)</em> (7th ed.). Project Management Institute.</li><li>Project Management Institute. (2022). <em>Process Groups: A Practice Guide</em>. Project Management Institute.</li><li>International Organization for Standardization. (2020). <em>ISO 21502:2020 — Project, programme and portfolio management — Guidance on project management</em>.</li><li>International Organization for Standardization. (2018). <em>ISO 31000:2018 — Risk management — Guidelines</em>.</li><li>Congreso de Colombia. (2012). Ley 1581 de 2012, disposiciones generales para la protección de datos personales.</li></ol>
+ <p class="small">Consulte las ediciones oficiales y las políticas institucionales aplicables. Esta guía es un recurso académico y no sustituye asesoría legal, financiera o de seguridad especializada.</p>
+</section>
+</main>
+</div>
+<footer>Recurso didáctico para Gestión de Proyectos de Software · Ingeniería de Sistemas. Las respuestas de los formularios se procesan localmente en el navegador; no se envían a un servidor.</footer>
+<script>
+const feasibilityItems=[
+ ["Técnica","Tecnología, infraestructura, integración y competencias disponibles."],
+ ["Económica","Costos iniciales y recurrentes frente a beneficios."],
+ ["Operativa","Adopción, procesos, capacitación y soporte."],
+ ["Legal","Licencias, contratos, propiedad intelectual y datos personales."],
+ ["Temporal","Plazo, dependencias y disponibilidad de recursos."]
+];
+document.getElementById('feasibility').innerHTML=feasibilityItems.map((x,i)=>`<div class="tile" style="margin:10px 0"><b>${x[0]}</b><p class="small">${x[1]}</p><label for="f${i}">Calificación (1–5)</label><select id="f${i}"><option value="">Seleccione</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select><label for="fe${i}">Evidencia, condición o brecha</label><textarea id="fe${i}"></textarea></div>`).join('');
+function fields(ids){return ids.map(id=>{let e=document.getElementById(id);return (e?.previousElementSibling?.textContent||id)+":\n"+(e?.value||"Sin diligenciar")}).join("\n\n")}
+function downloadText(filename,ids){const text=fields(ids);downloadBlob(filename,text)}
+function downloadBlob(filename,text,type='text/plain;charset=utf-8'){const blob=new Blob(["\ufeff",text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
+function downloadFeasibility(){let t=feasibilityItems.map((x,i)=>`${x[0]}\nCalificación: ${document.getElementById('f'+i).value||'Pendiente'}\nAnálisis: ${document.getElementById('fe'+i).value||'Pendiente'}`).join('\n\n');t+='\n\nConclusión:\n'+document.getElementById('viabilityConclusion').value;downloadBlob('estudio_viabilidad.txt',t)}
+function downloadCharter(){const ids=['pName','pSponsor','pManager','pPurpose','pObjectives','pScope','pRequirements','pDeliverables','pMilestones','pBudget','pRisks','pStakeholders','pApproval'];downloadText('project_charter.txt',ids)}
+function calculateMatrix(){const rows=[...document.querySelectorAll('#matrix tr')].slice(1);let total=0,sums=[0,0,0];rows.forEach(r=>{const ins=[...r.querySelectorAll('input')];const w=Number(ins[1].value)||0;total+=w;for(let j=0;j<3;j++)sums[j]+=w*(Number(ins[j+2].value)||0)});const out=document.getElementById('matrixResult');if(total!==100){out.textContent=`La suma de los pesos es ${total}%. Ajuste los pesos para que sumen exactamente 100%.`;return}out.textContent=`Puntuaciones ponderadas: A = ${(sums[0]/100).toFixed(2)}, B = ${(sums[1]/100).toFixed(2)}, C = ${(sums[2]/100).toFixed(2)}. La puntuación más alta es una señal para el análisis, no una decisión automática. Revise supuestos, restricciones críticas y evidencias.`}
+function downloadMatrix(){let rows=[...document.querySelectorAll('#matrix tr')].map(r=>[...r.querySelectorAll('input')].map(i=>i.value));downloadBlob('matriz_alternativas.csv',rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n'),'text/csv;charset=utf-8')}
+function saveLocal(){const ids=['org','situacion','afectados','evidencia','necesidad'];try{ids.forEach(id=>localStorage.setItem('guia_'+id,document.getElementById(id).value));alert('Respuestas guardadas en este navegador. Descargue también una copia para conservarlas.')}catch(e){alert('El navegador no permitió guardar localmente. Use la opción Descargar actividad 1.')}}
+document.querySelectorAll('#checklist input').forEach(el=>el.addEventListener('change',()=>{const all=[...document.querySelectorAll('#checklist input')],n=all.filter(x=>x.checked).length;document.getElementById('progressBar').style.width=(n/all.length*100)+'%';document.getElementById('progressText').textContent=`${n} de ${all.length} productos completados.`}));
+function gradeQuiz(){let qs=[...document.querySelectorAll('.quiz-q')],score=0,feedback=[];qs.forEach((q,i)=>{let chosen=q.querySelector('input:checked');let ok=chosen&&chosen.value===q.dataset.answer;if(ok)score++;feedback.push(`<p><b>${i+1}. ${ok?'Correcta':'Incorrecta'}.</b> ${q.dataset.explain}</p>`)});document.getElementById('quizResult').innerHTML=`<div class="callout"><div class="score">${score}/${qs.length} respuestas correctas</div>${feedback.join('')}</div>`}
+function resetQuiz(){document.querySelectorAll('#quiz input').forEach(x=>x.checked=false);document.getElementById('quizResult').innerHTML=''}
+const sections=[...document.querySelectorAll('main section[id]')];const links=[...document.querySelectorAll('nav a')];if('IntersectionObserver'in window){const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}),{rootMargin:'-20% 0px -70% 0px'});sections.forEach(s=>obs.observe(s))}
+</script>
+</body>
+</html>
